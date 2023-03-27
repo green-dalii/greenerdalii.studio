@@ -2,12 +2,13 @@ import image from "@astrojs/image";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 
+// import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
-import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astro-moon-landing.netlify.app/",
+  site: "https://greenerdalii.top/",
   integrations: [tailwind(), image({
     serviceEntryPoint: "@astrojs/image/sharp"
   })],
@@ -16,6 +17,6 @@ export default defineConfig({
       external: ["svgo"]
     }
   },
-  output: "server",
-  adapter: cloudflare()
+  // output: "server",
+  // adapter: cloudflare()
 });
