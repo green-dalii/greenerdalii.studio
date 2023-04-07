@@ -12,7 +12,7 @@ import "../styles/index.css";
 const { generator, site } = Astro;
 const image = new URL("social.jpg", site);
 const description =
-  "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
+  "Greener-Dalii is an up-and-coming branding studio. We try to bring brand design to everyone.";
 ---
 
 <!DOCTYPE html>
@@ -20,14 +20,14 @@ const description =
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/logomark.svg" type="image/svg+xml" />
     <meta name="generator" content={generator} />
 
     <title>Greener-Dalii Studio</title>
     <meta name="description" content={description} />
 
     <!-- social media -->
-    <meta property="og:title" content="Astro" />
+    <meta property="og:title" content="Greener-Dalii Studio" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
@@ -63,12 +63,12 @@ const description =
   >
     <Header />
     <Splash />
-    <div class="space-y-24 px-8 py-32">
+    <!-- <div class="space-y-24 px-8 py-32">
       <Intro />
       <Features />
       <Compatibility />
       <Showcase />
-    </div>
+    </div> -->
     <Footer />
   </body>
 </html>
