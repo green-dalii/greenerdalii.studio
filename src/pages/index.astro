@@ -8,6 +8,9 @@ import Intro from "../components/intro.astro";
 import Showcase from "../components/showcase.astro";
 import Splash from "../components/splash.astro";
 import "../styles/index.css";
+import Gallery from "~/components/gallery.astro";
+import Service from "~/components/service.astro";
+import Insight from "~/components/insight.astro";
 
 const { generator, site } = Astro;
 const image = new URL("social.jpg", site);
@@ -63,6 +66,9 @@ const description =
   >
     <Header />
     <Splash />
+    <Gallery />
+    <Service />
+    <Insight />
     <!-- <div class="space-y-24 px-8 py-32">
       <Intro />
       <Features />

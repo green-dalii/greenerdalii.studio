@@ -1,0 +1,60 @@
+---
+import { Icon } from "astro-icon";
+import { Picture } from '@astrojs/image/components';
+import HeroImage from "../components/hero-image.astro";
+import WechatImage from "../assets/about_wechat.png"
+import type { FooterLink } from "../types";
+
+const links: Array<FooterLink> = [
+  {
+    url: "https://www.behance.net/greenerdalii",
+    description: "Greener-Dalii Studio's Behance",
+    icon: "fa-brands:behance",
+  },
+  {
+    url: "https://dribbble.com/greenerdalii",
+    description: "Greener-Dalii Studio's Dribbble",
+    icon: "mdi:dribbble",
+  },
+  {
+    url: "https://www.instagram.com/greenerdalii",
+    description: "Greener-Dalii Studio's Behance",
+    icon: "fa-brands:instagram",
+  },
+  {
+    url: "https://greenerdalii.zcool.com.cn/",
+    description: "Greener-Dalii Studio's ZCool",
+    icon: "ri:zcool-fill",
+  },
+];
+---
+
+<footer class="relative flex h-64 items-center justify-center">
+  <!-- <div class="hidden absolute bottom-0 z-50">
+    <Picture src={WechatImage} widths={[300, 600]} sizes="(max-width: 600px) 300w, 250px" alt="这是一张微信公众号图片" />
+  </div> -->
+  <div class="absolute inset-0 overflow-hidden opacity-40">
+    <HeroImage />
+  </div>
+  <ul class="relative grid grid-cols-2 gap-4 sm:grid-cols-4">
+    {
+      links.map((link) => (
+        <li>
+          <a
+            class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-current p-4"
+            href={link.url}
+          >
+            <span class="sr-only">{link.description}</span>
+            <Icon class="h-full" name={link.icon} />
+          </a>
+        </li>
+      ))
+    }
+    <!-- <li>
+      <a class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-current p-4" href="test">
+        <span class="sr-only">TEST</span>
+        <Icon class="h-full" name="ri:zcool-fill" />
+      </a>
+    </li> -->
+  </ul>
+</footer>

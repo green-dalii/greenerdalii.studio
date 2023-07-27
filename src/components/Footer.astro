@@ -1,49 +1,95 @@
----
-import { Icon } from "astro-icon";
-import HeroImage from "../components/hero-image.astro";
-import type { FooterLink } from "../types";
-
-const links: Array<FooterLink> = [
-  {
-    url: "https://astro.build/",
-    description: "Astro's official website",
-    icon: "mdi:home",
-  },
-  {
-    url: "https://github.com/mhyfritz/astro-landing-page",
-    description: "View source on GitHub",
-    icon: "fa-brands:github-alt",
-  },
-  {
-    url: "https://astro.build/chat",
-    description: "Astro on Discord",
-    icon: "fa-brands:discord",
-  },
-  {
-    url: "https://twitter.com/astrodotbuild",
-    description: "Astro on Twitter",
-    icon: "fa-brands:twitter",
-  },
-];
----
-
-<footer class="relative flex h-64 items-center justify-center">
-  <div class="absolute inset-0 overflow-hidden opacity-40">
-    <HeroImage />
+<footer class="body-font text-gray-600">
+  <div
+    class="container mx-auto flex flex-col items-center px-5 py-8 sm:flex-row"
+  >
+    <a
+      class="title-font flex items-center justify-center font-medium text-gray-900 md:justify-start"
+    >
+      <svg
+        fill="none"
+        viewBox="-40 -20 820 820"
+        class="astro-HPNW4VWY h-10"
+        astro-icon="logomark"
+        ><path
+          fill="currentColor"
+          d="M325.5 129.7v173.5l99.2 18.8V129.7h219.1v211.2l99.2 18.9V30.4H7.2v310.5l99.2 18.9V129.7zM424.7 621.2V447.5l-99.2-18.9v192.6H106.4V409.7L7.2 390.9v329.5H743V409.7l-99.2-18.8v230.3z"
+        ></path></svg
+      >
+    </a>
+    <p
+      class="mt-4 text-gray-500 text-sm sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4"
+    >
+      © 2023 Greener-Dalii Studio —
+      <a
+        href="https://www.behance.net/greenerdalii"
+        class="ml-1 text-gray-600"
+        rel="noopener noreferrer"
+        target="_blank">@greenerdalii</a
+      >
+    </p>
+    <span
+      class="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start"
+    >
+      <a class="text-gray-500">
+        <svg
+          fill="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+          ></path>
+        </svg>
+      </a>
+      <a class="ml-3 text-gray-500">
+        <svg
+          fill="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
+          ></path>
+        </svg>
+      </a>
+      <a class="ml-3 text-gray-500">
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+        >
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
+          ></path>
+        </svg>
+      </a>
+      <a class="ml-3 text-gray-500">
+        <svg
+          fill="currentColor"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="0"
+          class="h-5 w-5"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="none"
+            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+          ></path>
+          <circle cx="4" cy="4" r="2" stroke="none"></circle>
+        </svg>
+      </a>
+    </span>
   </div>
-  <ul class="relative grid grid-cols-2 gap-4 sm:grid-cols-4">
-    {
-      links.map((link) => (
-        <li>
-          <a
-            class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-current p-4"
-            href={link.url}
-          >
-            <span class="sr-only">{link.description}</span>
-            <Icon class="h-full" name={link.icon} />
-          </a>
-        </li>
-      ))
-    }
-  </ul>
 </footer>
