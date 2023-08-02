@@ -8,7 +8,6 @@ import Intro from "../components/intro.astro";
 import Showcase from "../components/showcase.astro";
 import Splash from "../components/splash.astro";
 import "../styles/index.css";
-import Gallery from "~/components/gallery.astro";
 import Service from "~/components/service.astro";
 import Insight from "~/components/insight.astro";
 
@@ -23,10 +22,11 @@ const description =
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/logomark.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.png"/>
+    <!-- <link rel="icon" href="../public/favicon.svg" type="image/svg+xml" />  -->
     <meta name="generator" content={generator} />
 
-    <title>Greener-Dalii Studio</title>
+    <title>Greener-Dalii Studio | 格润达理工作室</title>
     <meta name="description" content={description} />
 
     <!-- social media -->
@@ -62,19 +62,18 @@ const description =
     </script>
   </head>
   <body
-    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-primary selection:text-white"
   >
     <Header />
     <Splash />
-    <Gallery />
-    <Service />
-    <Insight />
-    <!-- <div class="space-y-24 px-8 py-32">
-      <Intro />
+    <div class="space-y-24 px-8 py-32">
+      <!-- <Intro />
       <Features />
-      <Compatibility />
+      <Compatibility /> -->
       <Showcase />
-    </div> -->
+      <Service />
+      <Insight />
+    </div>
     <Footer />
   </body>
 </html>
