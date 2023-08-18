@@ -26,3 +26,10 @@ export interface ShowcaseSite {
   image: ImageMetadata;
   url: string;
 }
+
+export interface InsightSite {
+  title: string;
+  describe: string;
+  image: string;
+  url: string;
+}

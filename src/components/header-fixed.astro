@@ -10,7 +10,6 @@ import NavContent from "./nav-content.astro";
   const menuModalId = "menu-modal";
 
   const header = document.querySelector("#page-header") as HTMLElement;
-  const page = document.documentElement;
   const menu = document.querySelector(`#${menuModalId} ul`);
   const openNavButton = document.querySelector("#open-nav-button");
   const closeNavButton = document.querySelector("#close-nav-button");
@@ -31,10 +30,7 @@ import NavContent from "./nav-content.astro";
   openNavButton.addEventListener("click", openMenu);
   closeNavButton.addEventListener("click", closeMenu);
 
-  document.addEventListener("scroll", () => {
-    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-    header.classList.toggle("fixed-header", d < 0);
-  });
+  header.classList.add("fixed-header")
 
   menu.addEventListener("click", (event) => {
     if ((event.target as HTMLElement).tagName === "A") {
@@ -42,3 +38,4 @@ import NavContent from "./nav-content.astro";
     }
   });
 </script>
+

@@ -16,6 +16,14 @@ a,
   position: relative;
 }
 
+.hover\:underline2:active {
+  text-decoration: none; 
+}
+
+.hover\:underline2:focus {
+  text-decoration: none; 
+}
+
 .hover\:underline2:before {
   content: "";
   position: absolute;
@@ -36,4 +44,10 @@ a,
   transform: scaleX(1);
   -webkit-transition: all 0.3s ease-in-out 0s;
   transition: all 0.3s ease-in-out 0s;  
+}
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+  padding-top: 100px;
 }
