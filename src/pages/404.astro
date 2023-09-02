@@ -1,9 +1,15 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import ContentSection from "~/components/content-section.astro";
 ---
 
 <BaseLayout>
-  <div class="space-y-24 px-8 py-32">
-    404
-  </div>
+  <ContentSection title="Oops!" subtitle="404" id="404">
+    <Fragment slot="description">
+      你好像迷路啦...
+    </Fragment>
+    <Fragment slot="content">
+      About
+    </Fragment>
+  </ContentSection>
 </BaseLayout>

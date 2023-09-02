@@ -1,43 +1,47 @@
 ---
+import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "./content-section.astro";
 import InsightCard from "./insight-card.astro";
 import type { InsightSite } from "../types";
 
 const sites: Array<InsightSite> = [
   {
-      title:"Greener-Dalii",
-      describe:"Facebook launched the Watch platform in August",
-      image:"https://images.unsplash.com/photo-1669828230990-9b8583a877ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1062&q=80",
-      url:"#",
+    title: "Greener-Dalii",
+    describe: "Facebook launched the Watch platform in August",
+    image:
+      "https://images.unsplash.com/photo-1669828230990-9b8583a877ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1062&q=80",
+    url: "#",
   },
   {
-      title:"Test",
-      describe:"For a lot of people these days, Measure What Matters.",
-      image:"https://images.unsplash.com/photo-1611625618313-68b87aaa0626?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
-      url:"#",
+    title: "Test",
+    describe: "For a lot of people these days, Measure What Matters.",
+    image:
+      "https://images.unsplash.com/photo-1611625618313-68b87aaa0626?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
+    url: "#",
   },
   {
-      title:"What CFR (Conversations, Feedback, Recognition) really is about",
-      describe:"For a lot of people these days, Measure What Matters.",
-      image:"https://images.unsplash.com/photo-1611625618313-68b87aaa0626?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
-      url:"#",
-  }
-]
+    title: "What CFR (Conversations, Feedback, Recognition) really is about",
+    describe: "For a lot of people these days, Measure What Matters.",
+    image:
+      "https://images.unsplash.com/photo-1611625618313-68b87aaa0626?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
+    url: "#",
+  },
+];
 ---
 
-<ContentSection title="Insight" id="insight">
-  <Fragment slot="lead">
-    Astro is <span class="text-primary">versatile</span>.{" "}
-    <span class="text-primary">Explore</span> what's possible and get{" "}
-    <span class="text-primary">inspired</span>.
+<ContentSection title="品牌洞察" subtitle="Our Insights" id="insight">
+  <Fragment slot="description">
+    我们是一家新锐的品牌设计工作室，致力于通过创意与技术来融合商业性、艺术性和理性构思，帮助合作伙伴传达品牌价值，增强客户与品牌的情感链接。
+  </Fragment>
+  <Fragment slot="content">
+    <!-- Card Blog -->
+    <div class="mx-auto max-w-7xl py-0">
+      <!-- Grid -->
+      <div class="grid gap-6 lg:grid-cols-3">
+        {sites.map((site) => <InsightCard site={site} />)}
+      </div>
+      <!-- End Grid -->
+    </div>
+    <!-- End Card Blog -->
   </Fragment>
 </ContentSection>
-<!-- Card Blog -->
-<div class="mx-auto max-w-7xl py-0">
-  <!-- Grid -->
-  <div class="grid gap-6 lg:grid-cols-3">
-    {sites.map((site) => <InsightCard site={site} />)}
-  </div>
-  <!-- End Grid -->
-</div>
-<!-- End Card Blog -->

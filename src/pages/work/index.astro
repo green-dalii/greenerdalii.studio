@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import ContentSection from "~/components/content-section.astro";
 import WorkCard from "~/components/work-card.astro";
 import { getShowcase } from "../../data/showcase";
 
@@ -7,18 +8,23 @@ const sites = await getShowcase();
 ---
 
 <BaseLayout>
-  <div class="space-y-24 px-8 py-32">
-    <div class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8">
-      <div class="w-full max-w-7xl space-y-2">
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
-          {sites.map((site) => <WorkCard site={site} />)}
+  <ContentSection title="合作项目" subtitle="Our Works" id="work">
+    <Fragment slot="description">
+      我们是一家新锐的品牌设计工作室，致力于通过创意与技术来融合商业性、艺术性和理性构思，帮助合作伙伴传达品牌价值，增强客户与品牌的情感链接。
+    </Fragment>
+    <Fragment slot="content">
+      <div class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8">
+        <div class="w-full max-w-7xl space-y-2">
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+            {sites.map((site) => <WorkCard site={site} />)}
+          </div>
+          <p class="text-right text-sm">
+            <a class="text-primary" href="https://astro.build/showcase/">
+              ...and more &rarr;
+            </a>
+          </p>
         </div>
-        <p class="text-right text-sm">
-          <a class="text-primary" href="https://astro.build/showcase/">
-            ...and more &rarr;
-          </a>
-        </p>
       </div>
-    </div>
-  </div>
+    </Fragment>
+  </ContentSection>
 </BaseLayout>

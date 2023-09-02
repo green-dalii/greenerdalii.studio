@@ -2,25 +2,28 @@
 export interface Props {
   id: string;
   title: string;
+  subtitle: string;
 }
 
-const { title, id } = Astro.props;
+const { id, title, subtitle} = Astro.props;
 ---
 
-<section
-  id={id}
-  class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8"
->
-  <div class="flex flex-col items-center gap-4">
-    <slot name="eyebrow" />
-    <h2
-      class="gradient-text text-center font-extrabold tracking-tight text-4xl"
-    >
-      {title}
-    </h2>
+<section id={id} class="mx-auto max-w-7xl py-32">
+  <div class="container px-5 py-24 mx-auto flex flex-wrap flex-col sm:flex-row text-center sm:text-left">
+    <div class="flex flex-col mb-2 md:w-2/5">
+      <h2 class="text-3xl font-medium title-font text-center sm:text-left">{title}</h2>
+      <h4 class="sm:text-xl text-lg">{subtitle}</h4>
+    </div>
+    <div class="w-full md:w-3/5 flex flex-col">
+      <p class="leading-relaxed text-default break-words">
+        <slot name="description"/>
+      </p>
+      <p class="leading-relaxed mt-5 text-sm text-default break-words">
+        <slot name="description-below"/>
+      </p>
+    </div>
   </div>
-  <p class="max-w-xl text-center font-bold text-2xl">
-    <slot name="lead" />
-  </p>
-  <slot />
+  <div class="container px-5 py-24 mx-auto">
+    <slot name="content" />
+  </div>
 </section>

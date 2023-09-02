@@ -17,8 +17,9 @@ import "../styles/index.css";
     <Header />
     <slot />
     <Footer />
-  </body><script>
-    const header = document.querySelector("#page-header") as HTMLElement;
-    header.classList.toggle("fixed-header");
-  </script>
+    <script>
+      const header = document.querySelector("#page-header") as HTMLElement;
+      header.classList.toggle("fixed-header");
+    </script>
+  </body>
 </html>
