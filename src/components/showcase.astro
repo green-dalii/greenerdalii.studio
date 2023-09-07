@@ -1,7 +1,7 @@
 ---
 import ContentSection from "./content-section.astro";
 import ShowcaseCard from "../components/showcase-card.astro";
-import Button from "./button.astro";
+import Btn from "./button.astro";
 import { getShowcase } from "../data/showcase";
 
 const sites = await getShowcase();
@@ -20,14 +20,9 @@ const sites = await getShowcase();
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {sites.map((site) => <ShowcaseCard site={site} />)}
       </div>
-      <p class="text-right text-sm">
-        <a class="text-primary" href="https://astro.build/showcase/">
-          ...and more &rarr;
-        </a>
-      </p>
     </div>
-    <div class="mt-30 text-center">
-      <Button btnText="More" url="#"></Button>
+    <div class="mt-10 text-center">
+      <Btn btnText="More" url="#"></Btn>
     </div>
   </Fragment>
 </ContentSection>
