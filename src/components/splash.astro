@@ -1,10 +1,9 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon";
 import logoDot from "../assets/logo_dot.png";
 // import HeroImage from "../components/hero-image.astro";
 import Starfield from "../components/starfield.astro";
-// import GitHubCorner from "./github-corner.astro";
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
@@ -16,7 +15,7 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
   <!-- <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
     <HeroImage />
   </div> -->
-  <div class="flex flex-col items-center justify-center h-screen">
+  <div class="flex h-screen flex-col items-center justify-center">
     <!-- Splash Text & Pic -->
     <div class="relative grid h-full place-items-center sm:grid-cols-2">
       <h2
@@ -24,35 +23,39 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
       >
         <!-- <Icon name="logomark" class="h-24 text-white md:h-32" /> -->
         <div
-          class="text-white text-center font-extrabold tracking-tighter text-8xl"
+          class="text-center font-extrabold tracking-tighter text-white text-8xl"
         >
           Bring Brand Desgin
-          <br /> To Everyone
+          <br />To Everyone
         </div>
-        <div class="text-white text-center font-extrabold tracking-tighter text-3xl">
+        <div
+          class="text-center font-extrabold tracking-tighter text-white text-3xl"
+        >
           敬请期待...
         </div>
       </h2>
       <div
-        id="splashLogo"
-        class="mx-auto w-2/3 max-w-3xl self-start sm:w-10/12 sm:self-auto sm:justify-self-start"
+        class="mx-auto mt-8 w-2/3 max-w-3xl self-start sm:mt-0 sm:w-3/4 sm:self-auto sm:justify-self-start"
       >
         <Image
-          class="object-cover w-full h-full"
+          id="splashLogo"
+          class="h-full w-full object-cover"
           src={logoDot}
-          width="800"
-          height="800"
+          width="600"
+          height="600"
           loading="eager"
           alt="A floating Greener-Dalii Studio's logo dot edition"
         />
       </div>
     </div>
     <!-- Arrow-Down -->
-    <div id="arrow-down" class="h-16 w-16 border-current p-3 text-white z-10 mb-20">
-      <Icon name="ic:baseline-keyboard-double-arrow-down"/>
+    <div
+      id="arrow-down"
+      class="z-10 mb-20 h-16 w-16 animate-bounce border-current p-3 text-white"
+    >
+      <Icon name="ic:baseline-keyboard-double-arrow-down" />
     </div>
   </div>
-  
 </section>
 
 <noscript>
@@ -74,12 +77,58 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
     }
   }
 
-  /* #splashLogo {
-    animation: float linear 2.5s infinite alternate;
-  } */
+  @keyframes rotateAndPause {
+    0% {
+      transform: rotate(0deg);
+      animation-timing-function: ease-in-out;
+    }
+    12.5% {
+      transform: rotate(90deg);
+      animation-timing-function: ease-in-out;
+      animation-delay: 0.25s;
+    }
+    25% {
+      transform: rotate(90deg);
+      animation-timing-function: ease-in-out;
+      animation-delay: 0.25s;
+    }
+    37.5% {
+      transform: rotate(180deg);
+      animation-timing-function: ease-in-out;
+      animation-delay: 0.25s;
+    }
+    50% {
+      transform: rotate(180deg);
+      animation-timing-function: ease-in-out;
+      animation-delay: 0.25s;
+    }
+    62.5% {
+      transform: rotate(270deg);
+      animation-timing-function: ease-in-out;
+      animation-delay: 0.25s;
+    }
+    75% {
+      transform: rotate(270deg);
+      animation-timing-function: ease-in-out;
+      animation-delay: 0.25s;
+    }
+    87.5% {
+      transform: rotate(360deg);
+      animation-timing-function: ease-in-out;
+      animation-delay: 0.25s;
+    }
+    100% {
+      transform: rotate(360deg);
+      animation-timing-function: ease-in-out;
+      animation-delay: 0.25s;
+    }
+  }
+
+  #splashLogo {
+    animation: rotateAndPause 6s infinite;
+  }
 
   #arrow-down {
-    animation: float ease-in-out 1.5s infinite alternate;
   }
   @media (prefers-reduced-motion: reduce) {
     #splashLogo {

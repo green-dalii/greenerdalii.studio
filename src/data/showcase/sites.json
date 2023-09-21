@@ -1,32 +1,17 @@
 [
   {
-    "title": "PoliNations",
-    "image": "./images/polinations.png",
+    "title": "Greener-Dalii Studio",
+    "image": "./images/greenerdalii.jpg",
     "url": "https://polinations.com/"
   },
   {
-    "title": "Astro Docs",
-    "image": "./images/astro-docs.png",
+    "title": "予果予实留学咨询",
+    "image": "./images/edugrow.png",
     "url": "https://docs.astro.build/"
   },
   {
-    "title": "<div>RIOTS",
+    "title": "德比电材",
     "image": "./images/divriots.png",
     "url": "https://divriots.com/"
-  },
-  {
-    "title": "Designcember",
-    "image": "./images/designcember.png",
-    "url": "https://designcember.com/"
-  },
-  {
-    "title": "The Firebase Blog",
-    "image": "./images/firebase-blog.png",
-    "url": "https://firebase.blog/"
-  },
-  {
-    "title": "Corset",
-    "image": "./images/corset.png",
-    "url": "https://corset.dev/"
   }
 ]
