@@ -27,7 +27,7 @@ const sites = await getShowcase();
         <Fragment slot="content">
           <div class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8">
             <div class="w-full max-w-7xl space-y-2">
-              <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+              <div class="grid grid-cols-1 gap-4">
                 {sites.map((site) => <WorkCard site={site} />)}
               </div>
               <p class="text-right text-sm">
