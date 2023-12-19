@@ -48,15 +48,18 @@ a,
 
 /* nav transparent */
 @media screen and (min-width: 1024px){
+  #page-header.fixed-header {
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: var(--color-opacity-background);
+  };
   #page-header {
-    backdrop-filter: blur(20px);
-    background-color: var(--color-background) / 10%;
+    background-color: var(--color-background);
   }
 }
 
 @media screen and (max-width: 640px) {
   #menu-modal > :nth-child(1) {
-    backdrop-filter: blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
     background-color: rgba(255, 255, 255, 0);
   }
 }
