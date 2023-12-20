@@ -1,7 +1,7 @@
 /* TODO: consider creating <Button> and <GradientText> components */
 a,
 .btn {
-  @apply transition-colors duration-200;
+  @apply transition-colors duration-200 ease-out;
   @apply hover:text-primary;
   @apply active:outline-none active:underline focus:underline focus:ring-secondary focus:ring-offset-2 focus:ring-offset-transparent;
 }
@@ -29,21 +29,21 @@ a,
   position: absolute;
   width: 100%;
   height: 0.5px;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   background-color: var(--color-primary);
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
-  transform-origin: left; 
+  transform-origin: center; 
 }
 
 .hover\:underline2:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
-  -webkit-transition: all 0.3s linear 0s;
-  transition: all 0.3s linear 0s;  
+  -webkit-transition: all .26s cubic-bezier(.175,.885,.32,1.275);
+  transition: all .26s cubic-bezier(.175,.885,.32,1.275);  
 }
 
 /* nav transparent */
