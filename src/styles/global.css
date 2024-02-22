@@ -47,7 +47,7 @@ a,
 }
 
 /* nav transparent */
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 640px){
   #page-header.fixed-header {
     backdrop-filter: saturate(180%) blur(20px);
     background-color: var(--color-opacity-background);
@@ -60,7 +60,7 @@ a,
 @media screen and (max-width: 640px) {
   #menu-modal > :nth-child(1) {
     backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0.25);
   }
 }
 

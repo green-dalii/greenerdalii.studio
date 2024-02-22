@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from 'astro-icon/components'
 import ThemeSwitcher from "./theme-switcher.astro";
 import type { NavItem } from "../types";
 
@@ -18,8 +18,8 @@ const navItems: Array<NavItem> = [
 >
   <a class="flex items-center gap-3 hover:text-primary" href="/">
     <h1 class="sr-only">Greener-Dalii Studio</h1>
-    <Icon name="logomark" class="h-10" />
-    <Icon name="wordmark" class="hidden h-8 sm:block" />
+    <Icon name="logomark" class="text-2xl" />
+    <Icon name="wordmark" class="hidden text-xl sm:block" />
   </a>
   <div>
     <div class="flex items-center gap-6">
@@ -42,7 +42,7 @@ const navItems: Array<NavItem> = [
         class="btn sm:hidden"
         aria-label="Navigation"
       >
-        <Icon pack="mdi" name="menu" class="h-8" />
+        <Icon name="mdi:menu" class="text-xl" />
       </button>
       <ThemeSwitcher />
     </div>
@@ -56,11 +56,11 @@ const navItems: Array<NavItem> = [
               class="btn"
               aria-label="Close navigation"
             >
-              <Icon pack="mdi" name="close" class="h-8" />
+              <Icon name="mdi:close" class="text-xl" />
             </button>
           </header>
           <div class="flex justify-center">
-            <Icon name="logomark" class="h-16" />
+            <Icon name="logomark" class="text-2xl" />
           </div>
           <nav>
             <ul class="flex flex-col">

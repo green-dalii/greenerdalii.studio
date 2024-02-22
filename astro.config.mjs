@@ -1,5 +1,6 @@
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
+import icon from 'astro-icon'
 
 // import cloudflare from "@astrojs/cloudflare";
 
@@ -8,7 +9,7 @@ import { defineConfig } from "astro/config";
 // https://astro.build/config
 export default defineConfig({
   site: "https://greenerdalii.top/",
-  integrations: [tailwind(),],
+  integrations: [tailwind(),icon()],
   vite: {
     ssr: {
       external: ["svgo"]
