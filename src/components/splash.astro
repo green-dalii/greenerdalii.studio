@@ -2,18 +2,23 @@
 import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components'
 import logoDot from "../assets/logodot.png";
-// import HeroImage from "../components/hero-image.astro";
-// import Starfield from "../components/starfield.astro";
+const bgVideo = new URL('/public/videos/logo.mp4',import.meta.url).href
+
+const videoProps = {
+  playsInline: true, 
+  autoPlay: true,
+  muted: true,
+  loop: true  
+}
 
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
 ---
 
 <section class="relative h-full bg-black">
-  <!-- <Starfield /> -->
-  <!-- <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
-    <HeroImage />
-  </div> -->
+  <video class="h-full w-full object-cover" {...videoProps}>
+    <source src={bgVideo} type="video/mp4">
+  </video> 
   <div class="flex h-screen flex-col items-center justify-center">
     <!-- Splash Text & Pic -->
     <div class="relative grid h-full place-items-center sm:grid-cols-2">
