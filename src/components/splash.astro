@@ -2,7 +2,8 @@
 import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components'
 import logoDot from "../assets/logodot.png";
-const bgVideo = new URL('/public/videos/logo.mp4',import.meta.url).href
+import bgVideo from "../videos/logo.mp4"
+ 
 
 const videoProps = {
   playsInline: true, 
@@ -15,51 +16,16 @@ const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
 ---
 
-<section class="relative h-full bg-black">
-  <video class="h-full w-full object-cover" {...videoProps}>
+<section class="relative h-full max-w-screen bg-black grid place-content-center justify-items-center">
+  <video class="max-h-screen max-w-full object-cover" {...videoProps}>
     <source src={bgVideo} type="video/mp4">
   </video> 
-  <div class="flex h-screen flex-col items-center justify-center">
-    <!-- Splash Text & Pic -->
-    <div class="relative grid h-full place-items-center sm:grid-cols-2">
-      <h2
-        class="flex flex-col gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
-      >
-        <!-- <Icon name="logomark" class="h-24 text-white md:h-32" /> -->
-        <div
-          class="text-center font-extrabold tracking-tighter text-white text-8xl"
-        >
-          Bring Brand Desgin
-          <br />To Everyone
-        </div>
-        <div
-          class="text-center font-extrabold tracking-tighter text-white text-3xl"
-        >
-          敬请期待...
-        </div>
-      </h2>
-      <div
-        class="mx-auto mt-8 w-2/3 max-w-3xl self-start sm:mt-0 sm:w-3/4 sm:self-auto sm:justify-self-start"
-      >
-        <Image
-          id="splashLogo"
-          class="h-full w-full object-cover"
-          src={logoDot}
-          width="600"
-          height="600"
-          loading="eager"
-          alt="A floating Greener-Dalii Studio's logo dot edition"
-        />
-      </div>
-    </div>
-    <!-- Arrow-Down -->
-    <div
+  <div
       id="arrow-down"
-      class="z-10 mb-20 h-16 w-16 animate-bounce border-current p-3 text-white"
+      class="z-10 h-6 animate-bounce border-current text-white md:hidden"
     >
-      <Icon name="ic:baseline-keyboard-double-arrow-down" />
+      <Icon class="mt-50" name="ic:baseline-keyboard-double-arrow-down" />
     </div>
-  </div>
 </section>
 
 <noscript>

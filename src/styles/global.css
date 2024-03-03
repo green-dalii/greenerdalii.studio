@@ -1,4 +1,8 @@
 /* TODO: consider creating <Button> and <GradientText> components */
+.text-default {
+  font-weight:300;
+}
+
 a,
 .btn {
   @apply transition-colors duration-200 ease-out;
@@ -60,7 +64,7 @@ a,
 @media screen and (max-width: 640px) {
   #menu-modal > :nth-child(1) {
     backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: var(--color-opacity-background);
   }
 }
 

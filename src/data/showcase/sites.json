@@ -2,16 +2,19 @@
   {
     "title": "Greener-Dalii Studio",
     "image": "./images/greenerdalii.jpg",
-    "url": "https://polinations.com/"
+    "url": "/work/*",
+    "description": "设计行业｜Design"
   },
   {
     "title": "予果予实留学咨询",
     "image": "./images/edugrow.png",
-    "url": "https://docs.astro.build/"
+    "url": "/work/*",
+    "description": "教育行业｜Education"
   },
   {
     "title": "德比电材",
     "image": "./images/derby.jpg",
-    "url": "https://divriots.com/"
+    "url": "/work/*",
+    "description": "工业行业｜Industry"
   }
 ]
