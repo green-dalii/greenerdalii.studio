@@ -1,15 +1,15 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
+import { Image } from 'astro:assets';
+import wechatqrcode from "../assets/about_wechat.png"
 ---
 
 <footer class="body-font text-default">
-  <div
-    class="mx-auto px-8 flex flex-col items-center py-8 sm:flex-row"
-  >
+  <div class="mx-auto flex flex-col items-center px-8 py-8 sm:flex-row">
     <a
       class="title-font flex items-center justify-center font-medium text-default md:justify-start"
     >
-        <Icon name="logomark" class="text-xl" />
+      <Icon name="logomark" class="text-xl" />
     </a>
     <p
       class="mt-4 text-default text-sm sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4"
@@ -17,24 +17,33 @@ import { Icon } from 'astro-icon/components'
       ©{new Date().getFullYear()} Greener-Dalii Studio
     </p>
     <span
-      class="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start"
+      class="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start relative"
     >
-      <a class="text-default">
-        <Icon name="mdi:behance" class="h-6 w-6"/>
+      <a class="text-default" href="https://www.behance.net/greenerdalii">
+        <Icon name="mdi:behance" class="h-6 w-6" />
       </a>
-      <a class="ml-3 text-default">
-        <Icon name="mdi:instagram" class="h-6 w-6"/>
+      <a
+        class="ml-3 text-default"
+        href="https://www.instagram.com/greenerdalii/"
+      >
+        <Icon name="mdi:instagram" class="h-6 w-6" />
       </a>
-      <a class="ml-3 text-default">
-        <Icon name="ri:zcool-line" class="h-6 w-6"/>
+      <a class="ml-3 text-default" href="https://greenerdalii.zcool.com.cn/">
+        <Icon name="ri:zcool-line" class="h-6 w-6" />
       </a>
       <a class="ml-3 text-default">
         <Icon name="mdi:sina-weibo" class="h-6 w-6" />
       </a>
-      <a class="ml-3 text-default">
-        <Icon name="mdi:wechat" class="h-6 w-6" />
-      </a>
-      <a class="ml-3 text-default">
+      <div class="group ml-3">
+        <Image src={wechatqrcode} width=180 alt="s" class="cursor-pointer invisible absolute z-10 group-hover:visible inset-x-0 bottom-0 ease-in-out group-hover:ease-in-out transition-all duration-200" />
+        <a class="text-default">
+          <Icon name="mdi:wechat" class="h-6 w-6" />
+        </a>
+      </div>
+      <a
+        class="ml-3 text-default"
+        href="https://github.com/green-dalii/greenerdalii.studio"
+      >
         <Icon name="mdi:github" class="h-6 w-6" />
       </a>
     </span>
