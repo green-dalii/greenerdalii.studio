@@ -1,20 +1,27 @@
 [
   {
-    "title": "Greener-Dalii Studio",
+    "title": "格润达理工作室",
+    "titleEN": "Greener-Dalii Studio",
     "image": "./images/greenerdalii.jpg",
-    "url": "/work/*",
-    "description": "设计行业｜Design"
+    "url": "/work/greenerdaliistudio",
+    "category": [""],
+    "industry": "设计行业｜Design",
+    "date": "2022/08"
   },
   {
     "title": "予果予实留学咨询",
+    "titleEN": "Edugrow Study Abroad Consulting",
     "image": "./images/edugrow.png",
-    "url": "/work/*",
-    "description": "教育行业｜Education"
+    "url": "/work/edugrow",
+    "industry": "教育行业｜Education",
+    "date": "2022/09"
   },
   {
     "title": "德比电材",
+    "titleEN": "Derby Electronic Material",
     "image": "./images/derby.jpg",
-    "url": "/work/*",
-    "description": "工业行业｜Industry"
+    "url": "/work/derby",
+    "industry": "工业行业｜Industry",
+    "date": "2023/04"
   }
 ]

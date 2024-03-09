@@ -1,0 +1,47 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import "@fontsource/inter/variable.css";
+import { Image } from "astro:assets";
+import { GetStaticPaths } from 'astro';
+import ContentSection from "../components/content-section.astro";
+import "~/styles/index.css";
+const { frontmatter } = Astro.props;
+const allImages = await Astro.glob(`~/data/work/*/*.{jpeg,jpg,png,gif}`);
+
+const images = allImages.filter(path => {return path.default.src.includes(`${frontmatter.path}`)});
+
+---
+
+<BaseLayout>
+  <div class="mt-10 sm:py-32">
+    <ContentSection
+      title={frontmatter.title}
+      subtitle={frontmatter.enTitle}
+      id="project"
+    >
+      <Fragment slot="description">
+        {frontmatter.description}
+      </Fragment>
+      <Fragment slot="description-below">
+        {frontmatter.enDescription}
+      </Fragment>
+      <Fragment slot="content">
+        <div class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8">
+          <div class="w-full max-w-7xl space-y-2">
+            <div>
+              {Object.entries(images).map(([path, module]) => (
+                <Image
+                  src={module.default}
+                  width={module.default.width}
+                  height={module.default.height}
+                  alt={module.default.src.split('/').pop()}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </Fragment>
+    </ContentSection>
+  </div>
+</BaseLayout>
+

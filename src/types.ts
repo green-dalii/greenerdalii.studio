@@ -23,9 +23,17 @@ export interface NavItem {
 
 export interface ShowcaseSite {
   title: string;
+  titleEN: string;
   image: ImageMetadata;
   url: string;
-  description: string;
+  industry: string;
+  date: string;
+}
+
+export interface WorkImage {
+  title: string;
+  imagePath: ImageMetadata;
+  alt: string;
 }
 
 export interface InsightSite {

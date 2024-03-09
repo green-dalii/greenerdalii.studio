@@ -14,10 +14,10 @@ const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
 
 <a class="group aspect-video hover:!text-default" href={site.url}>
   <figure
-    class="relative h-full w-full overflow-hidden rounded-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl"
+    class="relative h-full w-full overflow-hidden rounded-md transition-all duration-300 group-hover:shadow-md"
   >
     <Image
-      class="h-full w-full bg-cover object-cover transition-all duration-300 group-hover:scale-105 group-hover:opacity-20 group-focus:scale-105 group-focus:opacity-20"
+      class="h-full w-full bg-cover object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-40 group-focus:scale-105 group-focus:opacity-20"
       src={site.image}
       width="800"
       sizes={sizes}
@@ -25,12 +25,16 @@ const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
     />
     <figcaption class="absolute inset-0">
       <div
-        class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100"
+        class="flex h-full flex-col p-6 md:p-10 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100"
       >
-        <h3 class="text-center font-extrabold uppercase text-xl">
+        <h3 class="font-extrabold uppercase text-xl">
           {site.title}
         </h3>
-        <p class="border border-current text-xs px-4 py-2">{site.description}</p>
+        <h4 class="font-extrabold uppercase text-base">
+          {site.titleEN}
+        </h4>
+        <p class="text-xs pt-4">{site.industry}</p>
+        <p class="text-xs">{site.date}</p>
       </div>
     </figcaption>
   </figure>

@@ -17,7 +17,7 @@ const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
     <Image
       class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-105 group-hover:opacity-20 group-focus:scale-105 group-focus:opacity-20"
       src={site.image}
-      width=800
+      width=1000
       sizes={sizes}
       alt={`A screenshot of ${site.url}`}
     />
@@ -25,10 +25,13 @@ const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
       <div
         class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100"
       >
-        <h3 class="text-center font-extrabold uppercase text-xl">
+        <h3 class="text-center font-extrabold uppercase text-lg">
           {site.title}
         </h3>
-        <p class="border border-current text-xs px-4 py-2">{site.description}</p>
+        <h4 class="text-center font-extrabold uppercase text-sm">
+          {site.titleEN}
+        </h4>
+        <p class="border border-current text-xs px-4 py-2">{site.industry}</p>
       </div>
     </figcaption>
   </figure>
