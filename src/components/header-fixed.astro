@@ -10,6 +10,8 @@ import NavContent from "./nav-content.astro";
   const menuModalId = "menu-modal";
 
   const header = document.querySelector("#page-header") as HTMLElement;
+  header.classList.remove("bottom-0")
+  header.classList.add("fixed-header")
   const menu = document.querySelector(`#${menuModalId} ul`);
   const openNavButton = document.querySelector("#open-nav-button");
   const closeNavButton = document.querySelector("#close-nav-button");
@@ -35,7 +37,5 @@ import NavContent from "./nav-content.astro";
       closeMenu();
     }
   });
-  header.classList.remove("bottom-0")
-  header.classList.add("fixed-header")
 </script>
 
