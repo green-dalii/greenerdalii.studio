@@ -4,13 +4,11 @@ import "@fontsource/inter/variable.css";
 import { Image } from "astro:assets";
 import ContentSection from "../components/content-section.astro";
 import "../styles/index.css";
-import { Debug } from 'astro:components';
+// import { Debug } from 'astro:components';
 const { frontmatter } = Astro.props;
 const allImages = await Astro.glob(`/src/data/work/*/*.{jpeg,jpg,png,gif}`);
 const images = allImages.filter(path => {return path.default.src.includes(`${frontmatter.path}`)});
 ---
-<Debug {allImages}/>
-<Debug {images}/>
 <BaseLayout>
   <div class="mt-10 sm:py-32">
     <ContentSection
