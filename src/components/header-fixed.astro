@@ -30,11 +30,12 @@ import NavContent from "./nav-content.astro";
   openNavButton.addEventListener("click", openMenu);
   closeNavButton.addEventListener("click", closeMenu);
 
-  header.classList.add("fixed-header")
   menu.addEventListener("click", (event) => {
     if ((event.target as HTMLElement).tagName === "A") {
       closeMenu();
     }
   });
+  header.classList.remove("bottom-0")
+  header.classList.add("fixed-header")
 </script>
 
