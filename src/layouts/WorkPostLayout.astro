@@ -5,7 +5,7 @@ import { Image } from "astro:assets";
 import ContentSection from "../components/content-section.astro";
 import "~/styles/index.css";
 const { frontmatter } = Astro.props;
-const allImages = await Astro.glob(`~/data/work/*/*.{jpeg,jpg,png,gif}`);
+const allImages = await Astro.glob(`../data/work/*/*.{jpeg,jpg,png,gif}`);
 
 const images = allImages.filter(path => {return path.default.src.includes(`${frontmatter.path}`)});
 
