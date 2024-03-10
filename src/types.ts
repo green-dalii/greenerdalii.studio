@@ -27,7 +27,8 @@ export interface ShowcaseSite {
   image: ImageMetadata;
   url: string;
   industry: string;
-  date: string;
+  client: string;
+  year: string;
 }
 
 export interface WorkImage {
