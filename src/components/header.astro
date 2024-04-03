@@ -20,12 +20,16 @@ import NavContent from "./nav-content.astro";
   invariant(openNavButton, "openNavButton should not be null");
   invariant(closeNavButton, "closeNavButton should not be null");
 
+  MicroModal.init()
+
   const openMenu = () => {
     MicroModal.show(menuModalId, { disableScroll: true });
+    console.log("OOOOOOOOO!!!")
   };
 
   const closeMenu = () => {
     MicroModal.close(menuModalId);
+    console.log("CCCCCCCCCC!!!")
   };
 
   openNavButton.addEventListener("click", openMenu);

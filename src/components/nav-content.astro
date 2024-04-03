@@ -7,6 +7,7 @@ const navItems: Array<NavItem> = [
   { title: "Home", url: "/"},
   { title: "Work", url: "/work" },
   { title: "Insight", url: "/insight" },
+  { title: "Service", url: "/service" },
   { title: "About", url: "/about" },
   { title: "Contact", url: "/contact" },
 ];
@@ -18,13 +19,13 @@ const navItems: Array<NavItem> = [
 >
   <a class="flex items-center gap-3 hover:text-primary" href="/">
     <h1 class="sr-only">Greener-Dalii Studio</h1>
-    <Icon name="logomark" class="text-2xl" />
+    <Icon name="logomark" class="text-3xl" />
     <Icon name="wordmark" class="hidden text-xl sm:block" />
   </a>
   <div>
     <div class="flex items-center gap-6">
       <nav class="hidden sm:block">
-        <ul class="flex items-center gap-6">
+        <ul class="flex items-center gap-6 pr-4">
           {
             navItems.map(({ title, url }) => (
               <li>
@@ -39,7 +40,7 @@ const navItems: Array<NavItem> = [
       <button
         id="open-nav-button"
         type="button"
-        class="btn sm:hidden"
+        class="btn btn-ghost sm:hidden pr-4 sm:pr-0"
         aria-label="Navigation"
       >
         <Icon name="mdi:menu" class="text-xl" />
@@ -60,7 +61,7 @@ const navItems: Array<NavItem> = [
             </button>
           </header>
           <div class="flex justify-center">
-            <Icon name="logomark" class="text-2xl" />
+            <Icon name="logomark" class="text-8xl" />
           </div>
           <nav>
             <ul class="flex flex-col">

@@ -3,11 +3,11 @@ import BaseLayout from "./BaseLayout.astro";
 import "@fontsource/inter/variable.css";
 import { Image } from "astro:assets";
 import ContentSection from "../components/content-section.astro";
+import Btn from "../components/button.astro";
 import "../styles/index.css";
-import { Debug } from 'astro:components';
+// import { Debug } from 'astro:components';
 const { frontmatter } = Astro.props;
-// const allImages = await Astro.glob(`/src/data/work/*/*.{jpeg,jpg,png,gif}`);
-// const images = allImages.filter(path => {return path.default.src.includes(`${frontmatter.path}`)});
+
 const allMedias = await Astro.glob(`/src/data/work/*/*.{jpeg,jpg,png,gif,mp4}`);
 const medias = allMedias.reduce((acc, media) => {
   const mediaPath = typeof media.default === 'string' ? media.default : media.default.src;
@@ -16,7 +16,6 @@ const medias = allMedias.reduce((acc, media) => {
   }
   return acc;
 }, []);
-console.log("&&&",allMedias)
 
 const videoProps = {
   playsInline: true, 
@@ -26,7 +25,18 @@ const videoProps = {
 }
 ---
 <BaseLayout>
-  <div class="mt-10 sm:py-32">
+  <div class="mt-10 sm:pb-32 sm:pt-10">
+    <div class="mx-auto max-w-7xl pt-0 sm:pb-30 px-6 sm:px-2">
+      <div class="container px-0 sm:px-5 sm:pb-24 mx-auto">
+        <div class="text-sm breadcrumbs">
+          <ul>
+            <li><a href="/">Home</a></li> 
+            <li><a href="/work">Work</a></li> 
+            <li>{frontmatter.title}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <ContentSection
       title={frontmatter.title}
       subtitle={frontmatter.enTitle}
@@ -50,8 +60,8 @@ const videoProps = {
                   mediaComponent = (
                     <Image
                       src={media.default}
-                      width={media.default.width}
-                      height={media.default.height}
+                      widths={[1000, 2000, media.default.width]}
+                      sizes={`(max-width: 720px) 1000px, (max-width: 1024px) 2000px, ${media.default.width}px`}
                       alt={media.default.src.split('/').pop()}
                       quality="high"
                     />
@@ -71,6 +81,9 @@ const videoProps = {
         </div>
       </Fragment>
     </ContentSection>
+    <div class="mt-10 text-center">
+      <Btn btnText="← Go Back" url="/work"></Btn>
+    </div>
   </div>
 </BaseLayout>
 

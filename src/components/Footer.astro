@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 import { Image } from 'astro:assets';
 import wechatqrcode from "../assets/about_wechat.png"
+import xiaohongshu from "../assets/about_xiaohongshu.png"
 ---
 
 <footer class="body-font text-default">
@@ -12,7 +13,7 @@ import wechatqrcode from "../assets/about_wechat.png"
       <Icon name="logomark" class="text-xl" />
     </a>
     <p
-      class="mt-4 text-default text-sm sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4"
+      class="mt-4 text-default text-xs sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4"
     >
       ©{new Date().getFullYear()} Greener-Dalii Studio
     </p>
@@ -31,11 +32,15 @@ import wechatqrcode from "../assets/about_wechat.png"
       <a class="ml-3 text-default" href="https://greenerdalii.zcool.com.cn/">
         <Icon name="ri:zcool-line" class="h-6 w-6" />
       </a>
-      <a class="ml-3 text-default">
-        <Icon name="mdi:sina-weibo" class="h-6 w-6" />
-      </a>
       <div class="group ml-3">
-        <Image src={wechatqrcode} width=180 alt="wechatqrcode" class="cursor-pointer invisible absolute z-10 group-hover:visible inset-x-0 bottom-0 ease-in-out group-hover:ease-in-out transition-all duration-200" />
+        <Image src={xiaohongshu} width=600 alt="xiaohongshu" class="cursor-pointer shadow-2xl absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 z-10 inset-x-0 bottom-0 mb-10 ease-in-out group-hover:ease-in-out transition-all duration-300" />
+        <a class="text-default">
+          <Icon name="xiaohongshu" class="h-6 w-6" />
+        </a>
+      </div>
+      
+      <div class="group ml-3">
+        <Image src={wechatqrcode} width=600 alt="wechatqrcode" class="cursor-pointer shadow-2xl absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 z-10 inset-x-0 bottom-0 mb-10 ease-in-out group-hover:ease-in-out transition-all duration-300" />
         <a class="text-default">
           <Icon name="mdi:wechat" class="h-6 w-6" />
         </a>

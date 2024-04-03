@@ -17,10 +17,25 @@ import "../styles/index.css";
     class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-primary selection:text-white"
   >
     <Header />
-    <div class="mt-10 sm:py-32">
+    <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
+      <div class="sm:pb-30 mx-auto max-w-7xl px-6 pt-0 sm:px-2">
+        <div class="container mx-auto px-0 sm:px-5 sm:pb-24">
+          <div class="breadcrumbs text-sm">
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li>Contact</li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <ContentSection title="期待合作" subtitle="Let's Work Together" id="about">
         <Fragment slot="description">
-          我们是一家新锐的品牌设计工作室，致力于通过创意与技术来融合商业性、艺术性和理性构思，帮助合作伙伴传达品牌价值，增强客户与品牌的情感链接。
+          如果您正在寻求与众不同的品牌设计方案，欢迎随时与我们取得联系。无论您有任何关于品牌设计的需求或问题，我们都乐意倾听并为您提供专业的咨询服务。
+        </Fragment>
+        <Fragment slot="description-below">
+          If you're seeking unique branding solutions, feel free to reach out to us
+          anytime. Whatever your requirements or queries about branding design, we are
+          eager to listen and provide professional consultation services.
         </Fragment>
         <Fragment slot="content">
           <section class="text-gray-600 body-font relative">

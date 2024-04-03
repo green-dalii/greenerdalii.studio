@@ -2,6 +2,7 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "./content-section.astro";
 import InsightCard from "./insight-card.astro";
+import Btn from "./button.astro";
 import type { InsightSite } from "../types";
 
 const sites: Array<InsightSite> = [
@@ -31,7 +32,13 @@ const sites: Array<InsightSite> = [
 
 <ContentSection title="品牌洞察" subtitle="Our Insights" id="insight">
   <Fragment slot="description">
-    我们是一家新锐的品牌设计工作室，致力于通过创意与技术来融合商业性、艺术性和理性构思，帮助合作伙伴传达品牌价值，增强客户与品牌的情感链接。
+    Greener-Dalii Studio深入研究市场趋势，精准剖析消费者心理，分享独到的品牌见解和前沿设计思考。跟随我们的视角，一起探索品牌生命力的源泉与无限可能性。
+  </Fragment>
+  <Fragment slot="description-below">
+    Greener-Dalii Studio delves deeply into market trends, meticulously dissects
+    consumer psychology, and shares profound brand perspectives and cutting-edge
+    design philosophies. Join us on a journey to explore the wellspring of brand
+    vitality and endless possibilities.
   </Fragment>
   <Fragment slot="content">
     <!-- Card Blog -->
@@ -43,5 +50,8 @@ const sites: Array<InsightSite> = [
       <!-- End Grid -->
     </div>
     <!-- End Card Blog -->
+    <div class="mt-10 text-center">
+      <Btn btnText="Read More 📄" url="/insight"></Btn>
+    </div>
   </Fragment>
 </ContentSection>

@@ -4,6 +4,7 @@ import Head from "~/components/in-head.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/header-fixed.astro";
 import ContentSection from "~/components/content-section.astro";
+import Btn from "../components/button.astro"
 import "../styles/index.css";
 ---
 
@@ -21,10 +22,10 @@ import "../styles/index.css";
         <Fragment slot="description">
           你好像迷路啦...
         </Fragment>
-        <Fragment slot="content">
-          About
-        </Fragment>
       </ContentSection>
+      <div class="mt-10 text-center">
+        <Btn btnText="← Go Back" url="/"></Btn>
+      </div>
     </div>
     <Footer />
   </body>

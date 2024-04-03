@@ -1,17 +1,19 @@
 ---
 import ContentSection from "./content-section.astro";
+import Btn from "./button.astro";
 ---
 
 <ContentSection title="我们的服务" subtitle="Our Service" id="service">
   <Fragment slot="description">
-    我们是一家新锐的品牌设计工作室，致力于通过创意与技术来融合商业性、艺术性和理性构思，帮助合作伙伴传达品牌价值，增强客户与品牌的情感链接。
+    我们提供包括品牌策略制定、视觉识别系统设计、包装设计、互动体验设计以及环境导视系统等在内的全方位品牌设计服务。Greener-Dalii Studio以敏锐的洞察力和深厚的专业技能，助您塑造独特且持久的品牌影响力。
   </Fragment>
   <Fragment slot="description-below">
-    We are an emerging brand design studio dedicated to fusing commercial sensibilities, artistic expression and rational ideation through creativity and technology.
-    <br>Our goal is to help partners convey brand values and strengthen emotional connections between customers and brands.
+    We offer a full spectrum of branding services, ranging from brand strategy formulation, visual identity systems, packaging design, interactive experience design to environmental signage systems. At Greener-Dalii Studio, we leverage sharp insights and deep expertise to forge distinctive and enduring brand impressions.
   </Fragment>
   <Fragment slot="content">
-    ...
+    <div class="mt-10 text-center">
+      <Btn btnText="See More 👀" url="/service"></Btn>
+    </div>
   </Fragment>
 </ContentSection>
 

@@ -2,7 +2,7 @@
 layout: ~/layouts/WorkPostLayout.astro
 title: "德比电材品牌设计项目"
 enTitle: "Brand Design Project of Derby Electronic Materials"
-path: "derby"
+path: "derby_"
 pubDate: 2023-08-01
 description: "似懂非懂舒服的面料；史蒂夫"
 enDescription: "This is a Test blog. We're proud to be a part of creating a more open culture and to continue building a product that supports this vision."
