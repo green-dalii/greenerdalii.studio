@@ -37,47 +37,23 @@ const navItems: Array<NavItem> = [
           }
         </ul>
       </nav>
-      <button
-        id="open-nav-button"
-        type="button"
-        class="btn btn-ghost sm:hidden pr-4 sm:pr-0"
-        aria-label="Navigation"
-      >
-        <Icon name="mdi:menu" class="text-xl" />
-      </button>
-      <ThemeSwitcher />
-    </div>
-    <div id="menu-modal" class="modal hidden" aria-hidden="true">
-      <div class="fixed inset-0 bg-default px-8 py-4 text-default">
-        <div class="space-y-4" role="dialog" aria-modal="true">
-          <header class="text-right">
-            <button
-              id="close-nav-button"
-              type="button"
-              class="btn"
-              aria-label="Close navigation"
-            >
-              <Icon name="mdi:close" class="text-xl" />
-            </button>
-          </header>
-          <div class="flex justify-center">
-            <Icon name="logomark" class="text-8xl" />
-          </div>
-          <nav>
-            <ul class="flex flex-col">
-              {
-                navItems.map(({ title, url }) => (
-                  <li>
-                    <a class="block py-4 text-center text-xl" href={url}>
-                      {title}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </nav>
+      <div id="dropmenu" class="dropdown dropdown-top dropdown-end sm:hidden">
+        <div id="open-nav-button" tabindex="0" role="button" class="btn btn-ghost rounded-btn">
+          <Icon name="mdi:menu" class="text-xl" />
         </div>
+        <ul tabindex="0" class="text-default menu dropdown-content z-[1] p-2 shadow-xl rounded-box w-40 mt-4">
+          {
+            navItems.map(({ title, url }) => (
+              <li>
+                <a class="block py-1 text-right text-xs" href={url}>
+                  {title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
+      <ThemeSwitcher />
     </div>
   </div>
 </header>

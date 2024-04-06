@@ -24,6 +24,15 @@ module.exports = {
       },
     },
   },
+  daisyui: {
+    themes: [
+      {
+        dark: {
+          "base-100": "var(--color-background)",
+        },
+      },
+    ],
+  },
   corePlugins: {
     fontSize: false,
   },

@@ -61,13 +61,13 @@ a,
   }
 }
 
+/* dropdown nav transparent */
 @media screen and (max-width: 640px) {
-  #menu-modal > :nth-child(1) {
+  .dropdown-content {
     backdrop-filter: saturate(180%) blur(20px);
     background-color: var(--color-opacity-background);
   }
 }
-
 
 /* insights page */
 .sticky-top {

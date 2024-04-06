@@ -6,7 +6,7 @@
   --color-background: theme("colors.gray.50");
   --color-background-offset: theme("colors.gray.100");
   --color-border: theme("colors.gray.900" / 10%);
-  --color-opacity-background: theme("colors.gray.50" / 65%)
+  --color-opacity-background: theme("colors.gray.50" / 70%)
 }
 
 [data-theme="dark"] {
@@ -17,5 +17,5 @@
   --color-background: theme("colors.zinc.900");
   --color-background-offset: theme("colors.zinc.700");
   --color-border: theme("colors.gray.50" / 10%);
-  --color-opacity-background: theme("colors.black" / 65%)
+  --color-opacity-background: theme("colors.black" / 70%)
 }

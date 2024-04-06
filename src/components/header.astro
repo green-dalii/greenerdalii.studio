@@ -4,45 +4,26 @@ import NavContent from "./nav-content.astro";
 
 <NavContent />
 <script>
-  import MicroModal from "micromodal";
+  // import MicroModal from "micromodal";
   import invariant from "tiny-invariant";
-
-  const menuModalId = "menu-modal";
 
   const header = document.querySelector("#page-header") as HTMLElement;
   const page = document.documentElement;
-  const menu = document.querySelector(`#${menuModalId} ul`);
-  const openNavButton = document.querySelector("#open-nav-button");
-  const closeNavButton = document.querySelector("#close-nav-button");
+  const dropmenu = document.querySelector("#dropmenu")
+
 
   invariant(header, "header should not be null");
-  invariant(menu, "menu should not be null");
-  invariant(openNavButton, "openNavButton should not be null");
-  invariant(closeNavButton, "closeNavButton should not be null");
-
-  MicroModal.init()
-
-  const openMenu = () => {
-    MicroModal.show(menuModalId, { disableScroll: true });
-    console.log("OOOOOOOOO!!!")
-  };
-
-  const closeMenu = () => {
-    MicroModal.close(menuModalId);
-    console.log("CCCCCCCCCC!!!")
-  };
-
-  openNavButton.addEventListener("click", openMenu);
-  closeNavButton.addEventListener("click", closeMenu);
+  invariant(dropmenu, "menu should not be null");
 
   document.addEventListener("scroll", () => {
     const d = page.clientHeight - page.scrollTop - header.offsetHeight;
     header.classList.toggle("fixed-header", d < 0);
+    dropmenu.classList.toggle("dropdown-top", d > 0);
   });
 
-  menu.addEventListener("click", (event) => {
-    if ((event.target as HTMLElement).tagName === "A") {
-      closeMenu();
-    }
-  });
+  // menu.addEventListener("click", (event) => {
+  //   if ((event.target as HTMLElement).tagName === "A") {
+  //     closeMenu();
+  //   }
+  // });
 </script>
