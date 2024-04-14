@@ -8,12 +8,11 @@ import { Debug } from "astro:components";
     <div class="container mx-auto px-0 sm:px-5 sm:pb-24">
         <div class="breadcrumbs text-sm">
             <ul>
+                <li><a href="/">Home</a></li>
                 {
                     urlList.map((url, index) => (
                         <li>
-                            {url === "" ? (
-                                <a href="/">Home</a>
-                            ) : index === urlList.length - 1 ? (
+                            {index === urlList.length - 1 ? (
                                 isWork !== "No" ? (
                                     isWork
                                 ) : (

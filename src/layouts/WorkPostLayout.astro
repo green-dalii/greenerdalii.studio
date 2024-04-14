@@ -8,7 +8,7 @@ import Btn from "../components/button.astro";
 import "../styles/index.css";
 // import { Debug } from 'astro:components';
 const { frontmatter } = Astro.props;
-const urlList = Astro.url.pathname.split("/");
+const urlList = Astro.url.pathname.split("/").filter(Boolean);
 
 const allMedias = await Astro.glob(`/src/data/work/*/*.{jpeg,jpg,png,gif,mp4}`);
 const medias = allMedias.reduce((acc, media) => {

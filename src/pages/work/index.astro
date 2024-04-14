@@ -6,7 +6,7 @@ import WorkCard from "~/components/work-card.astro";
 import { getShowcase } from "../../data/work";
 import "~/styles/index.css";
 const sites = await getShowcase();
-const urlList = Astro.url.pathname.split("/");
+const urlList = Astro.url.pathname.split("/").filter(Boolean);
 ---
 
 <BaseLayout>
