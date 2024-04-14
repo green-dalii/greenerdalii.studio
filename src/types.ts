@@ -18,6 +18,7 @@ export interface FooterLink {
 
 export interface NavItem {
   title: string;
+  titleZh: string;
   url: string;
 }
 

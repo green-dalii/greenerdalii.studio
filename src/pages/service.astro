@@ -1,44 +1,27 @@
 ---
-import "@fontsource/inter/variable.css";
-import Head from "~/components/in-head.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/header-fixed.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "~/components/content-section.astro";
+import Breadcrumbs from "~/components/breadcrumbs.astro";
 import "../styles/index.css";
+const urlList = Astro.url.pathname.split("/");
 ---
 
-<!DOCTYPE html>
-<html lang="zh-CN" class="h-full motion-safe:scroll-smooth" data-theme="dark">
-  <head>
-    <Head />
-  </head>
-  <body
-    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-primary selection:text-white"
-  >
-    <Header />
-    <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
-      <div class="sm:pb-30 mx-auto max-w-7xl px-6 pt-5 sm:px-2">
-        <div class="container mx-auto px-0 sm:px-5 sm:pb-24">
-          <div class="breadcrumbs text-sm">
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li>Service</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <ContentSection title="我们的服务" subtitle="Our Service" id="service">
-        <Fragment slot="description">
-          我们提供包括品牌策略制定、视觉识别系统设计、包装设计、互动体验设计以及环境导视系统等在内的全方位品牌设计服务。Greener-Dalii Studio以敏锐的洞察力和深厚的专业技能，助您塑造独特且持久的品牌影响力。
-        </Fragment>
-        <Fragment slot="description-below">
-          We offer a full spectrum of branding services, ranging from brand strategy formulation, visual identity systems, packaging design, interactive experience design to environmental signage systems. At Greener-Dalii Studio, we leverage sharp insights and deep expertise to forge distinctive and enduring brand impressions.
-        </Fragment>
-        <Fragment slot="content">
-          About
-        </Fragment>
-      </ContentSection>
-    </div>
-    <Footer />
-  </body>
-</html>
+<BaseLayout>
+  <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
+    <Breadcrumbs urlList={urlList} />
+    <ContentSection title="我们的服务" subtitle="Our Service" id="service">
+      <Fragment slot="description">
+        我们提供包括品牌策略制定、视觉识别系统设计、包装设计、互动体验设计以及环境导视系统等在内的全方位品牌设计服务。Greener-Dalii
+        Studio以敏锐的洞察力和深厚的专业技能，助您塑造独特且持久的品牌影响力。
+      </Fragment>
+      <Fragment slot="description-below">
+        We offer a full spectrum of branding services, ranging from brand
+        strategy formulation, visual identity systems, packaging design,
+        interactive experience design to environmental signage systems. At
+        Greener-Dalii Studio, we leverage sharp insights and deep expertise to
+        forge distinctive and enduring brand impressions.
+      </Fragment>
+      <Fragment slot="content">About</Fragment>
+    </ContentSection>
+  </div>
+</BaseLayout>

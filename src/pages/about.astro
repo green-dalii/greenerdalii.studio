@@ -1,45 +1,26 @@
 ---
-import "@fontsource/inter/variable.css";
-import Head from "~/components/in-head.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/header-fixed.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "~/components/content-section.astro";
+import Breadcrumbs from "~/components/breadcrumbs.astro";
 import "../styles/index.css";
+const urlList = Astro.url.pathname.split('/');
 ---
 
-<!DOCTYPE html>
-<html lang="zh-CN" class="h-full motion-safe:scroll-smooth" data-theme="dark">
-  <head>
-    <Head />
-  </head>
-  <body
-    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-primary selection:text-white"
-  >
-    <Header />
-    <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
-      <div class="sm:pb-30 mx-auto max-w-7xl px-6 pt-5 sm:px-2">
-        <div class="container mx-auto px-0 sm:px-5 sm:pb-24">
-          <div class="breadcrumbs text-sm">
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li>About</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <ContentSection title="关于我们" subtitle="About Us" id="about">
-        <Fragment slot="description">
-          我们是一家新锐的品牌设计工作室，致力于通过创意与技术来融合商业性、艺术性和理性构思，帮助合作伙伴传达品牌价值，增强客户与品牌的情感链接。
-        </Fragment>
-        <Fragment slot="description-below">
-          We are an emerging brand design studio dedicated to fusing commercial sensibilities, artistic expression and rational ideation through creativity and technology.
-          <br>Our goal is to help partners convey brand values and strengthen emotional connections between customers and brands.
-        </Fragment>
-        <Fragment slot="content">
-          About
-        </Fragment>
-      </ContentSection>
-    </div>
-    <Footer />
-  </body>
-</html>
+<BaseLayout>
+  <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
+    <Breadcrumbs urlList={urlList} />
+    <ContentSection title="关于我们" subtitle="About Us" id="about">
+      <Fragment slot="description">
+        我们是一家新锐的品牌设计工作室，致力于通过创意与技术来融合商业性、艺术性和理性构思，帮助合作伙伴传达品牌价值，增强客户与品牌的情感链接。
+      </Fragment>
+      <Fragment slot="description-below">
+        We are an emerging brand design studio dedicated to fusing commercial
+        sensibilities, artistic expression and rational ideation through
+        creativity and technology.
+        <br />Our goal is to help partners convey brand values and strengthen
+        emotional connections between customers and brands.
+      </Fragment>
+      <Fragment slot="content">About</Fragment>
+    </ContentSection>
+  </div>
+</BaseLayout>

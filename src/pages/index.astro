@@ -11,10 +11,13 @@ import Clinet from "~/components/clinet.astro";
 import Insight from "~/components/insight.astro";
 import Contact from "~/components/contact.astro";
 import "../styles/index.css";
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+<html lang={lang} class="h-full motion-safe:scroll-smooth" data-theme="dark">
   <head>
     <Head />
   </head>

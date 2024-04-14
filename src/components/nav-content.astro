@@ -1,15 +1,15 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 import ThemeSwitcher from "./theme-switcher.astro";
 import type { NavItem } from "../types";
 
 const navItems: Array<NavItem> = [
-  { title: "Home", url: "/"},
-  { title: "Work", url: "/work" },
-  { title: "Insight", url: "/insight" },
-  { title: "Service", url: "/service" },
-  { title: "About", url: "/about" },
-  { title: "Contact", url: "/contact" },
+  { title: "Home", titleZh: "首页", url: "/" },
+  { title: "Work", titleZh: "案例", url: "/work" },
+  { title: "Insight", titleZh: "洞见", url: "/insight" },
+  { title: "Service", titleZh: "服务", url: "/service" },
+  { title: "About", titleZh: "关于", url: "/about" },
+  { title: "Contact", titleZh: "联系我们", url: "/contact" },
 ];
 ---
 
@@ -27,21 +27,34 @@ const navItems: Array<NavItem> = [
       <nav class="hidden sm:block">
         <ul class="flex items-center gap-6 pr-4">
           {
-            navItems.map(({ title, url }) => (
-              <li>
-                <a class="hover:underline2 text-sm" href={url}>
-                  {title}
+            navItems.map(({ title, titleZh, url }) => (
+              <li class="group">
+                <a class="hover:underline2 text-sm relative inline-block transition-colors duration-300 hover:text-primary" href={url}>
+                  <span class="block transition-opacity duration-300 ease-in-out group-hover:opacity-0">
+                    {title}
+                  </span>
+                  <span class="absolute pt-0.5 left-0 top-0 min-w-max block w-full opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 text-center text-xs">
+                    {titleZh}
+                  </span>
                 </a>
               </li>
             ))
           }
         </ul>
       </nav>
-      <div id="dropmenu" class="dropdown dropdown-top dropdown-end sm:hidden">
-        <div id="open-nav-button" tabindex="0" role="button" class="btn btn-ghost rounded-btn">
+      <div id="dropmenu" class="dropdown dropdown-end dropdown-top sm:hidden">
+        <div
+          id="open-nav-button"
+          tabindex="0"
+          role="button"
+          class="btn btn-ghost rounded-btn"
+        >
           <Icon name="mdi:menu" class="text-xl" />
         </div>
-        <ul tabindex="0" class="text-default menu dropdown-content z-[1] p-2 shadow-xl rounded-box w-40 mt-4">
+        <ul
+          tabindex="0"
+          class="menu dropdown-content z-[1] mt-4 w-40 rounded-box p-2 text-default shadow-xl"
+        >
           {
             navItems.map(({ title, url }) => (
               <li>
@@ -68,7 +81,7 @@ const navItems: Array<NavItem> = [
 
 <style>
   .fixed-header {
-    @apply fixed top-0 bottom-auto;
+    @apply fixed bottom-auto top-0;
     @apply border-default bg-default text-default;
   }
   .modal.is-open {

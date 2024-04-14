@@ -1,85 +1,91 @@
 ---
-import "@fontsource/inter/variable.css";
-import Head from "~/components/in-head.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/header-fixed.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "~/components/content-section.astro";
 import Btn from "~/components/button.astro";
+import Breadcrumbs from "~/components/breadcrumbs.astro";
 import "../styles/index.css";
+const urlList = Astro.url.pathname.split('/');
 ---
 
-<!DOCTYPE html>
-<html lang="zh-CN" class="h-full motion-safe:scroll-smooth" data-theme="dark">
-  <head>
-    <Head />
-  </head>
-  <body
-    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-primary selection:text-white"
-  >
-    <Header />
-    <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
-      <div class="sm:pb-30 mx-auto max-w-7xl px-6 pt-5 sm:px-2">
-        <div class="container mx-auto px-0 sm:px-5 sm:pb-24">
-          <div class="breadcrumbs text-sm">
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li>Contact</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <ContentSection title="期待合作" subtitle="Let's Work Together" id="about">
-        <Fragment slot="description">
-          如果您正在寻求与众不同的品牌设计方案，欢迎随时与我们取得联系。无论您有任何关于品牌设计的需求或问题，我们都乐意倾听并为您提供专业的咨询服务。
-        </Fragment>
-        <Fragment slot="description-below">
-          If you're seeking unique branding solutions, feel free to reach out to us
-          anytime. Whatever your requirements or queries about branding design, we are
-          eager to listen and provide professional consultation services.
-        </Fragment>
-        <Fragment slot="content">
-          <section class="text-gray-600 body-font relative">
-            <div class="container px-5 py-24 mx-auto">
-              <div class="flex flex-col text-center w-full mb-12">
-                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p>
-              </div>
-              <div class="lg:w-1/2 md:w-2/3 mx-auto">
-                <div class="flex flex-wrap -m-2">
-                  <div class="p-2 w-1/2">
-                    <div class="relative">
-                      <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
-                      <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                    </div>
+<BaseLayout>
+  <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
+    <Breadcrumbs urlList={urlList} />
+    <ContentSection title="期待合作" subtitle="Let's Work Together" id="about">
+      <Fragment slot="description">
+        如果您正在寻求与众不同的品牌设计方案，欢迎随时与我们取得联系。无论您有任何关于品牌设计的需求或问题，我们都乐意倾听并为您提供专业的咨询服务。
+      </Fragment>
+      <Fragment slot="description-below">
+        If you're seeking unique branding solutions, feel free to reach out to
+        us anytime. Whatever your requirements or queries about branding design,
+        we are eager to listen and provide professional consultation services.
+      </Fragment>
+      <Fragment slot="content">
+        <section class="body-font relative text-gray-600">
+          <div class="container mx-auto px-5 py-24">
+            <div class="mb-12 flex w-full flex-col text-center">
+              <h1
+                class="title-font mb-4 font-medium text-gray-900 text-2xl sm:text-3xl"
+              >
+                Contact Us
+              </h1>
+              <p class="mx-auto leading-relaxed text-base lg:w-2/3">
+                Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
+                gentrify.
+              </p>
+            </div>
+            <div class="mx-auto md:w-2/3 lg:w-1/2">
+              <div class="-m-2 flex flex-wrap">
+                <div class="w-1/2 p-2">
+                  <div class="relative">
+                    <label for="name" class="leading-7 text-gray-600 text-sm"
+                      >Name</label
+                    >
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      class="w-full rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200"
+                    />
                   </div>
-                  <div class="p-2 w-1/2">
-                    <div class="relative">
-                      <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-                      <input type="email" id="email" name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                    </div>
+                </div>
+                <div class="w-1/2 p-2">
+                  <div class="relative">
+                    <label for="email" class="leading-7 text-gray-600 text-sm"
+                      >Email</label
+                    >
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="w-full rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200"
+                    />
                   </div>
-                  <div class="p-2 w-full">
-                    <div class="relative">
-                      <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
-                      <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
-                    </div>
+                </div>
+                <div class="w-full p-2">
+                  <div class="relative">
+                    <label for="message" class="leading-7 text-gray-600 text-sm"
+                      >Message</label
+                    >
+                    <textarea
+                      id="message"
+                      name="message"
+                      class="h-32 w-full resize-none rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200"
+                    ></textarea>
                   </div>
-                  <div class="p-2 text-center w-full">
-                    <Btn btnText="Tada!" url="#"></Btn>
-                  </div>
-                  <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-                    <a class="text-default">greenerdalii.studio@outlook.com</a>
-                    <p class="leading-normal my-5">49 Smith St.
-                      <br>Saint Cloud, MN 56301
-                    </p>
-                  </div>
+                </div>
+                <div class="w-full p-2 text-center">
+                  <Btn btnText="Tada!" url="#" />
+                </div>
+                <div
+                  class="mt-8 w-full border-t border-gray-200 p-2 pt-8 text-center"
+                >
+                  <a class="text-default">greenerdalii.studio@outlook.com</a>
                 </div>
               </div>
             </div>
-          </section>
-        </Fragment>
-      </ContentSection>
-    </div>
-    <Footer />
-  </body>
-</html>
+          </div>
+        </section>
+      </Fragment>
+    </ContentSection>
+  </div>
+</BaseLayout>
