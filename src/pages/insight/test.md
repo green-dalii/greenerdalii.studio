@@ -1,8 +1,8 @@
 ---
 layout: ~/layouts/MarkdownPostLayout.astro
-title: "Test2"
+title: "那些隐藏在经典品牌形象背后的创造者们"
 pubDate: 2023-08-01
-description: "This is a Test blog. We're proud to be a part of creating a more open culture and to continue building a product that supports this vision."
+description: "一个经典的品牌形象具有超越时空的魅力，而品牌形象的创造者大多隐于幕后，不为人所知,我们花费了大量时间整理资料，旨在将隐藏在品牌背后的设计机构或工作室呈现给读者。"
 author: "Greener-Dalii"
 occupation: "Co-Founder of Greener-Dalii Studio"
 image:
@@ -11,5 +11,6 @@ image:
 tags: ["design", "KV design"]
 ---
 
-Bringing the culture of sharing to everyone
-We know the power of sharing is real, and we want to create an opportunity for everyone to try Preline and explore how transformative open communication can be. Now you can have a team of one or two designers and unlimited spectators (think PMs, management, marketing, etc.) share work and explore the design process earlier.
+> 一个经典的品牌形象具有超越时空的魅力，而品牌形象的创造者大多隐于幕后，不为人所知。本篇长文是 Greener-Dalii Studio 《工作室博客》栏目的行业科普，我们花费了大量时间整理资料，旨在将隐藏在品牌背后的设计机构或工作室呈现给读者，其中既有规模很大、扩展到品牌战略咨询全方位业务的品牌公司，也有许多风格鲜明、“小而美”的工作室，它们都有着非常优秀成功的品牌案例，是我们的 Role Models。
+
+一个经典的品牌形象具有超越时空的魅力，而品牌形象的创造者大多隐于幕后，不为人所知。本篇长文是 Greener-Dalii Studio 《工作室博客》栏目的行业科普，我们花费了大量时间整理资料，旨在将隐藏在品牌背后的设计机构或工作室呈现给读者，其中既有规模很大、扩展到品牌战略咨询全方位业务的品牌公司，也有许多风格鲜明、“小而美”的工作室，它们都有着非常优秀成功的品牌案例，是我们的 Role Models。

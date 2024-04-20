@@ -1,6 +1,6 @@
 ---
 layout: ~/layouts/MarkdownPostLayout.astro
-title: "Test0"
+title: "Test2"
 pubDate: 2023-08-01
 description: "This is a Test blog. We're proud to be a part of creating a more open culture and to continue building a product that supports this vision."
 author: "Greener-Dalii"

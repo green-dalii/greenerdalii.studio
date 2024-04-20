@@ -5,7 +5,6 @@ import "@fontsource/inter/variable.css";
 import { Image } from "astro:assets";
 import ContentSection from "../components/content-section.astro";
 import Btn from "../components/button.astro";
-import "../styles/index.css";
 // import { Debug } from 'astro:components';
 const { frontmatter } = Astro.props;
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
@@ -28,7 +27,7 @@ const videoProps = {
 ---
 <BaseLayout>
   <div class="mt-20 sm:pb-32">
-    <Breadcrumbs urlList={urlList} isWork={frontmatter.title}/>
+    <Breadcrumbs urlList={urlList} isTitle={frontmatter.title}/>
     <ContentSection
       title={frontmatter.title}
       subtitle={frontmatter.enTitle}

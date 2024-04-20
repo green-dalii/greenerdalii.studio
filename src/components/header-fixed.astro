@@ -1,25 +1,82 @@
 ---
-import NavContent from "./nav-content.astro";
+import { Icon } from "astro-icon/components";
+import ThemeSwitcher from "./theme-switcher.astro";
+import { navItems } from '~/data/data';
 ---
 
-<NavContent />
-<script>
-  // import MicroModal from "micromodal";
-  import invariant from "tiny-invariant";
+<header
+  id="page-header"
+  class="absolute fixed-header z-20 flex w-full items-center justify-between border-b border-transparent px-6 py-4 text-white"
+>
+  <a class="flex items-center gap-3 hover:text-primary" href="/">
+    <h1 class="sr-only">Greener-Dalii Studio</h1>
+    <Icon name="logomark" class="text-3xl" />
+    <Icon name="wordmark" class="hidden text-xl sm:block" />
+  </a>
+  <div>
+    <div class="flex items-center gap-6">
+      <nav class="hidden sm:block">
+        <ul class="flex items-center gap-6 pr-4">
+          {
+            navItems.map(({ title, titleZh, url }) => (
+              <li class="group">
+                <a class="hover:underline2 text-sm relative inline-block transition-colors duration-300 hover:text-primary" href={url}>
+                  <span class="block transition-opacity duration-300 ease-in-out group-hover:opacity-0">
+                    {title}
+                  </span>
+                  <span class="absolute pt-0.5 left-0 top-0 min-w-max block w-full opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 text-center text-xs">
+                    {titleZh}
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <div id="dropmenu" class="dropdown dropdown-end sm:hidden">
+        <div
+          id="open-nav-button"
+          tabindex="0"
+          role="button"
+          class="btn btn-ghost rounded-btn"
+        >
+          <Icon name="mdi:menu" class="text-xl" />
+        </div>
+        <ul
+          tabindex="0"
+          class="menu dropdown-content z-[1] mt-4 w-40 rounded-box p-2 text-default shadow-xl"
+        >
+          {
+            navItems.map(({ title, url }) => (
+              <li>
+                <a class="block py-1 text-right text-xs" href={url}>
+                  {title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <ThemeSwitcher />
+    </div>
+  </div>
+</header>
 
-  const dropmenu = document.querySelector("#dropmenu")
-  const header = document.querySelector("#page-header") as HTMLElement;
-  invariant(header, "header should not be null");
-  invariant(dropmenu, "menu should not be null");
-  
-  header.classList.remove("bottom-0")
-  header.classList.add("fixed-header")
-  dropmenu.classList.remove("dropdown-top")
+<noscript>
+  <style>
+    #open-nav-button {
+      display: none;
+    }
+  </style>
+</noscript>
 
-  // menu.addEventListener("click", (event) => {
-  //   if ((event.target as HTMLElement).tagName === "A") {
-  //     closeMenu();
-  //   }
-  // });
-</script>
+<style>
+  .fixed-header {
+    @apply fixed bottom-auto top-0;
+    @apply border-default bg-default text-default;
+  }
+  .modal.is-open {
+    @apply block;
+  }
+</style>
 

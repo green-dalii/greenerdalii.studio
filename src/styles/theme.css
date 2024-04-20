@@ -15,7 +15,7 @@
   --color-text: theme("colors.gray.200");
   --color-text-offset: theme("colors.gray.400");
   --color-background: theme("colors.zinc.900");
-  --color-background-offset: theme("colors.zinc.700");
+  --color-background-offset: theme("colors.zinc.800");
   --color-border: theme("colors.gray.50" / 10%);
   --color-opacity-background: theme("colors.black" / 70%)
 }

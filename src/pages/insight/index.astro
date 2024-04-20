@@ -2,8 +2,8 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Breadcrumbs from "~/components/breadcrumbs.astro";
 import ContentSection from "~/components/content-section.astro";
+import BlogShowcase from "~/components/blog-showcase.astro";
 const allPosts = await Astro.glob("./*.md");
-import "~/styles/index.css";
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
 ---
 
@@ -12,26 +12,17 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
     <Breadcrumbs urlList={urlList} />
     <ContentSection title="品牌洞察" subtitle="Our Insights" id="insight">
       <Fragment slot="description">
-        Greener-Dalii Studio深入研究市场趋势，精准剖析消费者心理，分享独到的品牌见解和前沿设计思考。跟随我们的视角，一起探索品牌生命力的源泉与无限可能性。
+        Greener-Dalii
+        Studio深入研究市场趋势，精准剖析消费者心理，分享独到的品牌见解和前沿设计思考。跟随我们的视角，一起探索品牌生命力的源泉与无限可能性。
       </Fragment>
       <Fragment slot="description-below">
-        Greener-Dalii Studio delves deeply into market trends, meticulously dissects
-        consumer psychology, and shares profound brand perspectives and cutting-edge
-        design philosophies. Join us on a journey to explore the wellspring of brand
-        vitality and endless possibilities.
+        Greener-Dalii Studio delves deeply into market trends, meticulously
+        dissects consumer psychology, and shares profound brand perspectives and
+        cutting-edge design philosophies. Join us on a journey to explore the
+        wellspring of brand vitality and endless possibilities.
       </Fragment>
       <Fragment slot="content">
-        <div class="flex scroll-mt-24 flex-col items-center">
-          <ul>
-            {
-              allPosts.map((post) => (
-                <li>
-                  <a href={post.url}>{post.frontmatter.title}</a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
+        <BlogShowcase allPosts={allPosts}></BlogShowcase>
       </Fragment>
     </ContentSection>
   </div>
