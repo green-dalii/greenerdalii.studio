@@ -2,8 +2,16 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import Breadcrumbs from "~/components/breadcrumbs.astro";
 import ContentSection from "~/components/content-section.astro";
-import BlogShowcase from "~/components/blog-showcase.astro";
-const allPosts = await Astro.glob("./*.md");
+import BlogCard from "~/components/blog-card.astro";
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("insight");
+// 按日期倒序排序
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime();
+  const dateB = new Date(b.data.pubDate).getTime();
+  return dateB - dateA;
+});
+// const allPosts = await Astro.glob("./*.md");
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
 ---
 
@@ -22,7 +30,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
         wellspring of brand vitality and endless possibilities.
       </Fragment>
       <Fragment slot="content">
-        <BlogShowcase allPosts={allPosts}></BlogShowcase>
+        <BlogCard allPosts={allPosts}></BlogCard>
       </Fragment>
     </ContentSection>
   </div>

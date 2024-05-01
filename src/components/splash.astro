@@ -1,27 +1,41 @@
 ---
-import { Icon } from 'astro-icon/components'
-import bgVideo from "/videos/logo.mp4"
- 
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import bgVideo from "/videos/logo.mp4";
+import logoDot from "../assets/logodot.png";
 
 const videoProps = {
-  playsInline: true, 
+  playsInline: true,
   autoPlay: true,
   muted: true,
-  loop: true  
-}
-
+  loop: true,
+};
 ---
 
-<section class="relative h-full max-w-screen bg-black grid place-content-center justify-items-center">
-  <video class="max-h-screen max-w-full object-cover" {...videoProps}>
-    <source src={bgVideo} type="video/mp4">
-  </video> 
+<section
+  class="max-w-screen relative grid h-full place-content-center justify-items-center bg-black"
+>
+  <video
+    class="hidden max-h-screen max-w-full object-cover sm:flex"
+    {...videoProps}
+  >
+    <source src={bgVideo} type="video/mp4" />
+  </video>
+  <Image
+    id="splashLogo"
+    class="h-full w-full animate-pulse ease-in-out object-cover sm:hidden"
+    src={logoDot}
+    width="600"
+    height="600"
+    loading="eager"
+    alt="A floating Greener-Dalii Studio's logo dot edition"
+  />
   <div
-      id="arrow-down"
-      class="z-10 absolute bottom-2 h-6 animate-bounce border-current text-white md:hidden"
-    >
-      <Icon class="mt-50" name="ic:baseline-keyboard-double-arrow-down" />
-    </div>
+    id="arrow-down"
+    class="absolute bottom-2 z-10 mt-40 h-6 animate-bounce border-current text-white sm:hidden"
+  >
+    <Icon name="ic:baseline-keyboard-double-arrow-down" />
+  </div>
 </section>
 
 <noscript>

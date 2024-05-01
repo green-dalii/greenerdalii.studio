@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import ThemeSwitcher from "./theme-switcher.astro";
-import { navItems } from '~/data/data';
+import { navItems } from "~/data/data";
 ---
 
 <header
@@ -20,11 +20,14 @@ import { navItems } from '~/data/data';
           {
             navItems.map(({ title, titleZh, url }) => (
               <li class="group">
-                <a class="hover:underline2 text-sm relative inline-block transition-colors duration-300 hover:text-primary" href={url}>
+                <a
+                  class="hover:underline2 relative inline-block transition-colors duration-300 text-sm hover:text-primary"
+                  href={url}
+                >
                   <span class="block transition-opacity duration-300 ease-in-out group-hover:opacity-0">
                     {title}
                   </span>
-                  <span class="absolute pt-0.5 left-0 top-0 min-w-max block w-full opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 text-center text-xs">
+                  <span class="absolute left-0 top-0 block w-full min-w-max pt-0.5 text-center opacity-0 transition-opacity duration-300 ease-in-out text-xs group-hover:opacity-100">
                     {titleZh}
                   </span>
                 </a>
@@ -82,17 +85,17 @@ import { navItems } from '~/data/data';
 
 <script>
   import invariant from "tiny-invariant";
-
-  const header = document.querySelector("#page-header") as HTMLElement;
   const page = document.documentElement;
-  const dropmenu = document.querySelector("#dropmenu")
-
-  invariant(header, "header should not be null");
-  invariant(dropmenu, "menu should not be null");
 
   document.addEventListener("scroll", () => {
-    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-    header.classList.toggle("fixed-header", d < 0);
-    dropmenu.classList.toggle("dropdown-top", d > 0);
+    if (window.location.pathname === "/") {
+      const header = document.querySelector("#page-header") as HTMLElement;
+      const dropmenu = document.querySelector("#dropmenu");
+      invariant(header, "header should not be null");
+      invariant(dropmenu, "menu should not be null");
+      const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+      header.classList.toggle("fixed-header", d < 0);
+      dropmenu.classList.toggle("dropdown-top", d > 0);
+    }
   });
 </script>

@@ -1,15 +1,19 @@
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
-import icon from 'astro-icon'
+import icon from 'astro-icon';
+import remarkGfm from 'remark-gfm';
+import { remarkMarkdownRender } from '@astrojs/markdown-remark';
 
 // import cloudflare from "@astrojs/cloudflare";
 
+
 // https://astro.build/config
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://greenerdalii.top/",
-  integrations: [tailwind(), icon()],
+  integrations: [tailwind(), icon(), mdx()],
   vite: {
     ssr: {
       external: ["svgo"]
@@ -21,6 +25,10 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false
     }
+  },
+  markdown: {
+    remarkPlugins: [remarkGfm],
+    remarkRenders: [remarkMarkdownRender]
   }
   // output: "server",
   // adapter: cloudflare()

@@ -1,0 +1,56 @@
+---
+const { allPosts } = Astro.props;
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+// const images = import.meta.glob("/src/data/insight/*/*.jpg", { eager: true });
+import { blogImages } from "~/content/config"
+---
+
+<div class="flex scroll-mt-24 flex-col">
+  <ul class="grid sm:gap-4">
+    {
+      allPosts.map((post) => (
+        <>
+          <div class="group card rounded-none sm:card-side">
+            <figure class="relative h-56 w-full overflow-hidden rounded-xl sm:h-64 sm:w-1/2 md:h-64">
+              <a href={`/insight/${post.slug}/`}>
+                <Image
+                  class="absolute left-0 top-0 h-full w-full object-cover object-center transition-all duration-300 group-hover:scale-110"
+                  src={blogImages[post.data.heroImage]?.default}
+                  alt="Album"
+                />
+              </a>
+            </figure>
+            <div class="card-body w-full px-0 py-6 sm:w-1/2 sm:py-0 sm:pl-10">
+              <a href={`/insight/${post.slug}/`}>
+                <h2 class="card-title text-lg">{post.data.title}</h2>
+                <p class="font-light leading-relaxed text-[--color-text-offset] text-xs pt-4">
+                  {post.data.description}
+                </p>
+              </a>
+              <div class="flex items-center gap-3 text-[--color-text-offset]">
+                <Icon name="mdi:account" class="text-sm" />
+                <p class="text-xs">{post.data.author}</p>
+              </div>
+              <div class="flex items-center gap-3 text-[--color-text-offset]">
+                <Icon name="mdi:clock" class="text-sm" />
+                <p class="text-xs">{post.data.pubDate.toLocaleDateString()}</p>
+              </div>
+              <div class="flex items-center gap-3 text-[--color-text-offset]">
+                <Icon name="mdi:tag-outline" class="text-sm" />
+                <div class="flex flex-row flex-wrap gap-2">
+                  {post.data.tags.map((tag) => (
+                    <a href={`/insight/tags/${tag}`} class="text-xs">
+                      <span class="badge">{tag}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="divider sm:hidden" />
+        </>
+      ))
+    }
+  </ul>
+</div>

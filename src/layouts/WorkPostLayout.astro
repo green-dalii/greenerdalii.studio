@@ -8,7 +8,7 @@ import Btn from "../components/button.astro";
 // import { Debug } from 'astro:components';
 const { frontmatter } = Astro.props;
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
-
+// 此处待优化，当图片多时获取`allMedias`会影响性能
 const allMedias = await Astro.glob(`/src/data/work/*/*.{jpeg,jpg,png,gif,mp4}`);
 const medias = allMedias.reduce((acc, media) => {
   const mediaPath = typeof media.default === 'string' ? media.default : media.default.src;

@@ -3,6 +3,7 @@ layout: ~/layouts/WorkPostLayout.astro
 title: "格润达理工作室品牌设计项目"
 enTitle: "Brand Design Project of Greener-Dalii Studio"
 path: "greenerdalii_studio_"
+imageFolder: "greenerdaliistudio"
 pubDate: 2023-08-01
 description: "似懂非懂舒服的面料；史蒂夫"
 enDescription: "This is a Test blog. We're proud to be a part of creating a more open culture and to continue building a product that supports this vision."
