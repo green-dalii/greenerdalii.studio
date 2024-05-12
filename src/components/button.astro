@@ -1,10 +1,11 @@
 ---
 export interface Props {
   btnText: string;
+  btnAltText: string;
   url: string;
 }
 
-const { btnText, url } = Astro.props;
+const { btnText, btnAltText, url } = Astro.props;
 ---
 <!-- 
 <a
@@ -16,4 +17,9 @@ const { btnText, url } = Astro.props;
 
 <button class="btn">Neutral</button> -->
 
-<a role="button" class="btn w-full sm:w-auto sm:btn-neutral" href={url}>{btnText}</a>
+<a role="button" class="btn w-full sm:w-auto sm:btn-neutral group relative" href={url}>
+  <span class="block transition-opacity duration-300 ease-in-out group-hover:opacity-0">{btnText}</span>
+  <span class="absolute left-0 top-0 block w-full min-w-max pt-3 text-center opacity-0 transition-opacity duration-300 ease-in-out text-xs group-hover:opacity-100">
+    {btnAltText}
+  </span>
+</a>

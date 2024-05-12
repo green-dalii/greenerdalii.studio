@@ -1,21 +1,21 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Breadcrumbs from "~/components/breadcrumbs.astro";
+// import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import { getEntry, getEntries } from 'astro:content';
 // const { Content, headings } = await entry.render();
-const { frontmatter } = Astro.props;
+const { frontmatter, relatedPosts } = Astro.props;
 // const allPosts = await Astro.glob("../pages/insight/*.md");
-const images = import.meta.glob("/src/data/insight/*/*.jpg", { eager: true });
-// console.log("&&&&:>>>", frontmatter.heroImage, images[frontmatter.heroImage]?.default);
-// import {Debug} from "astro:components";
+const images = import.meta.glob("/src/data/insight/*/*.{jpeg,jpg,png,gif}", { eager: true });
+// import { Debug } from "astro:components";
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
 ---
 
 <BaseLayout>
   <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
     <Breadcrumbs urlList={urlList} isTitle={frontmatter.title} />
-    <!-- <Debug {images} /> -->
     <div class="sm:pb-30 mx-auto maxs-w-7xl px-6 pt-0 sm:px-2">
       <div class="container mx-auto px-0 sm:px-5 sm:pb-24">
         <!-- Blog Article -->
@@ -31,7 +31,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                     alt={frontmatter.heroImageAlt}
                   />
                   <!-- Title -->
-                  <h2 class="font-bold text-3xl lg:text-4xl">
+                  <h2 class="font-bold text-3xl lg:text-4xl leading-relaxed">
                     {frontmatter.title}
                   </h2>
                   <!-- Tag & Author & Date -->
@@ -85,7 +85,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
 
             <!-- Sidebar -->
             <div
-              class="bg-[--color-background-offset] lg:col-span-1 lg:h-full lg:w-full"
+              class="bg-[--color-background-offset] lg:col-span-1 lg:h-full lg:w-full mt-8"
             >
               <div class="sticky-top left-0 top-0 p-2 sm:p-4 sm:py-4">
                 <!-- Avatar Media -->
@@ -93,11 +93,6 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                   class="group mb-8 flex items-center gap-x-3 border-b border-gray-200 pb-8 dark:border-gray-700"
                 >
                   <a class="block flex-shrink-0" href="#">
-                    <!-- <img
-                      class="h-10 w-10 rounded-full"
-                      src="https://images.unsplash.com/photo-1669837401587-f9a4cfe3126e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
-                      alt="Image Description"
-                    /> -->
                     <Icon name="logomark" class="text-3xl" />
                   </a>
 
@@ -109,116 +104,16 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                       {frontmatter.occupation}
                     </p>
                   </a>
-                  <!-- <div class="grow">
-                    <div class="flex justify-end">
-                      <button
-                        type="button"
-                        class="inline-flex items-center justify-center gap-x-1.5 rounded-full border border-transparent bg-blue-600 px-2.5 py-1.5 font-semibold text-white text-xs hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
-                      >
-                        <svg
-                          class="h-3.5 w-3.5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-                          ></path>
-                          <path
-                            fill-rule="evenodd"
-                            d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
-                          ></path>
-                        </svg>
-                        Follow
-                      </button>
-                    </div>
-                  </div> -->
                 </div>
                 <!-- End Avatar Media -->
-
                 <!-- Read More -->
-                <div class="space-y-6">
-                  <!-- Media -->
-                  <a class="group flex items-center gap-x-6" href="#">
-                    <div class="grow">
-                      <span class="font-bold text-sm">
-                        5 Reasons to Not start a UX Designer Career in 2022/2023
-                      </span>
-                    </div>
-
-                    <div
-                      class="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg"
-                    >
-                      <img
-                        class="absolute left-0 top-0 h-full w-full rounded-lg object-cover"
-                        src="https://images.unsplash.com/photo-1567016526105-22da7c13161a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-                        alt="Image Description"
-                      />
-                    </div>
-                  </a>
-                  <!-- End Media -->
-
-                  <!-- Media -->
-                  <a class="group flex items-center gap-x-6" href="#">
-                    <div class="grow">
-                      <span class="font-bold text-sm">
-                        If your UX Portfolio has this 20% Well Done, it Will
-                        Give You an 80% Result
-                      </span>
-                    </div>
-
-                    <div
-                      class="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg"
-                    >
-                      <img
-                        class="absolute left-0 top-0 h-full w-full rounded-lg object-cover"
-                        src="https://images.unsplash.com/photo-1542125387-c71274d94f0a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-                        alt="Image Description"
-                      />
-                    </div>
-                  </a>
-                  <!-- End Media -->
-
-                  <!-- Media -->
-                  <a class="group flex items-center gap-x-6" href="#">
-                    <div class="grow">
-                      <span class="font-bold text-sm">
-                        7 Principles of Icon Design
-                      </span>
-                    </div>
-
-                    <div
-                      class="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg"
-                    >
-                      <img
-                        class="absolute left-0 top-0 h-full w-full rounded-lg object-cover"
-                        src="https://images.unsplash.com/photo-1586232702178-f044c5f4d4b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-                        alt="Image Description"
-                      />
-                    </div>
-                  </a>
-                  <!-- End Media -->
-                  <!-- {
-                    allPosts.map((post) => (
-                      <a class="group flex items-center gap-x-6" href="#">
-                        <div class="grow">
-                          <span class="font-bold text-gray-800 text-sm group-hover:text-blue-600 dark:text-gray-200 dark:group-hover:text-blue-500">
-                            {post.frontmatter.title}
-                          </span>
-                        </div>
-
-                        <div class="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg">
-                          <img
-                            class="absolute left-0 top-0 h-full w-full rounded-lg object-cover"
-                            src={post.frontmatter.image.url}
-                            alt="Image Description"
-                          />
-                        </div>
-                      </a>
-                    ))
-                  } -->
+                <div class="pb-6 text-sm font-medium">Read More | 相关阅读</div>
+                <div class="flex flex-col space-y-4">
+                    {relatedPosts.map((post) => (
+                      <div class="text-xs">
+                        <a href={`/insight/${post.slug}`}>▶︎ {post.data.title}</a>
+                      </div>
+                    ))}
                 </div>
                 <!-- End Read More -->
               </div>

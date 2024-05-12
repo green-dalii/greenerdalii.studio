@@ -51,8 +51,8 @@ const videoProps = {
                   mediaComponent = (
                     <Image
                       src={media.default}
-                      widths={[1000, 2000, media.default.width]}
-                      sizes={`(max-width: 720px) 1000px, (max-width: 1024px) 2000px, ${media.default.width}px`}
+                      widths={[800, 1000, 1200, 2000]}
+                      sizes={`(max-width: 640px) 800px, (max-width: 768px) 1000px, (max-width: 1080px) 1200px, 2000px`}
                       alt={media.default.src.split('/').pop()}
                       quality="high"
                     />
@@ -71,7 +71,7 @@ const videoProps = {
           </div>
         </div>
         <div class="mt-10 text-center">
-          <Btn btnText="← Go Back" url="/work"></Btn>
+          <Btn btnText="← Go Back" btnAltText="← 返回" url="/work"></Btn>
         </div>
       </Fragment>
     </ContentSection>

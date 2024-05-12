@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, getEntries } from "astro:content";
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 
 export async function getStaticPaths() {
@@ -12,10 +12,10 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+// 解析 relatedPosts 数据
+const relatedPosts = await getEntries(entry.data.relatedPosts);
 ---
 
-<MarkdownPostLayout frontmatter={entry.data} content={Content}>
+<MarkdownPostLayout frontmatter={entry.data} content={Content} relatedPosts={relatedPosts}>
     <Content />
-    <!-- <Fragment set:html={Content} /> -->
-    <!-- <div set:html={Content} /> -->
 </MarkdownPostLayout>

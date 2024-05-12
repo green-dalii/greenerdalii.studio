@@ -1,7 +1,7 @@
 // 从 `astro:content` 导入辅助工具
 // import { string } from "astro/zod";
-import { z, defineCollection } from "astro:content";
-import { getCollection } from "astro:content";
+import { z, defineCollection, reference } from "astro:content";
+// import { getCollection } from "astro:content";
 
 // 为每一个集合定义一个 `type` 和 `schema`
 const insightCollection = defineCollection({
@@ -14,7 +14,8 @@ const insightCollection = defineCollection({
     occupation: z.string(),
     heroImage: z.string(),
     heroImageAlt: z.string(),
-    tags: z.array(z.string())
+    tags: z.array(z.string()),
+    relatedPosts: z.array(reference('insight'))
   // schema: ({ image }) => z.object({
   //   title: z.string(),
   //   pubDate: z.date(),
@@ -35,7 +36,7 @@ export const collections = {
   insight: insightCollection,
 };
 
-// 获取所有Blog
+// 获取所有Blog - 不可行！
 // export const allPosts = await getCollection("insight");
 // 获取Blog所有图片
 export const blogImages = import.meta.glob("/src/data/insight/*/*.jpg", { eager: true });

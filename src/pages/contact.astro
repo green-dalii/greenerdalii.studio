@@ -3,15 +3,21 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "~/components/content-section.astro";
 import Btn from "~/components/button.astro";
 import Breadcrumbs from "~/components/breadcrumbs.astro";
-const urlList = Astro.url.pathname.split('/').filter(Boolean);
+import { Icon } from "astro-icon/components";
+import { Image } from 'astro:assets';
+const urlList = Astro.url.pathname.split("/").filter(Boolean);
 ---
 
 <BaseLayout>
   <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
     <Breadcrumbs urlList={urlList} />
-    <ContentSection title="期待合作" subtitle="Let's Work Together" id="about">
+    <ContentSection
+      title="期待一起合作👋"
+      subtitle="Let's Work Together"
+      id="about"
+    >
       <Fragment slot="description">
-        如果您正在寻求与众不同的品牌设计方案，欢迎随时与我们取得联系。无论您有任何关于品牌设计的需求或问题，我们都乐意倾听并为您提供专业的咨询服务。
+        如果您正在寻求与众不同的品牌设计方案，欢迎随时通过以下方式与我们取得联系。无论您有任何关于品牌设计的需求或问题，我们都乐意倾听并为您提供专业的咨询服务。
       </Fragment>
       <Fragment slot="description-below">
         If you're seeking unique branding solutions, feel free to reach out to
@@ -19,71 +25,123 @@ const urlList = Astro.url.pathname.split('/').filter(Boolean);
         we are eager to listen and provide professional consultation services.
       </Fragment>
       <Fragment slot="content">
-        <section class="body-font relative text-gray-600">
-          <div class="container mx-auto px-5 py-24">
-            <div class="mb-12 flex w-full flex-col text-center">
-              <h1
-                class="title-font mb-4 font-medium text-gray-900 text-2xl sm:text-3xl"
+        <div class="grid grid-cols-5">
+          <div class="col-span-full md:col-span-3 md:col-start-3">
+            <div class="grid gap-y-2">
+              <div
+                class="collapse collapse-arrow bg-[--color-background-offset]"
               >
-                Contact Us
-              </h1>
-              <p class="mx-auto leading-relaxed text-base lg:w-2/3">
-                Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-                gentrify.
-              </p>
+                <input type="radio" name="my-accordion-3"/>
+                <div class="collapse-title font-medium text-lg">
+                  Contact | 联系方式
+                </div>
+                <div class="collapse-content">
+                  <div class="flex flex-col gap-4">
+                    <!-- row 1 -->
+                    <div class="flex flex-col gap-x-2">
+                      <div class="flex flex-wrap items-center gap-x-2">
+                        <Icon name="mdi:email-outline" class="text-lg" />
+                        <div class="text-sm font-medium">Email:</div>
+                      </div>
+                      <div class="text-sm">greenerdalii.studio@outlook.com</div>
+                    </div>
+                    <!-- row 2 -->
+                    <div class="flex flex-row flex-wrap items-center gap-8">
+                      <div class="flex flex-col items-center">
+                        <Icon
+                          name="contact_wechat"
+                          class="text-[--color-text-offset] w-28 h-28"
+                        />
+                        <div class="text-[--color-text-offset] text-xs italic">
+                          微信扫一扫
+                        </div>
+                      </div>
+                      <div class="flex flex-col items-center">
+                        <Icon
+                          name="feishu"
+                          class="text-[--color-text-offset] w-28 h-28"
+                        />
+                        <div class="text-[--color-text-offset] text-xs italic">
+                          飞书扫一扫
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+              class="collapse collapse-arrow bg-[--color-background-offset]"
+            >
+              <input type="radio" name="my-accordion-3" />
+              <div class="collapse-title font-medium text-lg">
+                Social Media | 社交媒体
+              </div>
+              <div class="collapse-content">
+                <div class="flex flex-row justify-between">
+                  <ul>
+                    <li><a href="https://www.behance.net/greenerdalii" class="text-xs">Behance ↗️</a></li>
+                    <li><a href="https://www.instagram.com/greenerdalii/" class="text-xs">Instagram ↗️</a></li>
+                    <li><a href="https://twitter.com/greenerdalii" class="text-xs">X (Twitter) ↗️</a></li>
+                    <li><a href="https://greenerdalii.zcool.com.cn/" class="text-xs">ZCOOL ↗️</a></li>
+                    <li>
+                      <div class="group">
+                        <a class="text-xs cursor-e-resize">微信公众号</a>
+                        <Icon
+                        name="wechatgzh"
+                        class="text-[--color-text-offset] w-28 h-28 absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 z-10 inset-x-0 bottom-0 mb-12 ml-32 ease-in-out group-hover:ease-in-out transition-all duration-300"
+                      />
+                      </div>
+                    </li>
+                    <li>
+                      <div class="group">
+                        <a class="text-xs cursor-e-resize">小红书</a>
+                        <Icon
+                        name="xiaohongshu2"
+                        class="text-[--color-text-offset] w-28 h-28 absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 z-10 inset-x-0 bottom-0 mb-6 ml-32 ease-in-out group-hover:ease-in-out transition-all duration-300"
+                      />
+                      </div>
+                      </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="mx-auto md:w-2/3 lg:w-1/2">
-              <div class="-m-2 flex flex-wrap">
-                <div class="w-1/2 p-2">
-                  <div class="relative">
-                    <label for="name" class="leading-7 text-gray-600 text-sm"
-                      >Name</label
-                    >
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      class="w-full rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200"
-                    />
+              <div
+                class="collapse collapse-arrow bg-[--color-background-offset]"
+              >
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title font-medium text-lg">
+                  Meet Us | 来面基
+                </div>
+                <div class="collapse-content">
+                  <div class="flex flex-col">
+                    <div class="flex flex-wrap items-center gap-x-2">
+                      <Icon name="mdi:location" />
+                      <div class="text-sm font-medium">Location:</div>
+                    </div>
+                    <div class="flex flex-row justify-between gap-8">
+                      <div class="flex flex-col">
+                        <a
+                          href="https://surl.amap.com/1h8W1gK156v6"
+                          class="text-xs"
+                        >
+                          Yanta District, Xi'an, Shaanxi Province, China
+                        </a>
+                        <a
+                          href="https://surl.amap.com/1h8W1gK156v6"
+                          class="text-xs">陕西省西安市雁塔区</a
+                        >
+                      </div>
+                      <Icon
+                        name="map"
+                        class="shrink text-[--color-text-offset] text-9xl"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div class="w-1/2 p-2">
-                  <div class="relative">
-                    <label for="email" class="leading-7 text-gray-600 text-sm"
-                      >Email</label
-                    >
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      class="w-full rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200"
-                    />
-                  </div>
-                </div>
-                <div class="w-full p-2">
-                  <div class="relative">
-                    <label for="message" class="leading-7 text-gray-600 text-sm"
-                      >Message</label
-                    >
-                    <textarea
-                      id="message"
-                      name="message"
-                      class="h-32 w-full resize-none rounded border border-gray-300 bg-gray-100 bg-opacity-50 px-3 py-1 leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out text-base focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200"
-                    ></textarea>
-                  </div>
-                </div>
-                <div class="w-full p-2 text-center">
-                  <Btn btnText="Tada!" url="#" />
-                </div>
-                <div
-                  class="mt-8 w-full border-t border-gray-200 p-2 pt-8 text-center"
-                >
-                  <a class="text-default">greenerdalii.studio@outlook.com</a>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </Fragment>
     </ContentSection>
   </div>

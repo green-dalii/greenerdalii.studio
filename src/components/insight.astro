@@ -1,9 +1,8 @@
 ---
-import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "./content-section.astro";
 import InsightCard from "./insight-card.astro";
 import Btn from "./button.astro";
-import type { InsightSite } from "../types";
+// import type { InsightSite } from "../types";
 import { getCollection } from "astro:content";
 // 获取前三篇博客信息
 var selectedPosts = await getCollection("insight");
@@ -14,30 +13,6 @@ selectedPosts.sort((a, b) => {
   return dateB - dateA;
 });
 selectedPosts = selectedPosts.slice(0,3)
-
-// const sites: Array<InsightSite> = [
-//   {
-//     title: "Greener-Dalii",
-//     describe: "Facebook launched the Watch platform in August",
-//     image:
-//       "https://images.unsplash.com/photo-1669828230990-9b8583a877ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1062&q=80",
-//     url: "#",
-//   },
-//   {
-//     title: "Test",
-//     describe: "For a lot of people these days, Measure What Matters.",
-//     image:
-//       "https://images.unsplash.com/photo-1611625618313-68b87aaa0626?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
-//     url: "#",
-//   },
-//   {
-//     title: "What CFR (Conversations, Feedback, Recognition) really is about",
-//     describe: "For a lot of people these days, Measure What Matters.",
-//     image:
-//       "https://images.unsplash.com/photo-1611625618313-68b87aaa0626?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80",
-//     url: "#",
-//   },
-// ];
 ---
 
 <ContentSection title="品牌洞察" subtitle="Our Insights" id="insight">
@@ -62,7 +37,7 @@ selectedPosts = selectedPosts.slice(0,3)
     </div>
     <!-- End Card Blog -->
     <div class="mt-10 text-center">
-      <Btn btnText="Read More 📄" url="/insight"></Btn>
+      <Btn btnText="Read More 📄" btnAltText="阅读更多 📄" url="/insight"></Btn>
     </div>
   </Fragment>
 </ContentSection>
