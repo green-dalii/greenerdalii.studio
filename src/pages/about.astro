@@ -2,7 +2,10 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "~/components/content-section.astro";
 import Breadcrumbs from "~/components/breadcrumbs.astro";
-const urlList = Astro.url.pathname.split('/').filter(Boolean);
+import MemberCard from "~/components/member-card.astro";
+import { getMember } from "~/data/about";
+const members = await getMember();
+const urlList = Astro.url.pathname.split("/").filter(Boolean);
 ---
 
 <BaseLayout>
@@ -19,7 +22,21 @@ const urlList = Astro.url.pathname.split('/').filter(Boolean);
         <br />Our goal is to help partners convey brand values and strengthen
         emotional connections between customers and brands.
       </Fragment>
-      <Fragment slot="content">About</Fragment>
+      <Fragment slot="content">
+        <div class="grid grid-cols-5">
+          <div class="col-span-full md:col-span-3 md:col-start-3">
+            <div class="flex flex-col gap-4 sm:grid sm:grid-cols-2">
+              {
+                members.map((member) => (
+                  <MemberCard
+                    member={member}
+                  />
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </Fragment>
     </ContentSection>
   </div>
 </BaseLayout>

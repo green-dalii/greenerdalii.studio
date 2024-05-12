@@ -44,3 +44,9 @@ export interface InsightSite {
   image: string;
   url: string;
 }
+
+export interface MemberInfo {
+  name: string;
+  occupation: string;
+  image: ImageMetadata;
+}
