@@ -51,15 +51,15 @@ const videoProps = {
                   mediaComponent = (
                     <Image
                       src={media.default}
-                      widths={[800, 1000, 1200, 2000]}
-                      sizes={`(max-width: 640px) 800px, (max-width: 768px) 1000px, (max-width: 1080px) 1200px, 2000px`}
+                      widths={[800, 1000, 2000]}
+                      sizes={`(max-width: 640px) 800px, (max-width: 768px) 1000px, 2000px`}
                       alt={media.default.src.split('/').pop()}
-                      quality="high"
+                      quality="(min-width: 640px) low, high"
                     />
                   );
                 } else if (ext === 'mp4') {
                   mediaComponent = (
-                    <video {...videoProps}>
+                    <video class="w-full" {...videoProps}>
                       <source src={typeof media.default === 'string' ? media.default : media.default.src} type="video/mp4" />
                     </video>
                   );

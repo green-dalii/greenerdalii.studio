@@ -9,6 +9,7 @@ import xiaohongshu from "../assets/about_xiaohongshu.png"
   <div class="mx-auto flex flex-col items-center px-6 py-8 sm:flex-row">
     <a href="/"
       class="title-font flex items-center justify-center font-medium text-default md:justify-start"
+      aria-label="Goto index page"
     >
       <Icon name="logomark" class="text-xl" />
     </a>
@@ -20,40 +21,43 @@ import xiaohongshu from "../assets/about_xiaohongshu.png"
     <span
       class="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start relative"
     >
-      <a class="text-default" href="https://www.behance.net/greenerdalii">
+      <a class="text-default" href="https://www.behance.net/greenerdalii" aria-label="Goto behance">
         <Icon name="ri:behance-fill" class="text-xl sm:text-lg" />
       </a>
       <a
         class="ml-3 text-default"
         href="https://www.instagram.com/greenerdalii/"
+        aria-label="Goto instagram"
       >
         <Icon name="ri:instagram-line" class="text-xl sm:text-lg" />
       </a>
       <a
         class="ml-3 text-default"
         href="https://twitter.com/greenerdalii"
+        aria-label="Goto twitter"
       >
         <Icon name="ri:twitter-x-fill" class="text-xl sm:text-lg" />
       </a>
-      <a class="ml-3 text-default" href="https://greenerdalii.zcool.com.cn/">
+      <a class="ml-3 text-default" href="https://greenerdalii.zcool.com.cn/" aria-label="Goto zcool">
         <Icon name="ri:zcool-line" class="text-xl sm:text-lg" />
       </a>
       <div class="group ml-3">
         <Image src={xiaohongshu} width=600 alt="xiaohongshu" class="cursor-pointer shadow-lg absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 z-10 inset-x-0 bottom-0 mb-10 ease-in-out group-hover:ease-in-out transition-all duration-300" />
-        <a class="text-default">
+        <div class="text-default">
           <Icon name="xiaohongshu" class="text-xl sm:text-lg" />
-        </a>
+        </div>
       </div>
       
       <div class="group ml-3">
         <Image src={wechatqrcode} width=600 alt="wechatqrcode" class="cursor-pointer shadow-lg absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 z-10 inset-x-0 bottom-0 mb-10 ease-in-out group-hover:ease-in-out transition-all duration-300" />
-        <a class="text-default">
+        <div class="text-default">
           <Icon name="ri:wechat-fill" class="text-xl sm:text-lg" />
-        </a>
+        </div>
       </div>
       <a
         class="ml-3 text-default"
         href="https://github.com/green-dalii/greenerdalii.studio"
+        aria-label="Goto github"
       >
         <Icon name="ri:github-fill" class="text-xl sm:text-lg" />
       </a>
