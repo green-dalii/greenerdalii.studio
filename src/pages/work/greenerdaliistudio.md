@@ -1,12 +1,12 @@
 ---
 layout: ~/layouts/WorkPostLayout.astro
-title: "格润达理工作室品牌设计项目"
+title: "格润达理工作室"
 enTitle: "Brand Design Project of Greener-Dalii Studio"
 path: "greenerdalii_studio_"
 imageFolder: "greenerdaliistudio"
 pubDate: 2023-08-01
-description: "似懂非懂舒服的面料；史蒂夫"
-enDescription: "This is a Test blog. We're proud to be a part of creating a more open culture and to continue building a product that supports this vision."
+description: "这是我们工作室为自己设计的品牌方案，我们巧妙地将联合创始人姓氏的「H」字母融合于Greener-Dalii造型中，同时塑造出一个专业、高端、简洁的品牌形象。"
+enDescription: "This is the branding solution we created for ourselves at the studio, where we cleverly incorporated the 「H」 of the co-founder's surname into the Greener-Dalii look, while creating a professional, high-end and clean brand image."
 author: "Greener-Dalii"
 
 tags: ["design", "KV design"]

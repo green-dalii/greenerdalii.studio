@@ -26,14 +26,15 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
       <Fragment slot="content">
         <div class="grid grid-cols-5">
           <div class="col-span-full md:col-span-3 md:col-start-3">
+            <!-- capsules -->
             <div class="flex flex-wrap gap-4">
               {
                 services.map((service) => (
-                  <span class="group relative cursor-default rounded-full border border-[--color-text-offset] px-10 py-2 hover:bg-[--color-primary]">
-                    <span class="block font-normal transition-opacity duration-300 ease-in-out group-hover:opacity-0">
+                  <span class="group relative cursor-default rounded-full border border-[--color-text-offset] px-8 py-2 hover:bg-[--color-primary]">
+                    <span class="block text-xs sm:text-base font-normal transition-opacity duration-300 ease-in-out group-hover:opacity-0">
                       {service.en}
                     </span>
-                    <span class="absolute left-0 top-0 block w-full min-w-max pt-2 text-center font-normal opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
+                    <span class="absolute text-xs sm:text-base left-0 top-0 block w-full min-w-max pt-2 text-center font-normal opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
                       {service.zh}
                     </span>
                   </span>
@@ -84,14 +85,14 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
               </h5>
             </div>
             <div class="flex w-full flex-col text-left md:w-3/5">
-              <p class="mb-5 break-words leading-relaxed text-default">
+              <p class="mb-5 break-words leading-loose text-default">
                 受互联网行业SaaS范式的启发，我们推出创新的<span
                   class="inline-block font-medium">「设计订阅制」</span
                 >服务。您只需支付固定订阅费用，即可享受无限量的设计服务请求，并且可随时<span
                   class="inline-block font-medium">暂停或取消</span
                 >计划。
               </p>
-              <p class="mb-5 break-words leading-relaxed text-default">
+              <p class="mb-5 break-words leading-loose text-default">
                 它改变了传统按项目收费的方式，您无需为每个单独的设计项目支付费用，加入我们的订阅计划，就如同拥有了一个高质量的专属设计团队。无论是日常宣传素材、新产品包装设计、还是品牌升级，我们都将按您的需求精心设计，直至您满意为止。
               </p>
               <p class="mb-5 break-words leading-relaxed text-default text-sm">
@@ -235,7 +236,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
               </h5>
             </div>
             <div class="flex w-full flex-col text-left md:w-3/5">
-              <p class="break-words leading-relaxed text-default">
+              <p class="break-words lleading-loose text-default">
                 如果您与我们是初次合作，或对订阅制比较陌生，也可以采用按项目付费形式。
               </p>
               <p class="mt-5 break-words leading-relaxed text-default text-sm">
