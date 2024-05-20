@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["InterVariable", ...defaultTheme.fontFamily.sans],
+        sans: ["SF Pro SC","HanHei SC","SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","PingFang SC","Helvetica Neue","Helvetica","Arial","sans-serif",defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: "var(--color-primary)",
@@ -24,8 +24,17 @@ module.exports = {
       },
     },
   },
+  daisyui: {
+    themes: [
+      {
+        dark: {
+          "base-100": "var(--color-background)",
+        },
+      },
+    ],
+  },
   corePlugins: {
     fontSize: false,
   },
-  plugins: [require("tailwindcss-fluid-type")],
+  plugins: [require("tailwindcss-fluid-type"), require("daisyui"), require('@tailwindcss/typography')],
 };

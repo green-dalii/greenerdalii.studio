@@ -18,13 +18,24 @@ export interface FooterLink {
 
 export interface NavItem {
   title: string;
+  titleZh: string;
   url: string;
 }
 
 export interface ShowcaseSite {
   title: string;
+  titleEN: string;
   image: ImageMetadata;
   url: string;
+  industry: string;
+  client: string;
+  year: string;
+}
+
+export interface WorkImage {
+  title: string;
+  imagePath: ImageMetadata;
+  alt: string;
 }
 
 export interface InsightSite {
@@ -32,4 +43,10 @@ export interface InsightSite {
   describe: string;
   image: string;
   url: string;
+}
+
+export interface MemberInfo {
+  name: string;
+  occupation: string;
+  image: ImageMetadata;
 }

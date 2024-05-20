@@ -17,12 +17,12 @@ const sites = await getShowcase();
   </Fragment>
   <Fragment slot="content">
     <div class="max-w-7xl space-y-2">
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {sites.map((site) => <ShowcaseCard site={site} />)}
       </div>
     </div>
     <div class="mt-10 text-center">
-      <Btn btnText="More" url="/work"></Btn>
+      <Btn btnText="See More 👀" btnAltText="看看更多 👀" url="/work"></Btn>
     </div>
   </Fragment>
 </ContentSection>

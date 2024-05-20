@@ -1,31 +1,16 @@
 ---
-import "@fontsource/inter/variable.css";
-import Head from "~/components/in-head.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/header-fixed.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "~/components/content-section.astro";
-import "../styles/index.css";
+import Btn from "../components/button.astro";
 ---
 
-<!DOCTYPE html>
-<html lang="zh-CN" class="h-full motion-safe:scroll-smooth" data-theme="dark">
-  <head>
-    <Head />
-  </head>
-  <body
-    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-primary selection:text-white"
-  >
-    <Header />
-    <div class="mt-10 sm:py-32">
-      <ContentSection title="Oops!" subtitle="404" id="404">
-        <Fragment slot="description">
-          你好像迷路啦...
-        </Fragment>
-        <Fragment slot="content">
-          About
-        </Fragment>
-      </ContentSection>
+<BaseLayout>
+  <div class="mt-10 sm:py-32">
+    <ContentSection title="Oops!" subtitle="404" id="404">
+      <Fragment slot="description">你好像迷路啦...</Fragment>
+    </ContentSection>
+    <div class="mt-10 text-center">
+      <Btn btnText="← Go Back" btnAltText="← 返回" url="/" />
     </div>
-    <Footer />
-  </body>
-</html>
+  </div>
+</BaseLayout>

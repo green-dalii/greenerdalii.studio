@@ -1,41 +1,83 @@
 ---
-import NavContent from "./nav-content.astro";
+import { Icon } from "astro-icon/components";
+import ThemeSwitcher from "./theme-switcher.astro";
+import { navItems } from '~/data/data';
 ---
 
-<NavContent />
-<script>
-  import MicroModal from "micromodal";
-  import invariant from "tiny-invariant";
+<header
+  id="page-header"
+  class="absolute fixed-header z-20 flex w-full items-center justify-between border-b border-transparent px-6 py-4 text-white"
+>
+  <a class="flex items-center gap-3 hover:text-primary" href="/">
+    <h1 class="sr-only">Greener-Dalii Studio</h1>
+    <Icon name="logomark" class="text-3xl" />
+    <Icon name="wordmark" class="hidden text-xl sm:block" />
+  </a>
+  <div>
+    <div class="flex items-center gap-6">
+      <nav class="hidden sm:block">
+        <ul class="flex items-center gap-6 pr-4">
+          {
+            navItems.map(({ title, titleZh, url }) => (
+              <li class="group">
+                <a class="hover:underline2 text-sm relative inline-block transition-colors duration-300 hover:text-primary" href={url}>
+                  <span class="block transition-opacity duration-300 ease-in-out group-hover:opacity-0">
+                    {title}
+                  </span>
+                  <span class="absolute pt-0.5 left-0 top-0 min-w-max block w-full opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 text-center text-xs">
+                    {titleZh}
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <div id="dropmenu" class="dropdown dropdown-end sm:hidden">
+        <div
+          id="open-nav-button"
+          tabindex="0"
+          role="button"
+          class="btn btn-ghost rounded-btn"
+          aria-label="menu-button"
+        >
+          <Icon name="mdi:menu" class="text-xl" />
+        </div>
+        <ul
+          tabindex="0"
+          class="menu dropdown-content z-[1] mt-4 w-40 rounded-box p-2 text-default shadow-xl"
+        >
+          {
+            navItems.map(({ title, url }) => (
+              <li>
+                <a class="block py-1 text-right text-xs" href={url}>
+                  {title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <ThemeSwitcher />
+    </div>
+  </div>
+</header>
 
-  const menuModalId = "menu-modal";
-
-  const header = document.querySelector("#page-header") as HTMLElement;
-  const menu = document.querySelector(`#${menuModalId} ul`);
-  const openNavButton = document.querySelector("#open-nav-button");
-  const closeNavButton = document.querySelector("#close-nav-button");
-
-  invariant(header, "header should not be null");
-  invariant(menu, "menu should not be null");
-  invariant(openNavButton, "openNavButton should not be null");
-  invariant(closeNavButton, "closeNavButton should not be null");
-
-  const openMenu = () => {
-    MicroModal.show(menuModalId, { disableScroll: true });
-  };
-
-  const closeMenu = () => {
-    MicroModal.close(menuModalId);
-  };
-
-  openNavButton.addEventListener("click", openMenu);
-  closeNavButton.addEventListener("click", closeMenu);
-
-  header.classList.add("fixed-header")
-
-  menu.addEventListener("click", (event) => {
-    if ((event.target as HTMLElement).tagName === "A") {
-      closeMenu();
+<noscript>
+  <style>
+    #open-nav-button {
+      display: none;
     }
-  });
-</script>
+  </style>
+</noscript>
+
+<style>
+  .fixed-header {
+    @apply fixed bottom-auto top-0;
+    @apply border-default bg-default text-default;
+  }
+  .modal.is-open {
+    @apply block;
+  }
+</style>
 

@@ -1,60 +1,40 @@
 ---
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon";
-import logoDot from "../assets/logo_dot.png";
-// import HeroImage from "../components/hero-image.astro";
-import Starfield from "../components/starfield.astro";
+import bgVideo from "/videos/logo.mp4";
+import logoDot from "../assets/logodot.png";
 
-const widths = [450, 800];
-const sizes = "(min-width: 640px) 42vw, 67vw";
+const videoProps = {
+  playsInline: true,
+  autoPlay: true,
+  muted: true,
+  loop: true,
+};
 ---
 
-<section class="relative h-full bg-black">
-  <!-- <Starfield /> -->
-  <!-- <GitHubCorner /> -->
-  <!-- <div id="splash-bg-fallback" class="absolute inset-0 hidden opacity-40">
-    <HeroImage />
-  </div> -->
-  <div class="flex h-screen flex-col items-center justify-center">
-    <!-- Splash Text & Pic -->
-    <div class="relative grid h-full place-items-center sm:grid-cols-2">
-      <h2
-        class="flex flex-col gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
-      >
-        <!-- <Icon name="logomark" class="h-24 text-white md:h-32" /> -->
-        <div
-          class="text-center font-extrabold tracking-tighter text-white text-8xl"
-        >
-          Bring Brand Desgin
-          <br />To Everyone
-        </div>
-        <div
-          class="text-center font-extrabold tracking-tighter text-white text-3xl"
-        >
-          敬请期待...
-        </div>
-      </h2>
-      <div
-        class="mx-auto mt-8 w-2/3 max-w-3xl self-start sm:mt-0 sm:w-3/4 sm:self-auto sm:justify-self-start"
-      >
-        <Image
-          id="splashLogo"
-          class="h-full w-full object-cover"
-          src={logoDot}
-          width="600"
-          height="600"
-          loading="eager"
-          alt="A floating Greener-Dalii Studio's logo dot edition"
-        />
-      </div>
-    </div>
-    <!-- Arrow-Down -->
-    <!-- <div
-      id="arrow-down"
-      class="z-10 mb-20 h-16 w-16 animate-bounce border-current p-3 text-white"
-    >
-      <Icon name="ic:baseline-keyboard-double-arrow-down" />
-    </div> -->
+<section
+  class="max-w-screen relative grid h-full place-content-center justify-items-center bg-black"
+>
+  <video
+    class="hidden w-screen object-cover sm:flex"
+    {...videoProps}
+  >
+    <source src={bgVideo} type="video/mp4" />
+  </video>
+  <Image
+    id="splashLogo"
+    class="h-full w-full animate-pulse ease-in-out object-cover sm:hidden"
+    src={logoDot}
+    width="600"
+    height="600"
+    loading="eager"
+    alt="A floating Greener-Dalii Studio's logo dot edition"
+  />
+  <div
+    id="arrow-down"
+    class="absolute bottom-2 z-10 mt-40 h-6 animate-bounce border-current text-white sm:hidden"
+  >
+    <Icon name="ic:baseline-keyboard-double-arrow-down" />
   </div>
 </section>
 
@@ -65,82 +45,3 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
     }
   </style>
 </noscript>
-
-<style>
-  @keyframes float {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-
-    100% {
-      transform: translate3d(0, 20px, 0);
-    }
-  }
-
-  @keyframes rotateAndPause {
-    0% {
-      transform: rotate(0deg);
-      animation-timing-function: ease-in-out;
-    }
-    12.5% {
-      transform: rotate(90deg);
-      animation-timing-function: ease-in-out;
-      animation-delay: 0.25s;
-    }
-    25% {
-      transform: rotate(90deg);
-      animation-timing-function: ease-in-out;
-      animation-delay: 0.25s;
-    }
-    37.5% {
-      transform: rotate(180deg);
-      animation-timing-function: ease-in-out;
-      animation-delay: 0.25s;
-    }
-    50% {
-      transform: rotate(180deg);
-      animation-timing-function: ease-in-out;
-      animation-delay: 0.25s;
-    }
-    62.5% {
-      transform: rotate(270deg);
-      animation-timing-function: ease-in-out;
-      animation-delay: 0.25s;
-    }
-    75% {
-      transform: rotate(270deg);
-      animation-timing-function: ease-in-out;
-      animation-delay: 0.25s;
-    }
-    87.5% {
-      transform: rotate(360deg);
-      animation-timing-function: ease-in-out;
-      animation-delay: 0.25s;
-    }
-    100% {
-      transform: rotate(360deg);
-      animation-timing-function: ease-in-out;
-      animation-delay: 0.25s;
-    }
-  }
-
-  #splashLogo {
-    animation: rotateAndPause 6s infinite;
-  }
-
-  #arrow-down {
-  }
-  @media (prefers-reduced-motion: reduce) {
-    #splashLogo {
-      @apply animate-none;
-    }
-
-    :global(#starfield) {
-      @apply hidden;
-    }
-
-    #splash-bg-fallback {
-      @apply block;
-    }
-  }
-</style>

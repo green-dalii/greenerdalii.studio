@@ -1,0 +1,80 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Breadcrumbs from "~/components/breadcrumbs.astro";
+import "@fontsource/inter/variable.css";
+import { Image } from "astro:assets";
+import ContentSection from "../components/content-section.astro";
+import Btn from "../components/button.astro";
+// import { Debug } from 'astro:components';
+const { frontmatter } = Astro.props;
+const urlList = Astro.url.pathname.split("/").filter(Boolean);
+// 此处待优化，当图片多时获取`allMedias`会影响性能
+const allMedias = await Astro.glob(`/src/data/work/*/*.{jpeg,jpg,png,gif,mp4}`);
+const medias = allMedias.reduce((acc, media) => {
+  const mediaPath = typeof media.default === 'string' ? media.default : media.default.src;
+  if (mediaPath.includes(`${frontmatter.path}`)) {
+    acc.push(media);
+  }
+  return acc;
+}, []);
+
+const videoProps = {
+  playsInline: true, 
+  autoPlay: true,
+  muted: true,
+  loop: true  
+}
+---
+<BaseLayout>
+  <div class="mt-20 sm:pb-32">
+    <Breadcrumbs urlList={urlList} isTitle={frontmatter.title}/>
+    <ContentSection
+      title={frontmatter.title}
+      subtitle={frontmatter.enTitle}
+      id="project"
+    >
+      <Fragment slot="description">
+        {frontmatter.description}
+      </Fragment>
+      <Fragment slot="description-below">
+        {frontmatter.enDescription}
+      </Fragment>
+      <Fragment slot="content">
+        <div class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8">
+          <div class="w-full max-w-7xl space-y-2">
+            <div>
+              {medias.map((media) => {
+                const ext = typeof media.default === 'string' ? media.default.split('.').pop() : media.default.format;
+                let mediaComponent;
+            
+                if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) {
+                  mediaComponent = (
+                    <Image
+                      src={media.default}
+                      widths={[800, 1000, 2000]}
+                      sizes={`(max-width: 640px) 800px, (max-width: 768px) 1000px, 2000px`}
+                      alt={media.default.src.split('/').pop()}
+                      quality="(min-width: 640px) low, high"
+                    />
+                  );
+                } else if (ext === 'mp4') {
+                  mediaComponent = (
+                    <video class="w-full" {...videoProps}>
+                      <source src={typeof media.default === 'string' ? media.default : media.default.src} type="video/mp4" />
+                    </video>
+                  );
+                }
+            
+                return mediaComponent;
+              })}
+            </div>
+          </div>
+        </div>
+        <div class="mt-10 text-center">
+          <Btn btnText="← Go Back" btnAltText="← 返回" url="/work"></Btn>
+        </div>
+      </Fragment>
+    </ContentSection>
+  </div>
+</BaseLayout>
+

@@ -1,27 +1,43 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ContentSection from "~/components/content-section.astro";
+import BlogCard from "~/components/blog-card.astro";
+import Btn from "~/components/button.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-    const allPosts = await Astro.glob("../*.md");
-    const uniqueTags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
-    return uniqueTags.map((tag) => {
-        const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag));
-        return {
-            params: {tag},
-            props: {posts: filteredPosts},
-        };
-    });
+  // const allPosts = await Astro.glob("../*.md");
+  const allPosts = await getCollection("insight");
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+  ];
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.includes(tag)
+    );
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
 }
 
-const {tag} = Astro.params;
-const {posts} = Astro.props;
+const { tag } = Astro.params;
+const { posts } = Astro.props;
 ---
 
 <BaseLayout>
-    <div class="space-y-24 px-8 py-32">
-        <p>Posts tagged with {tag}</p>
-    </div>
-    <ul>
-        {posts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
-    </ul>
+  <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
+    <ContentSection title="品牌洞察" subtitle="Our Insights" id="insight">
+      <Fragment slot="description">
+        <p>标签为： {tag} 的所有文章</p>
+      </Fragment>
+      <Fragment slot="content">
+        <BlogCard allPosts={posts} />
+        <div class="mt-20 text-center">
+          <Btn btnText="← Go Back" btnAltText="← 返回" url="/insight"></Btn>
+        </div>
+      </Fragment>
+    </ContentSection>
+  </div>
 </BaseLayout>

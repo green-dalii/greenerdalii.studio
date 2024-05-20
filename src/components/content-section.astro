@@ -8,14 +8,14 @@ export interface Props {
 const { id, title, subtitle} = Astro.props;
 ---
 
-<section id={id} class="mx-auto max-w-7xl pt-0 sm:py-30 px-8 ">
+<section id={id} class="mx-auto max-w-7xl pt-0 sm:py-30 px-6 sm:px-2">
   <div class="container sm:px-5 pt-32 sm:pt-24 mx-auto flex flex-wrap flex-col sm:flex-row">
     <div class="flex flex-col mb-2 md:w-2/5">
-      <h2 class="text-3xl font-medium title-font text-center sm:text-left">{title}</h2>
-      <h4 class="sm:text-xl text-lg text-center sm:text-left mb-5 sm:mb-0">{subtitle}</h4>
+      <h2 class="text-3xl font-medium title-font text-left">{title}</h2>
+      <h3 class="sm:text-xl font-normal text-lg text-left mb-5 sm:mb-0">{subtitle}</h4>
     </div>
     <div class="w-full md:w-3/5 flex flex-col text-left">
-      <p class="leading-relaxed text-default break-words">
+      <p class="leading-loose text-default break-words">
         <slot name="description"/>
       </p>
       <p class="leading-relaxed mt-5 text-sm text-default break-words">
@@ -23,7 +23,7 @@ const { id, title, subtitle} = Astro.props;
       </p>
     </div>
   </div>
-  <div class="container px-0 sm:px-5 pt-5 sm:py-24 mx-auto">
+  <div class="container px-0 sm:px-5 py-12 sm:py-24 mx-auto">
     <slot name="content" />
   </div>
 </section>

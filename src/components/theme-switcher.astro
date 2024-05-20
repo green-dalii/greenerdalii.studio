@@ -1,5 +1,6 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
+// const isIndex = Astro.url.pathname === "/"
 ---
 
 <!--
@@ -12,49 +13,81 @@ import { Icon } from "astro-icon";
   class="-ml-14 origin-[right_center] scale-0 transition-all duration-500"
 >
   <div id="icon-theme-light">
-    <Icon name="theme/light" class="h-8" />
+    <Icon name="ri:sun-line" class="text-base" />
     <span class="sr-only">Use light theme</span>
   </div>
   <div id="icon-theme-dark" class="hidden">
-    <Icon name="theme/dark" class="h-8" />
+    <Icon name="ri:contrast-2-fill" class="text-base" />
     <span class="sr-only">Use dark theme</span>
   </div>
 </button>
 
 <script>
   import invariant from "tiny-invariant";
+  document.addEventListener("astro:page-load", () => {
+    const themes = ["dark", "light"];
+    const button = document.querySelector("#theme-switcher");
+    invariant(button, "button should not be null");
 
-  const themes = ["light", "dark"];
-  const button = document.querySelector("#theme-switcher");
-  invariant(button, "button should not be null");
+    const getThemeCurrent = () => document.documentElement.dataset.theme;
+    const getThemeNext = () => {
+      const themeCurrent = getThemeCurrent();
+      invariant(themeCurrent, "themeCurrent should not be undefined");
+      const indexThemeCurrent = themes.indexOf(themeCurrent);
+      return themes[(indexThemeCurrent + 1) % themes.length];
+    };
 
-  const getThemeCurrent = () => document.documentElement.dataset.theme;
-  const getThemeNext = () => {
-    const themeCurrent = getThemeCurrent();
-    invariant(themeCurrent, "themeCurrent should not be undefined");
-    const indexThemeCurrent = themes.indexOf(themeCurrent);
-    return themes[(indexThemeCurrent + 1) % themes.length];
-  };
+    const updateIcon = () => {
+      const themeCurrent = getThemeCurrent();
+      document
+        .querySelector(`#icon-theme-${themeCurrent}`)
+        ?.classList.add("hidden");
+      const themeNext = getThemeNext();
+      document
+        .querySelector(`#icon-theme-${themeNext}`)
+        ?.classList.remove("hidden");
+    };
 
-  const updateIcon = () => {
-    const themeCurrent = getThemeCurrent();
-    document
-      .querySelector(`#icon-theme-${themeCurrent}`)
-      ?.classList.add("hidden");
-    const themeNext = getThemeNext();
-    document
-      .querySelector(`#icon-theme-${themeNext}`)
-      ?.classList.remove("hidden");
-  };
+    button.addEventListener("click", () => {
+      const themeNext = getThemeNext();
+      document.documentElement.dataset.theme = themeNext;
+      localStorage.setItem("theme", themeNext);
+      updateIcon();
+    });
 
-  button.addEventListener("click", () => {
-    const themeNext = getThemeNext();
-    document.documentElement.dataset.theme = themeNext;
-    localStorage.setItem("theme", themeNext);
     updateIcon();
   });
+</script>
 
-  updateIcon();
+<script>
+  import invariant from "tiny-invariant";
+  document.addEventListener("astro:after-swap", () => {
+    const theme = localStorage.getItem("theme");
+    const themes = ["light", "dark"];
+    const button = document.querySelector("#theme-switcher");
+    const getThemeCurrent = () => document.documentElement.dataset.theme;
+    const getThemeNext = () => {
+      const themeCurrent = getThemeCurrent();
+      invariant(themeCurrent, "themeCurrent should not be undefined");
+      const indexThemeCurrent = themes.indexOf(themeCurrent);
+      return themes[(indexThemeCurrent + 1) % themes.length];
+    };
+
+    const updateIcon = () => {
+      const themeCurrent = getThemeCurrent();
+      document
+        .querySelector(`#icon-theme-${themeCurrent}`)
+        ?.classList.add("hidden");
+      const themeNext = getThemeNext();
+      document
+        .querySelector(`#icon-theme-${themeNext}`)
+        ?.classList.remove("hidden");
+    };
+    if (theme) {
+      document.documentElement.dataset.theme = theme;
+      updateIcon();
+    }
+  });
 </script>
 
 <style>

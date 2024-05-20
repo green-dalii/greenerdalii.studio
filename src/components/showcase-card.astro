@@ -12,23 +12,26 @@ const widths = [450, 800];
 const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
 ---
 
-<a class="group aspect-video hover:!text-default" href={site.url}>
-  <figure class="relative h-full w-full overflow-hidden rounded-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
+<a class="group aspect-video text-white hover:text-white" href={site.url}>
+  <figure class="relative h-full w-full overflow-hidden rounded-md transition-all duration-300 group-hover:shadow-md">
     <Image
-      class="object-cover w-full h-full transition-all duration-300 bg-cover group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
+      class="h-full w-full bg-cover object-cover transition-all duration-300 group-hover:blur-md group-hover:scale-125 group-focus:scale-105 group-focus:blur-sm"
       src={site.image}
-      width=800
+      width="1000"
       sizes={sizes}
       alt={`A screenshot of ${site.url}`}
     />
-    <figcaption class="absolute inset-0">
+    <figcaption class="absolute inset-0 transition-all duration-300 group-hover:bg-black/20">
       <div
         class="flex h-full flex-col items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100"
       >
-        <h3 class="text-center font-extrabold uppercase text-xl">
+        <h3 class="text-center font-extrabold uppercase text-base sm:text-lg">
           {site.title}
         </h3>
-        <p class="border border-current px-4 py-2">{site.url}</p>
+        <h4 class="text-center font-extrabold uppercase text-xs">
+          {site.titleEN}
+        </h4>
+        <p class="border border-current text-xs px-2 py-1 sm:px-4 sm:py-2">{site.industry}</p>
       </div>
     </figcaption>
   </figure>

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Greener",
+    "occupation": "Creative Director | 创意总监",
+    "image": "./photos/greener.png"
+  },
+  {
+    "name": "Wandi",
+    "occupation": "Operations Director | 运营总监",
+    "image": "./photos/wandi.png"
+  }
+]

@@ -1,11 +1,9 @@
 ---
 import "@fontsource/inter/variable.css";
-// import Compatibility from "../components/compatibility.astro";
-// import Features from "../components/features.astro";
+import { ViewTransitions } from "astro:transitions";
 import Head from "~/components/in-head.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/header.astro";
-// import Intro from "../components/intro.astro";
 import Showcase from "../components/showcase.astro";
 import Splash from "../components/splash.astro";
 import Service from "~/components/service.astro";
@@ -13,19 +11,23 @@ import Clinet from "~/components/clinet.astro";
 import Insight from "~/components/insight.astro";
 import Contact from "~/components/contact.astro";
 import "../styles/index.css";
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+<html lang={lang} class="h-full motion-safe:scroll-smooth" data-theme="dark">
   <head>
     <Head />
+    <ViewTransitions />
   </head>
   <body
-    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-primary selection:text-white"
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
   >
     <Header />
     <Splash />
-    <!-- <div class="py-0 sm:py-32">
+    <div class="py-0 sm:py-32">
       <Showcase />
       <Service />
       <Clinet />

@@ -3,17 +3,22 @@ import ContentSection from "./content-section.astro";
 import Btn from "./button.astro";
 ---
 
-<ContentSection title="期待一起合作" subtitle="Let's work together" id="Contact">
+<ContentSection
+  title="期待一起合作"
+  subtitle="Let's work together"
+  id="Contact"
+>
   <Fragment slot="description">
-    我们是一家新锐的品牌设计工作室，致力于通过创意与技术来融合商业性、艺术性和理性构思，帮助合作伙伴传达品牌价值，增强客户与品牌的情感链接。
+    如果您正在寻求与众不同的品牌设计方案，欢迎随时与我们取得联系。无论您有任何关于品牌设计的需求或问题，我们都乐意倾听并为您提供专业的咨询服务。
   </Fragment>
   <Fragment slot="description-below">
-    We are an emerging brand design studio dedicated to fusing commercial sensibilities, artistic expression and rational ideation through creativity and technology.
-    <br>Our goal is to help partners convey brand values and strengthen emotional connections between customers and brands.
+    If you're seeking unique branding solutions, feel free to reach out to us
+    anytime. Whatever your requirements or queries about branding design, we are
+    eager to listen and provide professional consultation services.
   </Fragment>
   <Fragment slot="content">
     <div class="mt-10 text-center">
-      <Btn btnText="Contact Us" url="/contact"></Btn>
+      <Btn btnText="Contact Us 👋" btnAltText="联系我们 👋" url="/contact" />
     </div>
   </Fragment>
 </ContentSection>

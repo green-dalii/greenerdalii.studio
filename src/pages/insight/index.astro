@@ -1,42 +1,37 @@
 ---
-import "@fontsource/inter/variable.css";
-import Head from "~/components/in-head.astro";
-import Footer from "~/components/Footer.astro";
-import Header from "~/components/header-fixed.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import Breadcrumbs from "~/components/breadcrumbs.astro";
 import ContentSection from "~/components/content-section.astro";
-const allPosts = await Astro.glob("./*.md");
-import "~/styles/index.css";
+import BlogCard from "~/components/blog-card.astro";
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("insight");
+// 按日期倒序排序
+allPosts.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate).getTime();
+  const dateB = new Date(b.data.pubDate).getTime();
+  return dateB - dateA;
+});
+// const allPosts = await Astro.glob("./*.md");
+const urlList = Astro.url.pathname.split("/").filter(Boolean);
 ---
 
-<!DOCTYPE html>
-<html lang="zh-CN" class="h-full motion-safe:scroll-smooth" data-theme="dark">
-  <head>
-    <Head />
-  </head>
-  <body
-    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-primary selection:text-white"
-  >
-    <Header />
-    <div class="mt-10 sm:py-32">
-      <ContentSection title="品牌洞察" subtitle="Our Insights" id="insight">
-        <Fragment slot="description">
-          我们是一家新锐的品牌设计工作室，致力于通过创意与技术来融合商业性、艺术性和理性构思，帮助合作伙伴传达品牌价值，增强客户与品牌的情感链接。
-        </Fragment>
-        <Fragment slot="content">
-          <div class="">
-            <ul>
-              {
-                allPosts.map((post) => (
-                  <li>
-                    <a href={post.url}>{post.frontmatter.title}</a>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-        </Fragment>
-      </ContentSection>
-    </div>
-    <Footer />
-  </body>
-</html>
+<BaseLayout>
+  <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
+    <Breadcrumbs urlList={urlList} />
+    <ContentSection title="品牌洞察" subtitle="Our Insights" id="insight">
+      <Fragment slot="description">
+        Greener-Dalii
+        Studio深入研究市场趋势，精准剖析消费者心理，分享独到的品牌见解和前沿设计思考。跟随我们的视角，一起探索品牌生命力的源泉与无限可能性。
+      </Fragment>
+      <Fragment slot="description-below">
+        Greener-Dalii Studio delves deeply into market trends, meticulously
+        dissects consumer psychology, and shares profound brand perspectives and
+        cutting-edge design philosophies. Join us on a journey to explore the
+        wellspring of brand vitality and endless possibilities.
+      </Fragment>
+      <Fragment slot="content">
+        <BlogCard allPosts={allPosts}></BlogCard>
+      </Fragment>
+    </ContentSection>
+  </div>
+</BaseLayout>
