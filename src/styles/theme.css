@@ -1,5 +1,5 @@
 [data-theme="light"] {
-  --color-primary: theme("colors.emerald.400");
+  --color-primary: theme("colors.emerald.300");
   --color-secondary: theme("colors.zinc.900");
   --color-text: theme("colors.zinc.800");
   --color-text-offset: theme("colors.zinc.600");
@@ -17,5 +17,5 @@
   --color-background: theme("colors.zinc.900");
   --color-background-offset: theme("colors.zinc.800");
   --color-border: theme("colors.zinc.50" / 10%);
-  --color-opacity-background: theme("colors.black" / 70%)
+  --color-opacity-background: theme("colors.zinc.950" / 70%)
 }

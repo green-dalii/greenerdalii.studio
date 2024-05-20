@@ -15,7 +15,7 @@ async function loadMember(): Promise<Array<MemberInfo>> {
     memberInfo.map(async (member) => {
       if (!(member.image in allImages)) {
         console.error(
-          `Image for "${member.title}" not found (provided: "${member.image}")`
+          `Image for "${member.name}" not found (provided: "${member.image}")`
         );
       }
 

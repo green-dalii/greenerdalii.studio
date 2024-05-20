@@ -2,6 +2,9 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "~/components/content-section.astro";
 import Breadcrumbs from "~/components/breadcrumbs.astro";
+import { Icon } from "astro-icon/components";
+import services from "~/data/service/services.json";
+import Btn from "~/components/button.astro";
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
 ---
 
@@ -20,7 +23,448 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
         Greener-Dalii Studio, we leverage sharp insights and deep expertise to
         forge distinctive and enduring brand impressions.
       </Fragment>
-      <Fragment slot="content">About</Fragment>
+      <Fragment slot="content">
+        <div class="grid grid-cols-5">
+          <div class="col-span-full md:col-span-3 md:col-start-3">
+            <div class="flex flex-wrap gap-4">
+              {
+                services.map((service) => (
+                  <span class="group relative cursor-default rounded-full border border-[--color-text-offset] px-10 py-2 hover:bg-[--color-primary]">
+                    <span class="block font-normal transition-opacity duration-300 ease-in-out group-hover:opacity-0">
+                      {service.en}
+                    </span>
+                    <span class="absolute left-0 top-0 block w-full min-w-max pt-2 text-center font-normal opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100">
+                      {service.zh}
+                    </span>
+                  </span>
+                ))
+              }
+            </div>
+            <div class="flex flex-col py-20">
+              <div class="font-normal text-lg">我们提供两种服务模式 🎉</div>
+              <div class="font-light text-sm">We offer two service models</div>
+              <div class="flex flex-wrap gap-4 pt-8 sm:gap-x-8">
+                <div class="indicator w-full sm:w-auto">
+                  <span
+                    class="badge indicator-item badge-sm bg-[--color-primary]"
+                    >推荐</span
+                  >
+                  <Btn
+                    btnText="设计订阅制"
+                    btnAltText="Subscription"
+                    url="#subscription"
+                    cls="px-6"
+                  />
+                </div>
+                <Btn
+                  btnText="按项目付费制"
+                  btnAltText="Pay-Per-Project"
+                  url="#pay-per-project"
+                  cls="px-6"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- subscription -->
+        <section id="subscription">
+          <div
+            class="mx-auto flex flex-col flex-wrap pt-32 sm:flex-row sm:pt-24"
+          >
+            <div class="mb-2 flex flex-col md:w-2/5">
+              <h4 class="title-font text-left font-normal text-2xl">
+                设计订阅制<span class="badge badge-lg bg-[--color-primary]"
+                  >推荐！</span
+                >
+              </h4>
+              <h5
+                class="mb-5 text-left font-normal text-base sm:mb-0 sm:text-lg"
+              >
+                Design Subscription Plan
+              </h5>
+            </div>
+            <div class="flex w-full flex-col text-left md:w-3/5">
+              <p class="mb-5 break-words leading-relaxed text-default">
+                受互联网行业SaaS范式的启发，我们推出创新的<span
+                  class="inline-block font-medium">「设计订阅制」</span
+                >服务。您只需支付固定订阅费用，即可享受无限量的设计服务请求，并且可随时<span
+                  class="inline-block font-medium">暂停或取消</span
+                >计划。
+              </p>
+              <p class="mb-5 break-words leading-relaxed text-default">
+                它改变了传统按项目收费的方式，您无需为每个单独的设计项目支付费用，加入我们的订阅计划，就如同拥有了一个高质量的专属设计团队。无论是日常宣传素材、新产品包装设计、还是品牌升级，我们都将按您的需求精心设计，直至您满意为止。
+              </p>
+              <p class="mb-5 break-words leading-relaxed text-default text-sm">
+                Inspired by SaaS, we've created the <span
+                  class="inline-block font-medium">Design Subscription</span
+                >. One flat fee unlocks unlimited design tasks, pause or cancel
+                anytime.
+              </p>
+              <p class="mb-5 break-words leading-relaxed text-default text-sm">
+                No more per-project costs. Subscribe and have a top-notch design
+                team at your fingertips. We'll meticulously craft every
+                request—from daily ads to product packaging and brand
+                evolution—until it meets your satisfaction.
+              </p>
+            </div>
+          </div>
+          <div class="mx-auto py-12 sm:py-24">
+            <div class="grid grid-cols-5">
+              <div class="col-span-full md:col-span-3 md:col-start-3">
+                <div
+                  class="grid grid-cols-2 content-around justify-stretch justify-items-stretch gap-4 pb-12 sm:grid-cols-3 sm:gap-8"
+                >
+                  <div
+                    class="group flex flex-col items-center gap-4 rounded-lg bg-[--color-background-offset] px-4 py-8"
+                  >
+                    <Icon
+                      name="service/fixed"
+                      class="text-[--color-text] transition-all text-5xl group-hover:scale-110"
+                    />
+                    <div class="text-center text-xs">
+                      固定费率<br />成本可控，预算友好<br />Fixed fee, Easy
+                      budgeting
+                    </div>
+                  </div>
+                  <div
+                    class="group flex flex-col items-center gap-4 rounded-lg bg-[--color-background-offset] px-4 py-8"
+                  >
+                    <Icon
+                      name="service/brilliant"
+                      class="transition-all text-5xl group-hover:scale-110"
+                    />
+                    <div class="text-center text-xs">
+                      高品质设计，专业审美<br />确保视觉一致性<br />Premium
+                      designs, Cohesive visuals
+                    </div>
+                  </div>
+                  <div
+                    class="group flex flex-col items-center gap-4 rounded-lg bg-[--color-background-offset] px-4 py-8"
+                  >
+                    <Icon
+                      name="service/pause"
+                      class="transition-all text-5xl group-hover:scale-110"
+                    />
+                    <div class="text-center text-xs">
+                      灵活高效<br />随时暂停，节省支出<br />Pause anytime, Save
+                      costs
+                    </div>
+                  </div>
+                  <div
+                    class="group flex flex-col items-center gap-4 rounded-lg bg-[--color-background-offset] px-4 py-8"
+                  >
+                    <Icon
+                      name="service/queue"
+                      class="transition-all text-5xl group-hover:scale-110"
+                    />
+                    <div class="text-center text-xs">
+                      队列流程管理<br />订阅期设计请求不限量<br />Unlimited
+                      requests via queue
+                    </div>
+                  </div>
+                  <div
+                    class="group flex flex-col items-center gap-4 rounded-lg bg-[--color-background-offset] px-4 py-8"
+                  >
+                    <Icon
+                      name="service/fast"
+                      class="transition-all text-5xl group-hover:scale-110"
+                    />
+                    <div class="text-center text-xs">
+                      敏捷设计，快速交付<br />Rapid design, Quick delivery
+                    </div>
+                  </div>
+                  <div
+                    class="group flex flex-col items-center gap-4 rounded-lg bg-[--color-background-offset] px-4 py-8"
+                  >
+                    <Icon
+                      name="service/satisfy"
+                      class="transition-all text-5xl group-hover:scale-110"
+                    />
+                    <div class="text-center text-xs">
+                      修改至100%满意<br />Tweaks until fully satisfied
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-8 py-12">
+                  <div class="flex flex-row flex-wrap justify-between gap-4">
+                    <div class="flex flex-col">
+                      <div class="font-normal text-lg">还有一些问题？</div>
+                      <div class="font-light text-sm">Any questions?</div>
+                    </div>
+                    <Btn
+                      btnText="看看这里 👀"
+                      btnAltText="Look Here 👀"
+                      url="#faq"
+                      cls="px-6"
+                    />
+                  </div>
+                  <div class="flex flex-row flex-wrap justify-between gap-4">
+                    <div class="flex flex-col">
+                      <div class="font-normal text-lg">
+                        联系我们开始订阅服务 📃
+                      </div>
+                      <div class="font-light text-sm">
+                        Contact us to start subscribing
+                      </div>
+                    </div>
+                    <Btn
+                      btnText="联系我们 👋"
+                      btnAltText="Contact Us 👋"
+                      url="/contact"
+                      cls="px-6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- PPP -->
+        <section id="pay-per-project">
+          <div
+            class="mx-auto flex flex-col flex-wrap pt-32 sm:flex-row sm:pt-24"
+          >
+            <div class="mb-2 flex flex-col md:w-2/5">
+              <h4 class="title-font text-left font-normal text-2xl">
+                按项目付费制
+              </h4>
+              <h5
+                class="mb-5 text-left font-normal text-base sm:mb-0 sm:text-lg"
+              >
+                Pay-Per-Project Plan
+              </h5>
+            </div>
+            <div class="flex w-full flex-col text-left md:w-3/5">
+              <p class="break-words leading-relaxed text-default">
+                如果您与我们是初次合作，或对订阅制比较陌生，也可以采用按项目付费形式。
+              </p>
+              <p class="mt-5 break-words leading-relaxed text-default text-sm">
+                If you're working with us for the first time, or are new to the
+                subscription system, a pay-per-project format is also available.
+              </p>
+            </div>
+          </div>
+          <div class="mx-auto py-12 sm:py-24">
+            <div class="grid grid-cols-5">
+              <div class="col-span-full md:col-span-3 md:col-start-3">
+                <div class="flex flex-row flex-wrap justify-between gap-4">
+                  <div class="flex flex-col">
+                    <div class="font-normal text-lg">
+                      联系我们获取项目报价单 📃
+                    </div>
+                    <div class="font-light text-sm">
+                      Contact us for the project quotation
+                    </div>
+                  </div>
+                  <Btn
+                    btnText="联系我们 👋"
+                    btnAltText="Contact Us 👋"
+                    url="/contact"
+                    cls="px-6"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- FAQs -->
+        <section id="faq">
+          <div
+            class="mx-auto flex flex-col flex-wrap pt-32 sm:flex-row sm:pt-24"
+          >
+            <div class="mb-2 flex flex-col md:w-2/5">
+              <h4 class="title-font text-left font-normal text-2xl">
+                还有疑问？
+              </h4>
+              <h5
+                class="mb-5 text-left font-normal text-base sm:mb-0 sm:text-lg"
+              >
+                FAQs about Subscription
+              </h5>
+            </div>
+            <div class="flex w-full flex-col text-left md:w-3/5">
+              <div class="grid gap-y-2">
+                <!-- requests -->
+                <div
+                  class="collapse collapse-arrow bg-[--color-background-offset]"
+                >
+                  <input type="radio" name="my-accordion-3" />
+                  <div class="collapse-title font-medium text-base">
+                    我能提出多少设计需求都可以吗？
+                    <h4 class="text-xs">
+                      Can I submit as many design requests as I want?
+                    </h4>
+                  </div>
+                  <div class="collapse-content">
+                    <p class="text-[--color-text-offset] text-xs">
+                      没有限制，您可以根据实际需求，随时将任何数量的设计需求加入工作队列，我们会一一为您完成。
+                    </p>
+                    <p class="pt-3 text-[--color-text-offset] text-xs">
+                      Absolutely, no limits. Add any number of design tasks to
+                      your queue as needed, and we'll tackle them one by one.
+                    </p>
+                  </div>
+                </div>
+                <!-- Delivery -->
+                <div
+                  class="collapse collapse-arrow bg-[--color-background-offset]"
+                >
+                  <input type="radio" name="my-accordion-3" />
+                  <div class="collapse-title font-medium text-base">
+                    我的设计需求能够多快交付？
+                    <h4 class="text-xs">
+                      How promptly can I expect my designs to be delivered?
+                    </h4>
+                  </div>
+                  <div class="collapse-content">
+                    <p class="text-[--color-text-offset] text-xs">
+                      一般的设计需求，我们通常将在两个工作日内高效完成。但更为复杂的需求可能需要更长的时问周期。
+                    </p>
+                    <p class="pt-3 text-[--color-text-offset] text-xs">
+                      We typically fulfill standard requests within two business
+                      days. More complex ones may require additional time.
+                    </p>
+                  </div>
+                </div>
+                <!-- Don't like -->
+                <div
+                  class="collapse collapse-arrow bg-[--color-background-offset]"
+                >
+                  <input type="radio" name="my-accordion-3" />
+                  <div class="collapse-title font-medium text-base">
+                    如果对设计方案不太满意怎么办？
+                    <h4 class="text-xs">What if I don't like the design?</h4>
+                  </div>
+                  <div class="collapse-content">
+                    <p class="text-[--color-text-offset] text-xs">
+                      不用担心！我们将继续修改设计，直到您 100% 满意为止。
+                    </p>
+                    <p class="pt-3 text-[--color-text-offset] text-xs">
+                      No worries! We'll continue to revise the design until
+                      you're 100% satisfied.
+                    </p>
+                  </div>
+                </div>
+                <!-- Pause -->
+                <div
+                  class="collapse collapse-arrow bg-[--color-background-offset]"
+                >
+                  <input type="radio" name="my-accordion-3" />
+                  <div class="collapse-title font-medium text-base">
+                    订阅制暂停功能怎么使用？
+                    <h4 class="text-xs">
+                      How does the pause feature work in subscription?
+                    </h4>
+                  </div>
+                  <div class="collapse-content">
+                    <p class="text-[--color-text-offset] text-xs">
+                      我们理解您可能会在某些时候暂时没有新的设计需求。因此，订阅服务提供了灵活的暂停机制，让您可以暂停服务并保留剩余时长，待有新需求时再继续。
+                    </p>
+                    <p class="pt-3 text-[--color-text-offset] text-xs">
+                      Recognizing downtime in needs, the pause option allows you
+                      to halt service, preserving your subscription length for
+                      future use.
+                    </p>
+                  </div>
+                </div>
+                <!-- One requests -->
+                <div
+                  class="collapse collapse-arrow bg-[--color-background-offset]"
+                >
+                  <input type="radio" name="my-accordion-3" />
+                  <div class="collapse-title font-medium text-base">
+                    如果我只有一个请求项目怎么办？
+                    <h4 class="text-xs">
+                      What if I only have a single request?
+                    </h4>
+                  </div>
+                  <div class="collapse-content">
+                    <p class="text-[--color-text-offset] text-xs">
+                      没关系，完成该需求后，您可以使用上面所说的暂停功能，等下次有新需求再继续。我们不希望您为剩余未用的时长付费。
+                    </p>
+                    <p class="pt-3 text-[--color-text-offset] text-xs">
+                      No problem. Use the pause feature post-completion, and
+                      resume when new needs arise. We don't want you to pay for
+                      unused time.
+                    </p>
+                  </div>
+                </div>
+                <!-- Refund -->
+                <div
+                  class="collapse collapse-arrow bg-[--color-background-offset]"
+                >
+                  <input type="radio" name="my-accordion-3" />
+                  <div class="collapse-title font-medium text-base">
+                    如果我不喜欢这项服务，可以退款吗？
+                    <h4 class="text-xs">
+                      Are there any refunds if I don't like the service?
+                    </h4>
+                  </div>
+                  <div class="collapse-content">
+                    <p class="text-[--color-text-offset] text-xs">
+                      鉴于我们为每一项设计付出的高强度精力，如当月已有执行项目时，很抱歉订阅费将不予退还，您可以随时取消下个月订阅服务即可。
+                    </p>
+                    <p class="pt-3 text-[--color-text-offset] text-xs">
+                      Considering the intensive effort per design, refunds
+                      aren't available once work is underway for the month, but
+                      you can cancel future months.
+                    </p>
+                  </div>
+                </div>
+                <!-- Track -->
+                <div
+                  class="collapse collapse-arrow bg-[--color-background-offset]"
+                >
+                  <input type="radio" name="my-accordion-3" />
+                  <div class="collapse-title font-medium text-base">
+                    你们如何管理项目？我们如何追踪任务进度？
+                    <h4 class="text-xs">
+                      How do you manage projects and track progress?
+                    </h4>
+                  </div>
+                  <div class="collapse-content">
+                    <div
+                      class="flex flex-col content-center justify-items-stretch gap-8 sm:flex-row"
+                    >
+                      <div class="basis-3/4">
+                        <p class="text-[--color-text-offset] text-xs">
+                          我们基于飞书搭建了一套业务管理系统，您可轻松掌握查看实时的任务队列和进度情况，也可查询订阅剩余时问。您可以用飞书扫描二维码查看我们的示例
+                        </p>
+                        <p class="pt-3 text-[--color-text-offset] text-xs">
+                          Leveraging Feishu, we've established a streamlined
+                          system. You can effortlessly monitor real-time task
+                          queues, progress, and remaining subscription time.
+                          Scan the QR code with Feishu for a demo.
+                        </p>
+                      </div>
+                      <Icon
+                        name="service/streamline"
+                        class="h-28 w-28 grow basis-1/4 text-[--color-text-offset]"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+              class="flex flex-row flex-wrap justify-between gap-4 pt-12"
+            >
+              <div class="flex flex-col">
+                <div class="font-normal text-lg">需要进一步的沟通 🙋‍♂️</div>
+                <div class="font-light text-sm">
+                  Further communication
+                </div>
+              </div>
+              <Btn
+                btnText="联系我们 👋"
+                btnAltText="Contact Us 👋"
+                url="/contact"
+                cls="px-6"
+              />
+            </div>
+            </div>
+          </div>
+        </section>
+      </Fragment>
     </ContentSection>
   </div>
 </BaseLayout>

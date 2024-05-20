@@ -8,15 +8,22 @@ export interface Props {
 }
 ---
 
-<div class="group card w-full bg-[--color-background-offset] sm:max-w-80 hover:shadow-lg ease-in-out transition-shadow duration-300">
+<div
+    class="group card w-full bg-[--color-background-offset] transition-shadow duration-300 ease-in-out hover:shadow-lg sm:max-w-80"
+>
     <figure class="overflow-hidden">
-        <Image src={member.image} width="1000" class="object-cover object-center transition-all duration-300 group-hover:scale-105"
-        alt={`A screenshot of ${member.name}`} />
+        <Image
+            src={member.image}
+            width="1000"
+            class="object-cover object-center transition-all duration-300 group-hover:scale-105"
+            alt={`A screenshot of ${member.name}`}
+            quality="low"
+        />
     </figure>
     <div class="card-body">
         <h2 class="card-title group-hover:underline">
             {member.name}
         </h2>
-        <p class="text-xs text-[--color-text-offset]">{member.occupation}</p>
+        <p class="text-[--color-text-offset] text-xs">{member.occupation}</p>
     </div>
 </div>
