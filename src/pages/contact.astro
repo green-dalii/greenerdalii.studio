@@ -25,7 +25,15 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
         we are eager to listen and provide professional consultation services.
       </Fragment>
       <Fragment slot="content">
-        <div class="grid grid-cols-5">
+        <div class="relative grid grid-cols-5">
+          <div
+            class="absolute col-span-2 hidden md:-top-64 md:right-2/3 md:block"
+          >
+            <Icon
+              name="service/SelfieDoodle"
+              class="h-96 w-96 sm:h-[40rem] sm:w-[40rem]"
+            />
+          </div>
           <div class="col-span-full md:col-span-3 md:col-start-3">
             <div class="grid gap-y-2">
               <div
@@ -43,7 +51,9 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                         <Icon name="mdi:alternate-email" class="text-lg" />
                         <div class="text-sm">Email:</div>
                       </div>
-                      <div class="text-sm underline">greenerdalii.studio@outlook.com</div>
+                      <div class="underline text-sm">
+                        greenerdalii.studio@outlook.com
+                      </div>
                     </div>
                     <!-- row 2 -->
                     <div class="flex flex-row flex-wrap items-center gap-8">
@@ -82,22 +92,26 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                       <li>
                         <a
                           href="https://www.behance.net/greenerdalii"
-                          class="text-xs">Behance ↗️</a>
+                          class="text-xs">Behance ↗️</a
+                        >
                       </li>
                       <li>
                         <a
                           href="https://www.instagram.com/greenerdalii/"
-                          class="text-xs">Instagram ↗️</a>
+                          class="text-xs">Instagram ↗️</a
+                        >
                       </li>
                       <li>
                         <a
                           href="https://twitter.com/greenerdalii"
-                          class="text-xs">X (Twitter) ↗️</a>
+                          class="text-xs">X (Twitter) ↗️</a
+                        >
                       </li>
                       <li>
                         <a
                           href="https://greenerdalii.zcool.com.cn/"
-                          class="text-xs">ZCOOL ↗️</a>
+                          class="text-xs">ZCOOL ↗️</a
+                        >
                       </li>
                       <li>
                         <div class="group">
