@@ -2,12 +2,19 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "~/components/content-section.astro";
 import Btn from "../components/button.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <BaseLayout>
   <div class="mt-10 sm:py-32">
-    <ContentSection title="Oops!" subtitle="404" id="404">
-      <Fragment slot="description">你好像迷路啦...</Fragment>
+    <ContentSection title="Oops!" subtitle="你好像迷路啦..." id="404">
+      <Fragment slot="description">
+        <div class="relative">
+          <div class="absolute -top-24 col-span-2">
+            <Icon name="MessyDoodle" class="h-72 w-72" />
+          </div>
+        </div>
+      </Fragment>
     </ContentSection>
     <div class="mt-10 text-center">
       <Btn btnText="← Go Back" btnAltText="← 返回" url="/" />
