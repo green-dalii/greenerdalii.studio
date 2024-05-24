@@ -8,25 +8,6 @@ import { getShowcase } from "../data/showcase";
 const sites = await getShowcase();
 ---
 
-<!-- <ContentSection title="格润达理工作室" subtitle="Greener-Dalii Studio" id="showcase">
-  <Fragment slot="description">
-    我们是一家新锐的品牌设计工作室，致力于通过创意与技术来融合商业性、艺术性和理性构思，帮助合作伙伴传达品牌价值，增强客户与品牌的情感链接。
-  </Fragment>
-  <Fragment slot="description-below">
-    We are an emerging brand design studio dedicated to fusing commercial sensibilities, artistic expression and rational ideation through creativity and technology.
-    <br>Our goal is to help partners convey brand values and strengthen emotional connections between customers and brands.
-  </Fragment>
-  <Fragment slot="content">
-    <div class="max-w-7xl space-y-2">
-      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        {sites.map((site) => <ShowcaseCard site={site} />)}
-      </div>
-    </div>
-    <div class="mt-10 text-center">
-      <Btn btnText="See More 👀" btnAltText="看看更多 👀" url="/work"></Btn>
-    </div>
-  </Fragment>
-</ContentSection> -->
 <section id="showcase" class="sm:py-30 mx-auto max-w-7xl px-6 sm:px-2">
   <div
     class="container relative mx-auto flex flex-col sm:grid sm:grid-cols-5 py-32 sm:py-48 sm:px-5"
@@ -39,8 +20,9 @@ const sites = await getShowcase();
     </div>
     <div class=" sm:col-start-4 sm:col-span-2">
       <div class="mb-2 flex flex-col">
-        <h2 class="title-font text-left font-black text-6xl sm:text-5xl">Greener-Dalii Studio</h2>
-        <h3 class="mb-5 text-left font-bold text-2xl sm:mb-0">
+        <!-- <h2 class="title-font text-left font-black text-6xl sm:text-5xl">Greener-Dalii Studio</h2> -->
+        <Icon name="wordmark" class="w-96 h-auto mb-2" />
+        <h2 class="text-left font-bold text-2xl">
           格润达理工作室
         </h3>
       </div>
@@ -48,7 +30,7 @@ const sites = await getShowcase();
         <p class="break-words leading-loose text-sm">
           我们致力于通过创意与技术来融合商业性、艺术性和理性构思
         </p>
-        <p class="mt-2 break-words leading-relaxed text-xs">
+        <p class="my-2 break-words leading-relaxed text-xs">
           We are committed to fusing commercial, artistic and rational ideas through creativity and technology.
         </p>
       </div>

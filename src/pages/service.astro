@@ -33,10 +33,10 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
               {
                 services.map((service) => (
                   <span class="group relative cursor-default rounded-full border border-[--color-text-offset] px-8 py-2 hover:bg-[--color-primary]">
-                    <span class="block font-normal transition-opacity duration-300 ease-in-out text-xs group-hover:opacity-0 sm:text-base">
+                    <span class="block font-medium transition-opacity duration-300 ease-in-out text-xs group-hover:opacity-0 sm:text-base">
                       {service.en}
                     </span>
-                    <span class="absolute left-0 top-0 block w-full min-w-max pt-2 text-center font-normal opacity-0 transition-opacity duration-300 ease-in-out text-xs group-hover:opacity-100 sm:text-base">
+                    <span class="absolute left-0 top-0 block w-full min-w-max pt-2 text-center font-medium opacity-0 transition-opacity duration-300 ease-in-out text-xs group-hover:opacity-100 sm:text-base">
                       {service.zh}
                     </span>
                   </span>
@@ -44,7 +44,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
               }
             </div>
             <div class="flex flex-col py-20">
-              <div class="font-normal text-lg">我们提供两种服务模式 🎉</div>
+              <div class="font-medium text-lg">我们提供两种服务模式 🎉</div>
               <div class="font-light text-sm">We offer two service models</div>
               <div class="flex flex-wrap gap-4 pt-8 sm:gap-x-8">
                 <div class="indicator w-full sm:w-auto">
@@ -75,13 +75,13 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
             class="mx-auto flex flex-col flex-wrap pt-32 sm:flex-row sm:pt-24"
           >
             <div class="mb-2 flex flex-col md:w-2/5">
-              <h4 class="title-font text-left font-normal text-2xl">
+              <h4 class="title-font text-left font-medium text-2xl">
                 设计订阅制<span class="badge badge-lg bg-[--color-primary]"
                   >推荐！</span
                 >
               </h4>
               <h5
-                class="mb-5 text-left font-normal text-base sm:mb-0 sm:text-lg"
+                class="mb-5 text-left font-medium text-base sm:mb-0 sm:text-lg"
               >
                 Design Subscription Plan
               </h5>
@@ -199,7 +199,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                 <div class="flex flex-col gap-8 py-12">
                   <div class="flex flex-row flex-wrap justify-between gap-4">
                     <div class="flex flex-col">
-                      <div class="font-normal text-lg">还有一些问题？</div>
+                      <div class="font-medium text-lg">还有一些问题？</div>
                       <div class="font-light text-sm">Any questions?</div>
                     </div>
                     <Btn
@@ -211,7 +211,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                   </div>
                   <div class="flex flex-row flex-wrap justify-between gap-4">
                     <div class="flex flex-col">
-                      <div class="font-normal text-lg">
+                      <div class="font-medium text-lg">
                         联系我们开始订阅服务 📃
                       </div>
                       <div class="font-light text-sm">
@@ -236,11 +236,11 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
             class="mx-auto flex flex-col flex-wrap pt-32 sm:flex-row sm:pt-24"
           >
             <div class="mb-2 flex flex-col md:w-2/5">
-              <h4 class="title-font text-left font-normal text-2xl">
+              <h4 class="title-font text-left font-medium text-2xl">
                 按项目付费制
               </h4>
               <h5
-                class="mb-5 text-left font-normal text-base sm:mb-0 sm:text-lg"
+                class="mb-5 text-left font-medium text-base sm:mb-0 sm:text-lg"
               >
                 Pay-Per-Project Plan
               </h5>
@@ -268,7 +268,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
               <div class="col-span-full md:col-span-3 md:col-start-3">
                 <div class="flex flex-row flex-wrap justify-between gap-4">
                   <div class="flex flex-col">
-                    <div class="font-normal text-lg">
+                    <div class="font-medium text-lg">
                       联系我们获取项目报价单 📃
                     </div>
                     <div class="font-light text-sm">
@@ -292,11 +292,11 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
             class="mx-auto flex flex-col flex-wrap pt-32 sm:flex-row sm:pt-24"
           >
             <div class="mb-2 flex flex-col md:w-2/5">
-              <h4 class="title-font text-left font-normal text-2xl">
+              <h4 class="title-font text-left font-medium text-2xl">
                 还有疑问？
               </h4>
               <h5
-                class="mb-5 text-left font-normal text-base sm:mb-0 sm:text-lg"
+                class="mb-5 text-left font-medium text-base sm:mb-0 sm:text-lg"
               >
                 FAQs about Subscription
               </h5>
@@ -337,17 +337,17 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                   </div>
                   <div class="collapse-content">
                     <p class="text-[--color-text-offset] text-xs">
-                      一般的设计需求，我们通常将在两个工作日内高效完成。但更为复杂的需求可能需要更长的时问周期。以下为各类设计项目的预估平均交付时间（注：此时长是根据历史经验统计而来，实际可能存在波动）
+                      一般的设计需求，我们通常将在两个工作日内高效完成。但更为复杂的需求可能需要更长的时问周期。以下为各类设计项目的平均预估交付时间（*注：此时长是根据历史经验统计而来，实际可能存在波动）
                     </p>
                     <p class="pt-3 text-[--color-text-offset] text-xs">
                       We typically fulfill standard requests within two business
                       days. More complex ones may require additional time.The
                       following are the estimated average delivery times for
-                      various types of design projects (note: these times are
+                      various types of design projects (*Note: These times are
                       based on historical experience and may fluctuate in
                       reality)
                     </p>
-                    <table class="table table-auto mt-5">
+                    <table class="table mt-5 table-auto">
                       <thead>
                         <tr>
                           <th class="text-xs">项目 | Project</th>
@@ -368,7 +368,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                           >
                           <td class="text-xs">2~7 Days</td>
                         </tr>
-                        
+
                         <tr>
                           <td class="text-xs">网页（单页面）| Single Webpage</td
                           >
@@ -515,7 +515,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
               </div>
               <div class="flex flex-row flex-wrap justify-between gap-4 pt-12">
                 <div class="flex flex-col">
-                  <div class="font-normal text-lg">需要进一步的沟通 🙋‍♂️</div>
+                  <div class="font-medium text-lg">需要进一步的沟通 🙋‍♂️</div>
                   <div class="font-light text-sm">Further communication</div>
                 </div>
                 <Btn
