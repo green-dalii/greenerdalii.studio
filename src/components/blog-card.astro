@@ -10,7 +10,7 @@ import { blogImages } from "~/content/config";
   <ul class="grid gap-8 sm:gap-4">
     {
       allPosts.map((post) => (
-          <div class="group card rounded-none sm:card-side">
+          <div class="group card sm:card-side">
             <figure class="md:h-96 relative h-56 w-full overflow-hidden rounded-xl sm:h-60 sm:w-1/2 ">
               <a href={`/insight/${post.slug}/`}>
                 <Image

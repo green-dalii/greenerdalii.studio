@@ -10,6 +10,7 @@ import Service from "~/components/service.astro";
 import Clinet from "~/components/clinet.astro";
 import Insight from "~/components/insight.astro";
 import Contact from "~/components/contact.astro";
+import FooterFixed from "~/components/footer-fixed.astro";
 import "../styles/index.css";
 import { getLangFromUrl } from '../i18n/utils';
 
@@ -27,7 +28,7 @@ const lang = getLangFromUrl(Astro.url);
   >
     <Header />
     <Splash />
-    <div class="py-0 sm:py-32">
+    <div class="py-0 sm:py-32 bg-[--color-background]">
       <Showcase />
       <Service />
       <Clinet />
@@ -35,5 +36,6 @@ const lang = getLangFromUrl(Astro.url);
       <Contact />
     </div>
     <Footer />
+    <FooterFixed />
   </body>
 </html>
