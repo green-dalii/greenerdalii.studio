@@ -12,23 +12,24 @@ import { Icon } from "astro-icon/components";
   type="button"
   class="-ml-14 origin-[right_center] scale-0 transition-all duration-500"
 >
-  <div id="icon-theme-light">
-    <Icon name="ri:sun-line" class="text-base" />
-    <span class="sr-only">Use light theme</span>
-  </div>
-  <div id="icon-theme-dark" class="hidden">
+  <div id="icon-theme-dark" class="text-base">
     <Icon name="ri:contrast-2-fill" class="text-base" />
     <span class="sr-only">Use dark theme</span>
+  </div>
+  <div id="icon-theme-light">
+    <Icon name="ri:sun-line" class="hidden" />
+    <span class="sr-only">Use light theme</span>
   </div>
 </button>
 
 <script>
   import invariant from "tiny-invariant";
-  const themes = [ "light", "dark"];
+  const themes = ["light", "dark"];
   const button = document.querySelector("#theme-switcher");
   invariant(button, "button should not be null");
 
-  const getThemeCurrent = () => document.documentElement.dataset.theme;
+  const getThemeCurrent = () =>
+    document.documentElement.dataset.theme || "light";
   const getThemeNext = () => {
     const themeCurrent = getThemeCurrent();
     invariant(themeCurrent, "themeCurrent should not be undefined");
