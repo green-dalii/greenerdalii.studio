@@ -6,7 +6,7 @@
     "url": "/work/greenerdaliistudio",
     "client": "Greener-Dalii Studio",
     "industry": "Design｜设计行业",
-    "year": "2022"
+    "date": "2022.08"
   },
   {
     "title": "予果予实留学咨询",
@@ -15,15 +15,24 @@
     "url": "/work/edugrow",
     "client": "Shaanxi EduGrow Overseas Study Consultation Co., Ltd.",
     "industry": "Education｜教育行业",
-    "year": "2022"
+    "date": "2022.11"
   },
   {
     "title": "德比电材",
     "titleEN": "Derby Electronic Material",
     "image": "./images/derby.png",
     "url": "/work/derby",
-    "client": "Suzhou Derby Electronic Material Technology Co., Ltd",
+    "client": "Suzhou Derby Electronic Material Technology Co., Ltd.",
     "industry": "Industry｜工业行业",
-    "year": "2023"
+    "date": "2023.04"
+  },
+  {
+    "title": "鑫诚有机农业",
+    "titleEN": "Centery Organic Agriculture",
+    "image": "./images/centery.png",
+    "url": "/work/centery",
+    "client": "Shaanxi Centery Modern Organic Agriculture Co., Ltd.",
+    "industry": "Agriculture｜农业行业",
+    "date": "2024.02"
   }
 ]

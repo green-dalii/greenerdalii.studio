@@ -29,7 +29,7 @@ export interface ShowcaseSite {
   url: string;
   industry: string;
   client: string;
-  year: string;
+  date: string;
 }
 
 export interface WorkImage {

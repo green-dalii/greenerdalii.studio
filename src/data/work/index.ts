@@ -3,6 +3,16 @@
 import type { ShowcaseSite } from "../../types";
 import sitesData from "./sites.json";
 
+sitesData.sort((a, b) => {
+  const [yearA, monthA] = a.date.split('.');
+  const [yearB, monthB] = b.date.split('.');
+
+  const dateA = new Date(parseInt(yearA, 10), parseInt(monthA, 10) - 1);
+  const dateB = new Date(parseInt(yearB, 10), parseInt(monthB, 10) - 1);
+  
+  return dateB.getTime() - dateA.getTime(); // 时间戳大的在前，实现降序
+});
+
 const allImages = import.meta.glob<ImageMetadata>("./images/*.{png,jpg,jpeg}", {
   eager: true,
   import: "default",
