@@ -3,6 +3,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "~/components/content-section.astro";
 import Btn from "~/components/button.astro";
 import Breadcrumbs from "~/components/breadcrumbs.astro";
+import Ai from "~/components/ai.astro";
 import { Icon } from "astro-icon/components";
 // import { Image } from 'astro:assets';
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
@@ -17,12 +18,14 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
       id="about"
     >
       <Fragment slot="description">
-        如果您正在寻求与众不同的品牌设计方案，欢迎随时通过以下方式与我们取得联系。无论您有任何关于品牌设计的需求或问题，我们都乐意倾听并为您提供专业的咨询服务。
+        如果您正在寻求与众不同的品牌设计方案，欢迎随时通过以下方式与我们取得联系。无论您有任何关于品牌设计的需求或问题，我们都乐意倾听并为您提供专业的咨询服务。您如果想得到最快的响应，可以随时在下方与我们的AI智能助手交谈咨询。
       </Fragment>
       <Fragment slot="description-below">
         If you're seeking unique branding solutions, feel free to reach out to
         us anytime. Whatever your requirements or queries about branding design,
         we are eager to listen and provide professional consultation services.
+        You can always talk to our AI smart assistant below for advice if you
+        want the fastest response.
       </Fragment>
       <Fragment slot="content">
         <div class="relative grid grid-cols-5">
@@ -36,6 +39,19 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
           </div>
           <div class="col-span-full md:col-span-3 md:col-start-3">
             <div class="grid gap-y-2">
+              <div
+                class="collapse collapse-arrow bg-[--color-background-offset]"
+              >
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title font-medium text-lg">
+                  🪽 AI Agent | 智能助手
+                </div>
+                <div class="collapse-content">
+                  <div class="flex flex-col gap-4">
+                    <Ai />
+                  </div>
+                </div>
+              </div>
               <div
                 class="collapse collapse-arrow bg-[--color-background-offset]"
               >
