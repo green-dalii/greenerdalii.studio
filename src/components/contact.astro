@@ -1,6 +1,8 @@
 ---
 import ContentSection from "./content-section.astro";
 import Btn from "./button.astro";
+import Modal from "./modal.astro";
+import Ai from "./ai.astro";
 ---
 
 <ContentSection
@@ -9,7 +11,7 @@ import Btn from "./button.astro";
   id="Contact"
 >
   <Fragment slot="description">
-    如果您正在寻求与众不同的品牌设计方案，欢迎随时与我们取得联系。无论您有任何关于品牌设计的需求或问题，我们都乐意倾听并为您提供专业的咨询服务。
+    如果您正在寻求与众不同的品牌设计方案，欢迎随时与我们取得联系。无论您有任何关于设计的需求或问题，我们都乐意倾听并为您提供专业的咨询服务。
   </Fragment>
   <Fragment slot="description-below">
     If you're seeking unique branding solutions, feel free to reach out to us
@@ -19,6 +21,9 @@ import Btn from "./button.astro";
   <Fragment slot="content">
     <div class="mt-10 text-center">
       <Btn btnText="Contact Us 👋" btnAltText="联系我们 👋" url="/contact" />
+      <Modal btnText="→ 在线咨询AI助手🦄" mTitle="格润达理工作室AI助手" mId="ai" mFooter="⚠️ 注：所有回答均为AI生成，可能会犯错，请核查重要信息，如有疑问请通过其他方式联系我们。">
+        <Ai />
+      </Modal>
     </div>
   </Fragment>
 </ContentSection>

@@ -24,6 +24,9 @@ module.exports = {
       },
     },
   },
+  variants: {
+    backdropFilter: ['responsive', 'hover', 'focus'],
+  },
   daisyui: {
     themes: [
       {
