@@ -6,7 +6,7 @@ import BlogCard from "~/components/blog-card.astro";
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("insight");
 // 按日期倒序排序
-allPosts.sort((a, b) => {
+allPosts.sort((a: { data: { pubDate: string | number | Date; }; }, b: { data: { pubDate: string | number | Date; }; }) => {
   const dateA = new Date(a.data.pubDate).getTime();
   const dateB = new Date(b.data.pubDate).getTime();
   return dateB - dateA;

@@ -9,7 +9,7 @@ description: "德比电材是国内一家聚焦于电池粘结剂研发、生产
 enDescription: "Derby Electronic Material is a high-tech enterprise focusing on the research, development, production, sales and provision of technical solutions for battery binders in China. In response to the brand's demand for upgrading its brand image, which requires a sense of technology, simplicity and generosity, and internationalisation, and at the same time should be different from the existing domestic brands, as well as fit in with the industry attributes of its technology manufacturing and material research and development, we condensed ingenuity and creativity, and created Derby Electronic Material's unique branding involving language. Through the most harmonious basic graphics in nature - the circle, creative deformation, constructed a unique 「sticky visual language」 to construct the brand LOGO, in order to adapt to the properties of the high-tech materials industry and one of the main products of the lithium battery binder Physical and chemical properties of lithium battery binder. The logo is then used to derive a unified visual style for the entire brand VI."
 author: "Greener-Dalii"
 
-tags: ["design", "KV design"]
+tags: ["design", "KV design", "VI", "Brand Design"]
 ---
 
 Bringing the culture of sharing to everyone

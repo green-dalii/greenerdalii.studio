@@ -3,7 +3,10 @@
 import type { ShowcaseSite } from "../../types";
 import sitesData from "../work/sites.json";
 
-sitesData.sort((a, b) => {
+// 过滤出 isDisplayed 为 true 的站点
+const displayedSites = sitesData.filter(site => site.isDisplayed);
+
+displayedSites.sort((a, b) => {
   const [yearA, monthA] = a.date.split('.');
   const [yearB, monthB] = b.date.split('.');
 
@@ -23,7 +26,7 @@ let _loadShowcase: Promise<Array<ShowcaseSite>>;
 
 async function loadShowcase(): Promise<Array<ShowcaseSite>> {
   const sites = await Promise.all(
-    sitesData.map(async (site) => {
+    displayedSites.map(async (site) => {
       let _url = '../work' + site.image.substring(1)
       if (!(_url in allImages)) {
         console.error(

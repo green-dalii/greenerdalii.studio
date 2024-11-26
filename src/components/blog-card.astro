@@ -7,11 +7,11 @@ import { blogImages } from "~/content/config";
 ---
 
 <div class="flex scroll-mt-24 flex-col">
-  <ul class="grid gap-8 sm:gap-4">
+  <ul class="grid">
     {
-      allPosts.map((post) => (
-          <div class="group card sm:card-side">
-            <figure class="md:h-96 relative h-56 w-full overflow-hidden rounded-xl sm:h-60 sm:w-1/2 ">
+      allPosts.map((post: any) => (
+          <div class="group grid grid-cols-1 gap-4 md:grid-cols-2 my-6 bg-[--color-background-offset] rounded-xl hover:shadow-lg transition-all duration-300">
+            <figure class="h-56 w-full sm:h-64 md:h-96 relative overflow-hidden rounded-xl ">
               <a href={`/insight/${post.slug}/`}>
                 <Image
                   class="absolute left-0 top-0 h-full w-full object-cover object-center transition-all duration-300 group-hover:scale-110"
@@ -21,7 +21,7 @@ import { blogImages } from "~/content/config";
                 />
               </a>
             </figure>
-            <div class="card-body w-full px-0 py-6 sm:w-1/2 sm:py-0 sm:pl-10">
+            <div class="w-full p-6 space-y-2">
               <a href={`/insight/${post.slug}/`}>
                 <h2 class="card-title text-lg">{post.data.title}</h2>
                 <p class="pt-4 font-light leading-relaxed text-[--color-text-offset] text-xs">
@@ -39,7 +39,7 @@ import { blogImages } from "~/content/config";
               <div class="flex items-center gap-3 text-[--color-text-offset]">
                 <Icon name="mdi:tag-outline" class="text-sm" />
                 <div class="flex flex-row flex-wrap gap-2">
-                  {post.data.tags.map((tag) => (
+                  {post.data.tags.map((tag: string) => (
                     <a href={`/insight/tags/${tag}`} class="text-xs">
                       <span class="badge">{tag}</span>
                     </a>

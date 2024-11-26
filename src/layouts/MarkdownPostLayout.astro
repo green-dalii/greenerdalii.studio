@@ -8,7 +8,10 @@ import { getEntry, getEntries } from 'astro:content';
 // const { Content, headings } = await entry.render();
 const { frontmatter, relatedPosts } = Astro.props;
 // const allPosts = await Astro.glob("../pages/insight/*.md");
-const images = import.meta.glob("/src/data/insight/*/*.{jpeg,jpg,png,gif}", { eager: true });
+const images: Record<string, { default: ImageMetadata }> = import.meta.glob(
+  "/src/data/insight/*/*.{jpeg,jpg,png,gif}",
+  { eager: true }
+);
 // import { Debug } from "astro:components";
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
 ---
@@ -29,6 +32,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                   <Image
                     src={images[frontmatter.heroImage]?.default}
                     alt={frontmatter.heroImageAlt}
+                    class="rounded-xl"
                   />
                   <!-- Title -->
                   <h2 class="font-bold text-3xl lg:text-4xl leading-relaxed">
@@ -109,7 +113,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                 <!-- Read More -->
                 <div class="pb-6 text-sm font-medium">Read More | 相关阅读</div>
                 <div class="flex flex-col space-y-4">
-                    {relatedPosts.map((post) => (
+                    {relatedPosts.map((post: any) => (
                       <div class="text-xs">
                         <a href={`/insight/${post.slug}`}>▶︎ {post.data.title}</a>
                       </div>

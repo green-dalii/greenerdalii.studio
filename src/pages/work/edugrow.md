@@ -9,7 +9,7 @@ description: "予果予实™是由三位在行业知名公司深耕多年的一
 enDescription: "Edugrow™ is a study abroad consulting service brand founded by three frontline teachers who have been working in well-known companies in the industry for many years. Edugrow insists on embracing challenges, rising to the occasion, being true to its word, and pursuing excellence, and is committed to proactively perceiving problems, designing solutions, and developing study abroad consulting services in a new direction. In view of the characteristics and demands of the brand, we have created a simple, high-end and smooth brand image and a whole set of VI to maximise the interpretation of brand values and pursuits."
 author: "Greener-Dalii"
 
-tags: ["design", "KV design"]
+tags: ["design", "KV design", "VI", "Brand Design"]
 ---
 
 Bringing the culture of sharing to everyone

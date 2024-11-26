@@ -8,7 +8,7 @@ const { urlList, isTitle = "NoTitle" } = Astro.props;
             <ul>
                 <li><a href="/">Home</a></li>
                 {
-                    urlList.map((url, index) => (
+                    urlList.map((url: string, index: number) => (
                         <li>
                             {index === urlList.length - 1 ? (
                                 isTitle !== "NoTitle" ? (

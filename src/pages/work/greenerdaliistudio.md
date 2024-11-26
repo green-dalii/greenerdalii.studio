@@ -9,7 +9,7 @@ description: "这是我们工作室为自己设计的品牌方案，我们巧妙
 enDescription: "This is the branding solution we created for ourselves at the studio, where we cleverly incorporated the 「H」 of the co-founder's surname into the Greener-Dalii look, while creating a professional, high-end and clean brand image."
 author: "Greener-Dalii"
 
-tags: ["design", "KV design"]
+tags: ["design", "KV design", "VI", "Brand Design"]
 ---
 
 Bringing the culture of sharing to everyone

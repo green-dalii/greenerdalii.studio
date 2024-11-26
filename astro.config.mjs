@@ -2,7 +2,7 @@ import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 import icon from 'astro-icon';
 import remarkGfm from 'remark-gfm';
-import { remarkMarkdownRender } from '@astrojs/markdown-remark';
+import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 
 // import cloudflare from "@astrojs/cloudflare";
 
@@ -27,8 +27,7 @@ export default defineConfig({
     }
   },
   markdown: {
-    remarkPlugins: [remarkGfm],
-    remarkRenders: [remarkMarkdownRender]
+    remarkPlugins: [remarkGfm, rehypeHeadingIds],
   }
   // output: "server",
   // adapter: cloudflare()

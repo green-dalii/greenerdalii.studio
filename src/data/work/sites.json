@@ -6,7 +6,8 @@
     "url": "/work/greenerdaliistudio",
     "client": "Greener-Dalii Studio",
     "industry": "Design｜设计行业",
-    "date": "2022.08"
+    "date": "2022.08",
+    "isDisplayed": true
   },
   {
     "title": "予果予实留学咨询",
@@ -15,7 +16,8 @@
     "url": "/work/edugrow",
     "client": "Shaanxi EduGrow Overseas Study Consultation Co., Ltd.",
     "industry": "Education｜教育行业",
-    "date": "2022.11"
+    "date": "2022.11",
+    "isDisplayed": true
   },
   {
     "title": "德比电材",
@@ -24,7 +26,8 @@
     "url": "/work/derby",
     "client": "Suzhou Derby Electronic Material Technology Co., Ltd.",
     "industry": "Industry｜工业行业",
-    "date": "2023.04"
+    "date": "2023.04",
+    "isDisplayed": true
   },
   {
     "title": "鑫诚有机农业",
@@ -33,6 +36,17 @@
     "url": "/work/centery",
     "client": "Shaanxi Centery Modern Organic Agriculture Co., Ltd.",
     "industry": "Agriculture｜农业行业",
-    "date": "2024.02"
+    "date": "2024.02",
+    "isDisplayed": false
+  },
+  {
+    "title": "Diflowy 品牌重塑",
+    "titleEN": "Diflowy: Explore, Share, Download, Host Dify Workflows",
+    "image": "./images/diflowy.jpg",
+    "url": "/work/diflowy",
+    "client": "Diflowy Community",
+    "industry": "AI｜人工智能",
+    "date": "2024.11",
+    "isDisplayed": false
   }
 ]

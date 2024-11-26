@@ -9,10 +9,10 @@ export async function getStaticPaths() {
   // const allPosts = await Astro.glob("../*.md");
   const allPosts = await getCollection("insight");
   const uniqueTags = [
-    ...new Set(allPosts.map((post) => post.data.tags).flat()),
+    ...new Set(allPosts.map((post: any) => post.data.tags).flat()),
   ];
   return uniqueTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) =>
+    const filteredPosts = allPosts.filter((post: any) =>
       post.data.tags.includes(tag)
     );
     return {
@@ -35,7 +35,7 @@ const { posts } = Astro.props;
       <Fragment slot="content">
         <BlogCard allPosts={posts} />
         <div class="mt-20 text-center">
-          <Btn btnText="← Go Back" btnAltText="← 返回" url="/insight"></Btn>
+          <Btn btnText="← Go Back" btnAltText="← 返回" url="/insight" cls="" />
         </div>
       </Fragment>
     </ContentSection>

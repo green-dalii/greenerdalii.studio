@@ -30,6 +30,9 @@ module.exports = {
   daisyui: {
     themes: [
       {
+        light: {
+          primary: "var(--color-primary)",
+        },
         dark: {
           "base-100": "var(--color-background)",
         },

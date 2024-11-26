@@ -14,7 +14,7 @@ const { id, title, subtitle} = Astro.props;
       <h2 class="text-3xl font-medium title-font text-left">{title}</h2>
       <h3 class="sm:text-xl font-medium text-lg text-left mb-5 sm:mb-0">{subtitle}</h4>
     </div>
-    <div class="w-full md:w-3/5 flex flex-col text-left">
+    <div class="w-full md:w-3/5 md:pl-4 flex flex-col text-left">
       <p class="leading-loose text-default break-words">
         <slot name="description"/>
       </p>
