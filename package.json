@@ -16,7 +16,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "@tailwindcss/typography": "^0.5.12",
     "@types/micromodal": "^0.3.3",
-    "astro": "^4.9.1",
+    "astro": "^4.16.18",
     "astro-icon": "^1.1.1",
     "daisyui": "^4.12.10",
     "prettier": "2.8.3",
