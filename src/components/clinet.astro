@@ -18,6 +18,12 @@ const clients = [
 	{
     name: 'clients/diflowy',
   },
+	{
+    name: 'clients/happypower',
+  },
+	{
+    name: 'clients/pww',
+  },
 ]
 ---
 
@@ -30,7 +36,7 @@ const clients = [
   </Fragment>
   <Fragment slot="content">
     <div class="mx-auto max-w-[85rem] px-6 lg:px-8 lg:py-14">
-      <div class="grid grid-cols-2 sm:grid-cols-3 justify-items-center gap-x-6 sm:gap-x-12 lg:gap-x-24">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center gap-x-6 sm:gap-x-12 lg:gap-x-24">
         {clients.map((client) => (
           <Icon name={client.name} class="text-9xl w-auto transition-all"/>
         ))}
