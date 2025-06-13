@@ -7,7 +7,7 @@
     "client": "Greener-Dalii Studio",
     "industry": "Design｜设计行业",
     "date": "2022.08",
-    "isDisplayed": true
+    "isDisplayed": false
   },
   {
     "title": "予果予实留学咨询",
@@ -54,19 +54,9 @@
     "titleEN": "HappyPower",
     "image": "./images/happypower.jpg",
     "url": "/work/happypower",
-    "client": "HappyPower Project",
+    "client": "HappyPower Playground Equipment Manufacturer",
     "industry": "Manufacturing｜制造业",
-    "date": "2025.02",
-    "isDisplayed": false
-  },
-  {
-    "title": "无墙游乐园",
-    "titleEN": "PWW (Playground-Without-Walls)",
-    "image": "./images/pww.jpg",
-    "url": "/work/diflowy",
-    "client": "PWW Community",
-    "industry": "Content Industry｜内容产业",
-    "date": "2025.03",
-    "isDisplayed": false
+    "date": "2025.01",
+    "isDisplayed": true
   }
 ]

@@ -9,8 +9,8 @@ import Btn from "../components/button.astro";
 const { frontmatter } = Astro.props;
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
 // 此处待优化，当图片多时获取`allMedias`会影响性能
-const allMedias = await Astro.glob(`/src/data/work/*/*.{jpeg,jpg,png,gif,mp4}`);
-const medias = allMedias.reduce((acc, media) => {
+const allMedias = import.meta.glob('../data/work/*/*.{jpeg,jpg,png,gif,mp4}', { eager: true });
+const medias = Object.values(allMedias).reduce((acc: any[], media: any) => {
   const mediaPath = typeof media.default === 'string' ? media.default : media.default.src;
   if (mediaPath.includes(`${frontmatter.path}`)) {
     acc.push(media);
@@ -51,8 +51,8 @@ const videoProps = {
                   mediaComponent = (
                     <Image
                       src={media.default}
-                      widths={[800, 1000, 2000]}
-                      sizes={`(max-width: 640px) 800px, (max-width: 768px) 1000px, 2000px`}
+                      widths={[800, 1200, 2500]}
+                      sizes={`(max-width: 640px) 800px, (max-width: 768px) 1200px, 2500px`}
                       alt={media.default.src.split('/').pop()}
                       quality="high"
                     />
@@ -70,7 +70,7 @@ const videoProps = {
             </div>
           </div>
         </div>
-        <div class="mt-10 text-center">
+        <div class="mt-40 text-center">
           <Btn btnText="← Go Back" btnAltText="← 返回" url="/work" cls=""></Btn>
         </div>
       </Fragment>
