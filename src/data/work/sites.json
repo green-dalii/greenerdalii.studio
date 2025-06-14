@@ -7,7 +7,7 @@
     "client": "Greener-Dalii Studio",
     "industry": "Design｜设计行业",
     "date": "2022.08",
-    "isDisplayed": true
+    "isDisplayed": false
   },
   {
     "title": "予果予实留学咨询",
@@ -32,7 +32,7 @@
   {
     "title": "鑫诚有机农业",
     "titleEN": "Centery Organic Agriculture",
-    "image": "./images/centery.png",
+    "image": "./images/centery.jpg",
     "url": "/work/centery",
     "client": "Shaanxi Centery Modern Organic Agriculture Co., Ltd.",
     "industry": "Agriculture｜农业行业",
@@ -48,5 +48,15 @@
     "industry": "AI｜人工智能",
     "date": "2024.11",
     "isDisplayed": false
+  },
+  {
+    "title": "游乐能",
+    "titleEN": "HappyPower",
+    "image": "./images/happypower.jpg",
+    "url": "/work/happypower",
+    "client": "HappyPower Playground Equipment Manufacturer",
+    "industry": "Manufacturing｜制造业",
+    "date": "2025.01",
+    "isDisplayed": true
   }
 ]
