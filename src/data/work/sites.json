@@ -54,26 +54,9 @@
     "titleEN": "HappyPower",
     "image": "./images/happypower.jpg",
     "url": "/work/happypower",
-<<<<<<< HEAD
     "client": "HappyPower Playground Equipment Manufacturer",
     "industry": "Manufacturing｜制造业",
     "date": "2025.01",
     "isDisplayed": true
-=======
-    "client": "HappyPower Project",
-    "industry": "Manufacturing｜制造业",
-    "date": "2025.02",
-    "isDisplayed": false
-  },
-  {
-    "title": "无墙游乐园",
-    "titleEN": "PWW (Playground-Without-Walls)",
-    "image": "./images/pww.jpg",
-    "url": "/work/diflowy",
-    "client": "PWW Community",
-    "industry": "Content Industry｜内容产业",
-    "date": "2025.03",
-    "isDisplayed": false
->>>>>>> 0efa4c4 (add happypower project)
   }
 ]
