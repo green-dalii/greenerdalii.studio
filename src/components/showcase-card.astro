@@ -20,7 +20,7 @@ const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
       width="800"
       sizes={sizes}
       alt={`A screenshot of ${site.url}`}
-      quality="mid"
+      quality="high"
     />
     <figcaption class="absolute inset-0 transition-all duration-300 group-hover:bg-black/20">
       <div
@@ -32,7 +32,7 @@ const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
         <h4 class="text-center font-extrabold uppercase text-xs">
           {site.titleEN}
         </h4>
-        <p class="border border-current text-xs px-2 py-1 sm:px-4 sm:py-2">{site.industry}</p>
+        <p class="border border-current rounded-md text-xs px-3 py-1">{site.industry}</p>
       </div>
     </figcaption>
   </figure>
