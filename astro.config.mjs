@@ -10,10 +10,12 @@ import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 // https://astro.build/config
 import mdx from "@astrojs/mdx";
 
+import playformCompress from "@playform/compress";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://greenerdalii.top/",
-  integrations: [tailwind(), icon(), mdx()],
+  integrations: [tailwind(), icon(), mdx(), playformCompress()],
   vite: {
     ssr: {
       external: ["svgo"]

@@ -3,14 +3,33 @@ import ContentSection from "./content-section.astro";
 import ShowcaseCard from "../components/showcase-card.astro";
 import Btn from "./button.astro";
 import { Icon } from "astro-icon/components";
-import { getShowcase } from "../data/showcase";
+import sitesData from "../data/work/sites.json";
+import type { ShowcaseSite } from "../types";
 
-const sites = await getShowcase();
+// 直接使用所有项目，不筛选isDisplayed
+const allImages = import.meta.glob<ImageMetadata>("../data/work/images/*.{png,jpg,jpeg}", {
+  eager: true,
+  import: "default",
+});
+
+const sites = await Promise.all(
+  sitesData.map(async (site) => {
+    let _url = '../data/work' + site.image.substring(1)
+    const image = await allImages[_url];
+    return {
+      ...site,
+      image,
+    };
+  })
+);
+
+// 为了无限滚动效果，我们需要复制项目数组多次确保无缝滚动
+const duplicatedSites = [...sites, ...sites, ...sites];
 ---
 
-<section id="showcase" class="sm:py-30 mx-auto max-w-7xl px-6 sm:px-2">
+<section id="showcase" class="sm:py-30 w-full">
   <div
-    class="container relative mx-auto flex flex-col sm:grid sm:grid-cols-5 py-32 sm:py-48 sm:px-5"
+    class="container relative mx-auto flex flex-col sm:grid sm:grid-cols-5 py-32 sm:py-48 px-6 sm:px-5 max-w-7xl"
   >
     <div class="sm:col-span-2 md:col-span-3 -bottom-40 right-0.5 md:-bottom-0 md:right-1/2">
       <div class="mb-2 flex flex-col">
@@ -32,14 +51,59 @@ const sites = await getShowcase();
       </div>
     </div>
   </div>
-  <div class="container mx-auto px-0 py-12 sm:px-5 sm:py-24">
-    <div class="max-w-7xl space-y-2">
-      <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        {sites.slice(0,3).map((site) => <ShowcaseCard site={site} />)}
+  <div class="w-full px-0 py-12 sm:py-24">
+    <div class="w-full space-y-2">
+      <!-- 无限滚动容器 -->
+      <div class="overflow-hidden relative w-full">
+        <div class="showcase-scroll flex gap-6 animate-scroll" style="width: max-content;">
+          {duplicatedSites.map((site, index) => (
+             <div class="flex-shrink-0 w-80 sm:w-96">
+               <ShowcaseCard site={site} />
+             </div>
+           ))}
+        </div>
       </div>
     </div>
-    <div class="mt-10 text-center">
+    <div class="mt-10 text-center max-w-7xl mx-auto px-6">
       <Btn btnText="See More 👀" btnAltText="看看更多 👀" url="/work" cls="" />
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% / 3));
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 45s linear infinite;
+    will-change: transform;
+  }
+
+  .showcase-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  /* 响应式调整 */
+  @media (max-width: 640px) {
+    .animate-scroll {
+      animation-duration: 35s;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .animate-scroll {
+      animation-duration: 50s;
+    }
+  }
+
+  /* 确保滚动容器不会产生水平滚动条 */
+  #showcase {
+    overflow-x: hidden;
+  }
+</style>
