@@ -30,6 +30,7 @@ export interface ShowcaseSite {
   industry: string;
   client: string;
   date: string;
+  link?: string;
 }
 
 export interface WorkImage {
