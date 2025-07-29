@@ -16,7 +16,7 @@
     "@astrojs/tailwind": "^6.0.2",
     "@tailwindcss/typography": "^0.5.12",
     "@types/micromodal": "^0.3.3",
-    "astro": "^5.11.1",
+    "astro": "^5.12.4",
     "astro-icon": "^1.1.1",
     "daisyui": "^4.12.10",
     "prettier": "2.8.3",
@@ -26,8 +26,8 @@
     "tailwindcss-fluid-type": "^2.0.3"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^6.3.2",
-    "@astrojs/mdx": "^4.3.0",
+    "@astrojs/markdown-remark": "^6.3.3",
+    "@astrojs/mdx": "^4.3.1",
     "@fontsource/inter": "^4.5.15",
     "@iconify-json/ic": "^1.1.17",
     "@iconify-json/mdi": "^1.1.64",
