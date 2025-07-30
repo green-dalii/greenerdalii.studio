@@ -15,7 +15,9 @@ import playformCompress from "@playform/compress";
 // https://astro.build/config
 export default defineConfig({
   site: "https://greenerdalii.top/",
-  integrations: [tailwind(), icon(), mdx(), playformCompress()],
+  integrations: [tailwind(), icon(), mdx(), playformCompress({
+    exclude: ['src/data/work/**/*'],
+  })],
   vite: {
     ssr: {
       external: ["svgo"]
