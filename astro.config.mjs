@@ -6,15 +6,19 @@ import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 // import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 import mdx from "@astrojs/mdx";
-
+import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://greenerdalii.top/",
-  integrations: [tailwind(), icon(), mdx()],
+  integrations: [
+    tailwind(),
+    icon(),
+    mdx(),
+    compressor()
+  ],
   vite: {
     build: {
-      cssMinify: 'lightningcss',
       // 启用CSS代码分割
       cssCodeSplit: true,
       // 减小chunk大小
@@ -33,6 +37,8 @@ export default defineConfig({
     },
     // 优化CSS处理
     css: {
+      // 启用CSS代码压缩
+      minify: true,
       // 启用CSS模块
       modules: {
         // 生成更短的类名
