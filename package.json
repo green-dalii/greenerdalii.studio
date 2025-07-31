@@ -1,7 +1,7 @@
 {
   "name": "greener-dalii_studio",
   "type": "module",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -19,6 +19,7 @@
     "astro": "^5.12.4",
     "astro-icon": "^1.1.1",
     "daisyui": "^4.12.10",
+    "lightningcss": "^1.30.1",
     "prettier": "2.8.3",
     "prettier-plugin-astro": "^0.8.1",
     "prettier-plugin-tailwindcss": "^0.2.8",
@@ -32,7 +33,6 @@
     "@iconify-json/ic": "^1.1.17",
     "@iconify-json/mdi": "^1.1.64",
     "@iconify-json/ri": "^1.1.19",
-    "@playform/compress": "^0.2.0",
     "micromodal": "^0.4.10",
     "remark-gfm": "^4.0.0",
     "tailwindcss": "^3.3.3",
