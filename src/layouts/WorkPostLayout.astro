@@ -24,7 +24,7 @@ const videoProps = {
   loop: true  
 }
 ---
-<BaseLayout>
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
   <div class="mt-20 sm:pb-32">
     <Breadcrumbs urlList={urlList} isTitle={frontmatter.title}/>
     <ContentSection
