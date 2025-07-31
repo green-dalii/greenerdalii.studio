@@ -3,7 +3,7 @@ export interface Props {
   btnText: string;
   btnAltText: string;
   url: string;
-  cls: string;
+  cls?: string;
 }
 
 const { btnText, btnAltText, url, cls = "" } = Astro.props;

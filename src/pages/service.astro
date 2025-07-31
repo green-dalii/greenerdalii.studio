@@ -10,7 +10,7 @@ import Btn from "~/components/button.astro";
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
 ---
 
-<BaseLayout>
+<BaseLayout title="我们的服务" description="探索格润达理工作室提供的设计服务。">
   <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
     <Breadcrumbs urlList={urlList} />
     <ContentSection title="我们的服务" subtitle="Our Service" id="service">

@@ -8,7 +8,7 @@ const members = await getMember();
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
 ---
 
-<BaseLayout>
+<BaseLayout title="关于我们" description="了解格润达理工作室的团队和使命。">
   <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
     <Breadcrumbs urlList={urlList} />
     <ContentSection title="关于我们" subtitle="About Us" id="about">

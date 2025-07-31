@@ -10,9 +10,6 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  build: {
-    format: 'file',
-  },
   site: "https://greenerdalii.top/",
   integrations: [tailwind(), icon(), mdx()],
   vite: {

@@ -7,7 +7,7 @@ const allPosts = await getCollection("insight");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 ---
 
-<BaseLayout>
+<BaseLayout title="洞见标签" description="按标签浏览格润达理工作室的洞见文章。">
   <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
     <ContentSection title="品牌洞察" subtitle="Our Insights" id="insight">
       <Fragment slot="content">

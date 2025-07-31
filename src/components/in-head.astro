@@ -1,11 +1,17 @@
 ---
 // import "@fontsource/inter/variable.css";
 import "../styles/index.css";
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title: propTitle, description: propDescription } = Astro.props;
 const { generator, site } = Astro;
 const image = new URL("social.jpg", site);
-const description =
-  "Greener-Dalii is an up-and-coming branding studio. We try to bring brand design to everyone.";
-const title = "格润达理工作室 | Greener-Dalii Studio";
+const defaultDescription = "Greener-Dalii is an up-and-coming branding studio. We try to bring brand design to everyone.";
+const description = propDescription || defaultDescription;
+const title = propTitle ? `${propTitle} | Greener-Dalii Studio` : "格润达理工作室 | Greener-Dalii Studio";
 ---
 
 <meta charset="utf-8" />
