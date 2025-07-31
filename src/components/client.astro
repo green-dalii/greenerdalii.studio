@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components'
 import ContentSection from "./content-section.astro";
+import Btn from "./button.astro";
 
 const clients = [
   {
@@ -29,7 +30,7 @@ const clients = [
 
 <ContentSection title="合作品牌" subtitle="Our Clients" id="clients">
   <Fragment slot="description">
-    在此部分，您将看到我们与众多品牌的合作成果。通过携手这些企业，我们共同创造了一系列令人瞩目的品牌故事，见证了品牌的不断成长与价值提升。
+    在此部分，您将看到我们与众多品牌的合作成果。通过携手这些品牌伙伴，我们共同创造了一系列令人瞩目的品牌故事，见证了品牌的不断成长与价值提升。
   </Fragment>
   <Fragment slot="description-below">
     Here, you'll find a collection of collaborative triumphs with leading domestic and international brands. Together, we have crafted remarkable brand narratives and witnessed their continuous growth and value enhancement.
@@ -41,6 +42,9 @@ const clients = [
           <Icon name={client.name} class="text-9xl w-auto transition-all"/>
         ))}
       </div>
+    </div>
+    <div class="mt-10 text-center max-w-7xl mx-auto">
+      <Btn btnText="See More 👀" btnAltText="看看更多 👀" url="/work" cls="" />
     </div>
   </Fragment>
 </ContentSection>

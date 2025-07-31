@@ -57,7 +57,7 @@ a,
     background-color: var(--color-opacity-background);
   };
   #page-header {
-    background-color: var(--color-background);
+    background-color: transparent;
   }
 }
 

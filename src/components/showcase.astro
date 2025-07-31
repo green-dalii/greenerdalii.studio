@@ -1,10 +1,7 @@
 ---
-import ContentSection from "./content-section.astro";
 import ShowcaseCard from "../components/showcase-card.astro";
-import Btn from "./button.astro";
 import { Icon } from "astro-icon/components";
 import sitesData from "../data/work/sites.json";
-import type { ShowcaseSite } from "../types";
 
 // 直接使用所有项目，不筛选isDisplayed
 const allImages = import.meta.glob<ImageMetadata>("../data/work/images/*.{png,jpg,jpeg}", {
@@ -63,9 +60,6 @@ const duplicatedSites = [...sites, ...sites, ...sites];
            ))}
         </div>
       </div>
-    </div>
-    <div class="mt-10 text-center max-w-7xl mx-auto px-6">
-      <Btn btnText="See More 👀" btnAltText="看看更多 👀" url="/work" cls="" />
     </div>
   </div>
 </section>
