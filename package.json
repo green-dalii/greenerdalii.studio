@@ -2,6 +2,7 @@
   "name": "greener-dalii_studio",
   "type": "module",
   "version": "0.8.3",
+  "packageManager": "npm@11.4.1",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -25,6 +26,7 @@
     "prettier-plugin-astro": "^0.8.1",
     "prettier-plugin-tailwindcss": "^0.2.8",
     "rimraf": "^4.4.1",
+    "sharp": "^0.34.3",
     "tailwindcss-fluid-type": "^2.0.3"
   },
   "dependencies": {
