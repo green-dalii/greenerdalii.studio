@@ -42,5 +42,21 @@ module.exports = {
   corePlugins: {
     fontSize: false,
   },
-  plugins: [require("tailwindcss-fluid-type"), require("daisyui"), require('@tailwindcss/typography')],
+  plugins: [
+    require("tailwindcss-fluid-type"),
+    require("daisyui"),
+    require("@tailwindcss/typography"),
+  ],
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: "",
+    darkTheme: "dark",
+    themes: ["light", "dark"],
+    components: ["btn", "card", "modal", "dropdown", "menu", "footer", "badge", "collapse", "table", "radio"],
+  },
 };

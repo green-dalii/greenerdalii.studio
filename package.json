@@ -1,7 +1,7 @@
 {
   "name": "greener-dalii_studio",
   "type": "module",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -17,6 +17,7 @@
     "@tailwindcss/typography": "^0.5.12",
     "@types/micromodal": "^0.3.3",
     "astro": "^5.12.4",
+    "astro-compressor": "^1.1.1",
     "astro-icon": "^1.1.1",
     "daisyui": "^4.12.10",
     "lightningcss": "^1.30.1",
