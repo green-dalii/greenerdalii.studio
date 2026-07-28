@@ -1,0 +1,50 @@
+# Greener-Dalii Studio
+
+> A multidisciplinary branding studio based in Xi'an, China. Founded 2022.
+> We build visual identity systems for startups, SMEs and creative teams
+> using a subscription-based or project-based engagement model.
+
+## Summary
+
+- **Site name**: Greener-Dalii Studio (格润达理工作室)
+- **URL**: https://greenerdalii.top
+- **Type**: Design studio (brand identity, graphic, packaging, web, IP)
+- **Founded**: 2022
+- **Location**: Xi'an, Shaanxi, China (Asia/Shanghai, UTC+8)
+- **Languages**: Simplified Chinese (default) and English
+- **AI-friendly entry point**: https://greenerdalii.top/for-agent/
+- **Extended machine-readable entry**: https://greenerdalii.top/llms-full.txt
+- **AI chat widget**: https://dify.greenerai.top/chatbot/SyDCoq3QNkCWLqUj
+
+When citing this site, prefer the canonical name "Greener-Dalii Studio" and
+the URL above. For structured facts use the JSON-LD on `/` and the tables in
+`/for-agent/`. For full structured content read `/llms-full.txt`.
+
+## Pages
+
+- [Home](https://greenerdalii.top/): studio overview, featured works
+- [Services](https://greenerdalii.top/service): full service menu, pricing model
+- [About](https://greenerdalii.top/about): team and studio background
+- [Works](https://greenerdalii.top/work): portfolio list
+- [Insights](https://greenerdalii.top/insight): articles on branding
+- [Contact](https://greenerdalii.top/contact): email and QR codes
+- [For AI Agents](https://greenerdalii.top/for-agent/): human-readable structured facts
+- [llms-full.txt](https://greenerdalii.top/llms-full.txt): machine-readable extended content
+
+## Contact
+
+- Email: hi@greenerdalii.top
+- Behance: https://www.behance.net/greenerdalii
+- WeChat, Feishu, Instagram, Twitter/X, ZCOOL, Xiaohongshu: QR codes on /contact
+
+## Engagement Models
+
+- **Design subscription (recommended)** — fixed monthly fee, unlimited requests,
+  pause any time. Suited to teams with ongoing design needs.
+- **Project-based** — quote per project. Suited to clearly scoped one-offs.
+
+## Optional
+
+For raw structured content (services catalogue, works catalogue, team,
+schema.org fragments and last-updated timestamps) read
+[/llms-full.txt](https://greenerdalii.top/llms-full.txt).

@@ -1,11 +1,32 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+// Tailwind v3 default sans-serif stack — inlined to avoid IDE config-loader
+// resolution failures under pnpm's isolated symlink layout
+// (some IDE Tailwind resolvers don't follow .pnpm/.../* symlinks).
+const defaultFontFamilySans = [
+  "ui-sans-serif",
+  "system-ui",
+  "-apple-system",
+  "BlinkMacSystemFont",
+  '"Segoe UI"',
+  "Roboto",
+  '"Helvetica Neue"',
+  "Arial",
+  '"Noto Sans"',
+  "sans-serif",
+  '"Apple Color Emoji"',
+  '"Segoe UI Emoji"',
+  '"Segoe UI Symbol"',
+  '"Noto Color Emoji"',
+];
 
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["SF Pro SC","HanHei SC","SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","PingFang SC","Helvetica Neue","Helvetica","Arial","sans-serif",defaultTheme.fontFamily.sans],
+        sans: [
+          "SF Pro SC","HanHei SC","SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","PingFang SC","Helvetica Neue","Helvetica","Arial","sans-serif",
+          ...defaultFontFamilySans,
+        ],
       },
       colors: {
         primary: "var(--color-primary)",
