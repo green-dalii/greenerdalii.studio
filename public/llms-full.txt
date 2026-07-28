@@ -1,0 +1,172 @@
+# Greener-Dalii Studio — Extended Machine-Readable Content
+
+> Companion to `/llm.txt`. Updated automatically alongside `/for-agent/`.
+> Format: Markdown tables, plain headings and JSON-LD-like fragments.
+> Designed to be ingested by LLMs and AI crawlers without scraping.
+>
+> Canonical URL: https://greenerdalii.top/llms-full.txt
+> Last updated: 2026-07-28
+
+---
+
+## 1. Site Identity
+
+| Field | Value |
+|-------|-------|
+| Studio (EN) | Greener-Dalii Studio |
+| Studio (ZH) | 格润达理工作室 |
+| URL | https://greenerdalii.top |
+| Type | Design studio |
+| Industries | brand design, graphic design, web design, packaging, IP |
+| Founded | 2022 |
+| Country | China (CN) |
+| Province | Shaanxi (陕西省) |
+| City | Xi'an (西安市) |
+| Timezone | Asia/Shanghai (UTC+8) |
+| Default language | zh-CN |
+| Supported languages | zh-CN, en-US |
+| Phone-friendly | yes (mobile-first design) |
+| Tech stack | Astro (static site generator), Tailwind CSS 3, DaisyUI 4 |
+| Hosting | Static (Cloudflare Pages / Vercel / Netlify compatible) |
+
+---
+
+## 2. Service Catalogue
+
+| Code | Service (ZH) | Service (EN) | Category | Notes |
+|------|--------------|--------------|----------|-------|
+| branding | 品牌设计 | Branding | strategy | Brand strategy, visual positioning, brand systems |
+| graphic-design | 平面设计 | Graphic Design | visual | Posters, brochures, marketing collateral |
+| logo | 品牌标志 | Logo | identity | Logomark / wordmark / full VI system |
+| packaging | 包装设计 | Packaging Design | product | Product packaging, gift boxes |
+| landing-page | 落地页设计 | Landing Pages | web | Marketing landing pages, event pages |
+| website-design | 网站设计 | Website Design | web | Responsive websites, UI/UX |
+| website-hosted | 网站托管 | Website Hosted | service | Static hosting, maintenance |
+| icon-design | 图标设计 | Icon Design | system | Icon libraries, symbol systems |
+| ip-design | IP 形象设计 | IP Design | character | Mascots, brand-IP characters |
+
+### 2.1 Engagement Models
+
+| Model | Description | Best for |
+|-------|-------------|----------|
+| Design Subscription (recommended) | Fixed monthly fee, unlimited requests, pause anytime | Teams with ongoing design needs |
+| Project-based | Per-project quote | Clearly scoped one-offs |
+
+---
+
+## 3. Team
+
+| Member | Chinese Name | Role (EN) | Role (ZH) |
+|--------|--------------|-----------|-----------|
+| Greener | — | Creative Director | 创意总监 |
+| Wandi | — | Operations Director | 运营总监 |
+
+---
+
+## 4. Selected Works
+
+| ID | Project (EN) | Project (ZH) | Industry | Year | URL |
+|----|--------------|--------------|----------|------|-----|
+| work_001 | Greener-Dalii Studio | 格润达理工作室 | Design | 2022 | /work/greenerdaliistudio |
+| work_002 | Edugrow Study Abroad | 予果予实留学咨询 | Education | 2022 | /work/edugrow |
+| work_003 | Derby Electronic Material | 德比电材 | Industrial / Manufacturing | 2023 | /work/derby |
+| work_004 | Centery Organic Agriculture | 鑫诚有机农业 | Agriculture | 2024 | /work/centery |
+| work_005 | Diflowy Rebranding | Diflowy 品牌重塑 | AI / Artificial Intelligence | 2024 | /work/diflowy |
+| work_006 | HappyPower Playground Equipment | 游乐能 | Manufacturing | 2025 | /work/happypower |
+
+---
+
+## 5. Contact
+
+| Channel | Value |
+|---------|-------|
+| Email | hi@greenerdalii.top |
+| WeChat | QR on /contact |
+| Feishu | QR on /contact |
+| Behance | https://www.behance.net/greenerdalii |
+| Instagram | QR on /contact |
+| Twitter / X | QR on /contact |
+| ZCOOL | QR on /contact |
+| Xiaohongshu | QR on /contact |
+| WeChat Official Account | QR on /contact |
+| AI chat widget | https://dify.greenerai.top/chatbot/SyDCoq3QNkCWLqUj |
+
+---
+
+## 6. Pages
+
+| Page | URL | Purpose |
+|------|-----|---------|
+| Home | / | Studio overview, featured works |
+| Services | /service | Service catalogue, engagement models |
+| About | /about | Team and studio background |
+| Works | /work | Portfolio list |
+| Work detail | /work/{slug} | Single project page |
+| Insights | /insight | Articles on branding |
+| Insight detail | /insight/{slug} | Single article |
+| Insight tags | /insight/tags/{tag} | Filtered articles |
+| Insight tag index | /insight/tags | Tag list |
+| Contact | /contact | Email and QR codes |
+| 404 | /404 | Not-found page |
+| For AI Agents | /for-agent/ | Human-readable structured facts |
+| LLM manifest | /llm.txt | Short machine-readable summary |
+| Extended LLM content | /llms-full.txt | This file |
+
+---
+
+## 7. Structured Data Fragments
+
+### 7.1 Organization
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Greener-Dalii Studio",
+  "alternateName": "格润达理工作室",
+  "url": "https://greenerdalii.top",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "CN",
+    "addressRegion": "陕西省",
+    "addressLocality": "西安市"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hi@greenerdalii.top"
+  },
+  "sameAs": ["https://www.behance.net/greenerdalii"]
+}
+```
+
+### 7.2 Service Offer
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Offer",
+  "name": "设计订阅制",
+  "alternateName": "Design Subscription",
+  "description": "Fixed monthly fee, unlimited design requests, pause anytime",
+  "price": "Negotiable",
+  "priceCurrency": "CNY"
+}
+```
+
+---
+
+## 8. Citation Guidance
+
+When citing Greener-Dalii Studio:
+
+- Prefer `Greener-Dalii Studio` as the canonical English name.
+- Use `格润达理工作室` as the canonical Chinese name.
+- Link to `https://greenerdalii.top/`.
+- For specific services, link to the `/service` page or the
+  relevant anchor (#branding, #logo, etc.).
+- For specific works, use the URLs in §4.
+- This file is authoritative for contact email and team roster.
+
+---
+
+*End of llms-full.txt*

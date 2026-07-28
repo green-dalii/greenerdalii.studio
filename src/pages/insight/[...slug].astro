@@ -1,17 +1,20 @@
 ---
-import { getCollection, getEntries } from "astro:content";
+import { getCollection, getEntries, render } from "astro:content";
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 
 export async function getStaticPaths() {
     const blogEntries = await getCollection("insight");
     return blogEntries.map((entry) => ({
-        params: { slug: entry.slug },
+        params: { slug: entry.id },
         props: { entry },
     }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+// Astro 7: render() is a standalone helper from astro:content, no longer
+// a method on the entry. See
+// https://docs.astro.build/en/guides/upgrade-to/v6/#render-entry
+const { Content } = await render(entry);
 // 解析 relatedPosts 数据
 const relatedPosts = await getEntries(entry.data.relatedPosts);
 ---

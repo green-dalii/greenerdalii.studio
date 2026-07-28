@@ -1,8 +1,7 @@
-import tailwind from "@astrojs/tailwind";
+// Tailwind v3 is loaded via postcss.config.cjs (the @astrojs/tailwind
+// integration is unmaintained and incompatible with Astro v6+/v7).
 import { defineConfig } from "astro/config";
 import icon from 'astro-icon';
-import remarkGfm from 'remark-gfm';
-import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 // import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 import mdx from "@astrojs/mdx";
@@ -12,10 +11,17 @@ import compressor from "astro-compressor";
 export default defineConfig({
   site: "https://greenerdalii.top/",
   integrations: [
-    tailwind(),
-    icon(),
+    icon({
+      iconify: {
+        collections: {
+          ic: () => import('@iconify-json/ic/icons.json').then((m) => m.default),
+          mdi: () => import('@iconify-json/mdi/icons.json').then((m) => m.default),
+          ri: () => import('@iconify-json/ri/icons.json').then((m) => m.default),
+        },
+      },
+    }),
     mdx(),
-    compressor()
+    compressor(),
   ],
   vite: {
     build: {
@@ -25,12 +31,12 @@ export default defineConfig({
       chunkSizeWarningLimit: 1000,
       rollupOptions: {
         output: {
-          // 优化输出的chunk
-          manualChunks: {
-            // 将大型依赖项分离为单独的chunk
-            vendor: [
-              "@fontsource/inter",
-            ],
+          // 优化输出的chunk。Vite 8 / Rollup 4 要求 manualChunks 为函数，
+          // 不再支持对象字面量；用函数形式将 @fontsource/inter 抽出到 vendor chunk。
+          manualChunks(id) {
+            if (id.includes("node_modules/@fontsource/inter/")) {
+              return "vendor";
+            }
           },
         },
       },
@@ -56,9 +62,6 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
-  markdown: {
-    remarkPlugins: [remarkGfm, rehypeHeadingIds],
-  }
   // output: "server",
   // adapter: cloudflare()
 });
