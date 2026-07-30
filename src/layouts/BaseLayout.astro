@@ -96,7 +96,7 @@ const ldJson = jsonLdScript(graph);
     {headerVariant === "transparent" ? <HeaderTransparent /> : <HeaderFixed />}
     <main
       id="main-content"
-      class={headerVariant === "transparent" ? "min-h-screen" : ""}
+      class={`relative ${headerVariant === "transparent" ? "min-h-screen" : ""}`}
     >
       <slot />
     </main>
