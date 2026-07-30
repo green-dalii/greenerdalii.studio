@@ -4,6 +4,8 @@ import ContentSection from "~/components/content-section.astro";
 import BlogCard from "~/components/blog-card.astro";
 import Btn from "~/components/button.astro";
 import { getCollection } from "astro:content";
+import { breadcrumbLd, articleLd } from "~/lib/jsonld";
+import { SITE_URL } from "~/lib/site-config";
 
 export async function getStaticPaths() {
   // const allPosts = await Astro.glob("../*.md");
@@ -24,13 +26,39 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
+const pageUrl = `${SITE_URL}/insight/tags/${tag}`;
+
+const articleLdEntities = posts.map((post: any) =>
+  articleLd({
+    slug: post.id,
+    title: post.data.title,
+    description: post.data.description,
+    author: post.data.author,
+    occupation: post.data.occupation,
+    pubDate: post.data.pubDate.toISOString(),
+    tags: post.data.tags,
+  })
+);
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={`${tag} - 品牌设计文章`}
+  description={`标签「${tag}」下的所有品牌设计文章,来自格润达理工作室品牌洞察专栏。`}
+  ogType="website"
+  jsonLd={[
+    breadcrumbLd([
+      { name: "Home", url: SITE_URL + "/" },
+      { name: "Insights", url: `${SITE_URL}/insight` },
+      { name: "Tags", url: `${SITE_URL}/insight/tags` },
+      { name: tag as string, url: pageUrl },
+    ]),
+    ...articleLdEntities,
+  ]}
+>
   <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
     <ContentSection title="品牌洞察" subtitle="Our Insights" id="insight">
       <Fragment slot="description">
-        <p>标签为： {tag} 的所有文章</p>
+        <p>标签为: {tag} 的所有文章</p>
       </Fragment>
       <Fragment slot="content">
         <BlogCard allPosts={posts} />

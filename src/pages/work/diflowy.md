@@ -10,7 +10,12 @@ enDescription: "Diflowy is a vibrant community platform dedicated to the sharing
 author: "Greener-Dalii"
 link: "https://diflowy.greenerai.top"
 
-tags: ["design", "KV design", "VI", "Brand Design"]
+tags: ["design", "KV design", "VI", "Brand Design", "AI", "Community", "Rebranding"]
+industry: "AI · 开发者社区"
+services:
+  - "品牌重塑"
+  - "VI 视觉识别系统"
+  - "Logo 重塑"
 ---
 
 Bringing the culture of sharing to everyone

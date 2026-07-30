@@ -10,7 +10,12 @@ enDescription: "Edugrow™ is a study abroad consulting service brand founded by
 author: "Greener-Dalii"
 link: "https://www.edugrow.cn"
 
-tags: ["design", "KV design", "VI", "Brand Design"]
+tags: ["design", "KV design", "VI", "Brand Design", "Education", "Study Abroad"]
+industry: "Education · 教育咨询"
+services:
+  - "品牌策略"
+  - "VI 视觉识别系统"
+  - "标志设计"
 ---
 
 Bringing the culture of sharing to everyone

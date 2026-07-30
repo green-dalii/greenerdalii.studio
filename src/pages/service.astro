@@ -1,16 +1,60 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "~/components/content-section.astro";
-import Breadcrumbs from "~/components/breadcrumbs.astro";
-import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import svg1 from "~/assets/SprintingDoodle.svg";
-import services from "~/data/service/services.json";
 import Btn from "~/components/button.astro";
+import Breadcrumbs from "~/components/breadcrumbs.astro";
+import Ai from "~/components/ai.astro";
+import { Icon } from "astro-icon/components";
+import { breadcrumbLd, professionalServiceLd, serviceListLd } from "~/lib/jsonld";
+import { SITE_URL } from "~/lib/site-config";
+import servicesJson from "~/data/service/services.json";
+
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
+const pageUrl = `${SITE_URL}/service`;
+
+// Map the studio's service catalogue to structured Service entities.
+// Emoji-only suffixes in the JSON are stripped from the canonical names so
+// schema.org readers see clean values.
+const stripEmoji = (s: string) => s.replace(/[\p{Emoji_Presentation}\p{Extended_Pictographic}]/gu, "").trim();
+
+const SERVICE_META: Record<string, { code: string; category: string; description: string }> = {
+  "Branding": { code: "branding", category: "Brand Strategy", description: "Brand strategy, visual positioning, brand systems and brand guidelines." },
+  "Graphic Design": { code: "graphic-design", category: "Visual Design", description: "Posters, brochures and marketing collateral." },
+  "LOGO": { code: "logo", category: "Identity", description: "Logomark, wordmark and full VI systems." },
+  "Packaging Design": { code: "packaging", category: "Product Design", description: "Product packaging and gift boxes." },
+  "Landing Pages": { code: "landing-page", category: "Web Design", description: "Marketing landing pages and event pages." },
+  "Website Design": { code: "website-design", category: "Web Design", description: "Responsive websites and UI/UX design." },
+  "Website Hosted": { code: "website-hosted", category: "Service", description: "Static hosting and ongoing maintenance." },
+  "Icon Design": { code: "icon-design", category: "Visual System", description: "Icon libraries and symbol systems." },
+  "IP Design": { code: "ip-design", category: "Character Design", description: "Mascots and brand-IP characters." },
+};
+
+const services = (servicesJson as Array<{ en: string; zh: string }>).map((s) => {
+  const meta = SERVICE_META[s.en] ?? { code: s.en.toLowerCase().replace(/\s+/g, "-"), category: "Design", description: "" };
+  return {
+    code: meta.code,
+    nameZh: stripEmoji(s.zh),
+    nameEn: s.en,
+    category: meta.category,
+    description: meta.description,
+  };
+});
+
+const serviceLdEntities = [professionalServiceLd(), ...serviceListLd(services)];
 ---
 
-<BaseLayout title="我们的服务" description="探索格润达理工作室提供的设计服务。">
+<BaseLayout
+  title="我们的服务"
+  description="格润达理工作室提供品牌策略、VI 设计、LOGO 设计、包装设计、网页设计、IP 设计等全方位品牌设计服务。创新的设计订阅制:固定月费、无限设计请求、随时暂停或取消,适配从初创到中小企业的设计需求。"
+  ogType="website"
+  jsonLd={[
+    breadcrumbLd([
+      { name: "Home", url: SITE_URL + "/" },
+      { name: "Services", url: pageUrl },
+    ]),
+    ...serviceLdEntities,
+  ]}
+>
   <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
     <Breadcrumbs urlList={urlList} />
     <ContentSection title="我们的服务" subtitle="Our Service" id="service">
@@ -32,12 +76,15 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
             <div class="flex flex-wrap gap-4">
               {
                 services.map((service) => (
-                  <span class="group relative cursor-default rounded-full border border-[--color-text-offset] px-8 py-2 hover:bg-[--color-primary]">
+                  <span
+                    id={service.code}
+                    class="group relative cursor-default rounded-full border border-[--color-text-offset] px-8 py-2 hover:bg-[--color-primary]"
+                  >
                     <span class="block font-medium transition-opacity duration-300 ease-in-out text-xs group-hover:opacity-0 sm:text-base">
-                      {service.en}
+                      {service.nameEn}
                     </span>
                     <span class="absolute left-0 top-0 block w-full min-w-max pt-2 text-center font-medium opacity-0 transition-opacity duration-300 ease-in-out text-xs group-hover:opacity-100 sm:text-base">
-                      {service.zh}
+                      {service.nameZh}
                     </span>
                   </span>
                 ))
@@ -119,6 +166,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                 <Icon
                   name="service/SprintingDoodle"
                   class="h-96 w-96 sm:h-[40rem] sm:w-[40rem]"
+                  aria-hidden="true"
                 />
               </div>
               <div class="col-span-full md:col-span-3 md:col-start-3">
@@ -131,6 +179,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                     <Icon
                       name="service/fixed"
                       class="text-[--color-text] transition-all text-5xl group-hover:scale-110"
+                      aria-hidden="true"
                     />
                     <div class="text-center text-xs">
                       固定费率<br />成本可控，预算友好<br />Fixed fee, Easy
@@ -143,6 +192,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                     <Icon
                       name="service/brilliant"
                       class="transition-all text-5xl group-hover:scale-110"
+                      aria-hidden="true"
                     />
                     <div class="text-center text-xs">
                       高品质设计，专业审美<br />确保视觉一致性<br />Premium
@@ -155,6 +205,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                     <Icon
                       name="service/pause"
                       class="transition-all text-5xl group-hover:scale-110"
+                      aria-hidden="true"
                     />
                     <div class="text-center text-xs">
                       灵活高效<br />随时暂停，节省支出<br />Pause anytime, Save
@@ -167,6 +218,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                     <Icon
                       name="service/queue"
                       class="transition-all text-5xl group-hover:scale-110"
+                      aria-hidden="true"
                     />
                     <div class="text-center text-xs">
                       队列流程管理<br />订阅期设计请求不限量<br />Unlimited
@@ -179,6 +231,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                     <Icon
                       name="service/fast"
                       class="transition-all text-5xl group-hover:scale-110"
+                      aria-hidden="true"
                     />
                     <div class="text-center text-xs">
                       敏捷设计，快速交付<br />Rapid design, Quick delivery
@@ -190,6 +243,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                     <Icon
                       name="service/satisfy"
                       class="transition-all text-5xl group-hover:scale-110"
+                      aria-hidden="true"
                     />
                     <div class="text-center text-xs">
                       修改至100%满意<br />Tweaks until fully satisfied
@@ -263,6 +317,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                 <Icon
                   name="service/GroovySittingDoodle"
                   class="h-96 w-96 sm:h-[40rem] sm:w-[40rem]"
+                  aria-hidden="true"
                 />
               </div>
               <div class="col-span-full md:col-span-3 md:col-start-3">
@@ -508,6 +563,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                       <Icon
                         name="service/streamline"
                         class="h-28 w-28 grow basis-1/4 text-[--color-text-offset]"
+                        aria-hidden="true"
                       />
                     </div>
                   </div>

@@ -10,7 +10,11 @@ enDescription: "This is the branding solution we created for ourselves at the st
 author: "Greener-Dalii"
 link: "https://www.greenerdalii.top"
 
-tags: ["design", "KV design", "VI", "Brand Design"]
+tags: ["design", "KV design", "VI", "Brand Design", "Studio", "Self Branding"]
+industry: "Design · 设计工作室"
+services:
+  - "品牌策略"
+  - "VI 视觉识别系统"
 ---
 
 Bringing the culture of sharing to everyone

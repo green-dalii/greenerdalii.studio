@@ -5,6 +5,8 @@ import "@fontsource/inter/variable.css";
 import { Image } from "astro:assets";
 import ContentSection from "../components/content-section.astro";
 import Btn from "../components/button.astro";
+import { breadcrumbLd, creativeWorkLd } from "~/lib/jsonld";
+import { SITE_URL } from "~/lib/site-config";
 // import { Debug } from 'astro:components';
 const { frontmatter } = Astro.props;
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
@@ -18,13 +20,56 @@ const medias = Object.values(allMedias).reduce((acc: any[], media: any) => {
 }, []);
 
 const videoProps = {
-  playsInline: true, 
+  playsInline: true,
   autoPlay: true,
   muted: true,
-  loop: true  
+  loop: true
 }
+
+// JSON-LD: VisualArtwork entity + BreadcrumbList. Each project becomes a
+// citable creative-work node in schema.org, helping SEO + GEO pipelines
+// surface individual works.
+const slug = urlList[urlList.length - 1] ?? "";
+const pageUrl = `${SITE_URL}/work/${slug}`;
+const heroImageUrl = medias.find((m: any) => {
+  const src = typeof m.default === "string" ? m.default : m.default.src;
+  return /\.(jpe?g|png|gif)$/i.test(src);
+})
+  ? new URL(
+      typeof medias.find((m: any) => /\.(jpe?g|png|gif)$/i.test(typeof m.default === "string" ? m.default : m.default.src)).default === "string"
+        ? medias.find((m: any) => /\.(jpe?g|png|gif)$/i.test(typeof m.default === "string" ? m.default : m.default.src)).default
+        : medias.find((m: any) => /\.(jpe?g|png|gif)$/i.test(typeof m.default === "string" ? m.default : m.default.src)).default.src,
+      SITE_URL
+    ).toString()
+  : undefined;
+
+const workLd = creativeWorkLd({
+  slug,
+  titleZh: frontmatter.title,
+  titleEn: frontmatter.enTitle ?? frontmatter.title,
+  description: frontmatter.description ?? "",
+  client: frontmatter.author,
+  industry: frontmatter.industry ?? (frontmatter.tags ?? []).join(", "),
+  pubDate: frontmatter.pubDate,
+  imageUrl: heroImageUrl,
+});
 ---
-<BaseLayout title={frontmatter.title} description={frontmatter.description}>
+<BaseLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  ogType="article"
+  ogImage={heroImageUrl}
+  author={frontmatter.author}
+  publishedTime={new Date(frontmatter.pubDate).toISOString()}
+  jsonLd={[
+    breadcrumbLd([
+      { name: "Home", url: SITE_URL + "/" },
+      { name: "Works", url: `${SITE_URL}/work` },
+      { name: frontmatter.title, url: pageUrl },
+    ]),
+    workLd,
+  ]}
+>
   <div class="mt-20 sm:pb-32">
     <Breadcrumbs urlList={urlList} isTitle={frontmatter.title}/>
     <ContentSection
@@ -41,7 +86,7 @@ const videoProps = {
           <div class="mt-4">
             <a href={frontmatter.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-medium hover:text-primary hover:underline">
               <span>品牌方官网 | Reference Link</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </a>
@@ -55,7 +100,7 @@ const videoProps = {
               {medias.map((media: any) => {
                 const ext = typeof media.default === 'string' ? media.default.split('.').pop() : media.default.format;
                 let mediaComponent;
-            
+
                 if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) {
                   mediaComponent = (
                     <Image
@@ -68,12 +113,12 @@ const videoProps = {
                   );
                 } else if (ext === 'mp4') {
                   mediaComponent = (
-                    <video class="w-full" {...videoProps}>
+                    <video class="w-full" {...videoProps} aria-label={`${frontmatter.title} - ${frontmatter.enTitle ?? ""} video`}>
                       <source src={typeof media.default === 'string' ? media.default : media.default.src} type="video/mp4" />
                     </video>
                   );
                 }
-            
+
                 return mediaComponent;
               })}
             </div>
@@ -85,5 +130,32 @@ const videoProps = {
       </Fragment>
     </ContentSection>
   </div>
+  <!-- Citation block: explicit anchor for AI assistants and humans to cite
+       this case study unambiguously. -->
+  <aside
+    class="mx-auto max-w-7xl px-6 pb-16 text-xs text-[--color-text-offset]"
+    aria-label="如何引用本案例 | How to cite"
+  >
+    <details class="collapse collapse-arrow bg-[--color-background-offset]">
+      <summary class="collapse-title font-medium cursor-pointer">
+        引用本案例 · How to cite this work
+      </summary>
+      <div class="collapse-content">
+        <p class="leading-relaxed">
+          Greener-Dalii Studio ({new Date(frontmatter.pubDate).getFullYear()}).
+          <em>{frontmatter.title} · {frontmatter.enTitle ?? ""}</em>.
+          Greener-Dalii Studio Portfolio.
+          Retrieved from
+          <a href={pageUrl} class="underline">{pageUrl}</a>.
+        </p>
+        <p class="pt-2 leading-relaxed">
+          格润达理工作室({new Date(frontmatter.pubDate).getFullYear()})。
+          《{frontmatter.title}》品牌设计案例。
+          检索自
+          <a href={pageUrl} class="underline">{pageUrl}</a>。
+        </p>
+      </div>
+    </details>
+  </aside>
 </BaseLayout>
 

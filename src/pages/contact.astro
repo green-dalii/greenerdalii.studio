@@ -1,15 +1,24 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ContentSection from "~/components/content-section.astro";
-import Btn from "~/components/button.astro";
 import Breadcrumbs from "~/components/breadcrumbs.astro";
-import Ai from "~/components/ai.astro";
 import { Icon } from "astro-icon/components";
-// import { Image } from 'astro:assets';
+import { breadcrumbLd } from "~/lib/jsonld";
+import { SITE_URL } from "~/lib/site-config";
+
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
+const pageUrl = `${SITE_URL}/contact`;
 ---
 
-<BaseLayout title="联系我们" description="联系格润达理工作室以获取更多信息或项目咨询。">
+<BaseLayout
+  title="联系我们"
+  description="通过邮件 hi@greenerdalii.top、微信、飞书、Behance、Instagram、Twitter/X、ZCOOL、小红书、微信公众号等多种渠道联系格润达理工作室,获取品牌设计咨询与项目报价。"
+  ogType="website"
+  jsonLd={breadcrumbLd([
+    { name: "Home", url: SITE_URL + "/" },
+    { name: "Contact", url: pageUrl },
+  ])}
+>
   <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
     <Breadcrumbs urlList={urlList} />
     <ContentSection
@@ -35,6 +44,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
             <Icon
               name="service/SelfieDoodle"
               class="h-96 w-96 sm:h-[40rem] sm:w-[40rem]"
+              aria-hidden="true"
             />
           </div>
           <div class="col-span-full md:col-span-3 md:col-start-3">
@@ -65,12 +75,12 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                     <!-- row 1 -->
                     <div class="flex flex-wrap gap-x-2">
                       <div class="flex flex-wrap items-center gap-x-2">
-                        <Icon name="mdi:alternate-email" class="text-lg" />
+                        <Icon name="mdi:alternate-email" class="text-lg" aria-hidden="true" />
                         <div class="text-sm">Email:</div>
                       </div>
-                      <div class="underline text-sm">
+                      <a href="mailto:hi@greenerdalii.top" class="underline text-sm">
                         hi@greenerdalii.top
-                      </div>
+                      </a>
                     </div>
                     <!-- row 2 -->
                     <div class="flex flex-row flex-wrap items-center gap-8">
@@ -78,6 +88,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                         <Icon
                           name="contact_wechat"
                           class="h-20 w-20 text-[--color-text-offset]"
+                          aria-label="WeChat QR code"
                         />
                         <div class="text-[--color-text-offset] text-xs">微信扫一扫</div>
                       </div>
@@ -85,6 +96,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                         <Icon
                           name="feishu"
                           class="h-20 w-20 text-[--color-text-offset]"
+                          aria-label="Feishu QR code"
                         />
                         <div class="text-[--color-text-offset] text-xs">飞书扫一扫</div>
                       </div>
@@ -132,6 +144,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                           <Icon
                             name="wechatgzh"
                             class="invisible absolute inset-x-0 bottom-0 z-10 mb-12 ml-32 h-28 w-28 text-[--color-text-offset] opacity-0 transition-all duration-300 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:ease-in-out"
+                            aria-hidden="true"
                           />
                         </div>
                       </li>
@@ -141,6 +154,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                           <Icon
                             name="xiaohongshu2"
                             class="invisible absolute inset-x-0 bottom-0 z-10 mb-6 ml-32 h-28 w-28 text-[--color-text-offset] opacity-0 transition-all duration-300 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:ease-in-out"
+                            aria-hidden="true"
                           />
                         </div>
                       </li>
@@ -158,7 +172,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                 <div class="collapse-content">
                   <div class="flex flex-col">
                     <div class="flex flex-wrap items-center gap-x-2">
-                      <Icon name="mdi:location" />
+                      <Icon name="mdi:location" aria-hidden="true" />
                       <div class="text-sm">Location:</div>
                     </div>
                     <div class="flex flex-row justify-between gap-8">
@@ -177,6 +191,7 @@ const urlList = Astro.url.pathname.split("/").filter(Boolean);
                       <Icon
                         name="map"
                         class="shrink text-[--color-text-offset] text-9xl"
+                        aria-hidden="true"
                       />
                     </div>
                   </div>

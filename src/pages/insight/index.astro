@@ -4,6 +4,8 @@ import Breadcrumbs from "~/components/breadcrumbs.astro";
 import ContentSection from "~/components/content-section.astro";
 import BlogCard from "~/components/blog-card.astro";
 import { getCollection } from "astro:content";
+import { articleLd, breadcrumbLd } from "~/lib/jsonld";
+import { SITE_URL } from "~/lib/site-config";
 const allPosts = await getCollection("insight");
 // 按日期倒序排序
 allPosts.sort((a: { data: { pubDate: string | number | Date; }; }, b: { data: { pubDate: string | number | Date; }; }) => {
@@ -13,9 +15,36 @@ allPosts.sort((a: { data: { pubDate: string | number | Date; }; }, b: { data: { 
 });
 // const allPosts = await Astro.glob("./*.md");
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
+const pageUrl = `${SITE_URL}/insight`;
+
+// Build Article entities for every insight post. They share the same
+// Organization publisher so AI assistants can stitch them into a coherent
+// "authoritative voice" for the studio.
+const articleLdEntities = allPosts.map((post) =>
+  articleLd({
+    slug: post.id,
+    title: post.data.title,
+    description: post.data.description,
+    author: post.data.author,
+    occupation: post.data.occupation,
+    pubDate: post.data.pubDate.toISOString(),
+    tags: post.data.tags,
+  })
+);
 ---
 
-<BaseLayout title="品牌洞察" description="阅读格润达理工作室关于品牌设计的最新洞察。">
+<BaseLayout
+  title="品牌洞察"
+  description="格润达理工作室品牌洞察专栏,分享品牌设计趋势、消费者心理、品牌策略与设计方法论的深度内容,助力您建立差异化品牌形象。"
+  ogType="website"
+  jsonLd={[
+    breadcrumbLd([
+      { name: "Home", url: SITE_URL + "/" },
+      { name: "Insights", url: pageUrl },
+    ]),
+    ...articleLdEntities,
+  ]}
+>
   <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
     <Breadcrumbs urlList={urlList} />
     <ContentSection title="品牌洞察" subtitle="Our Insights" id="insight">

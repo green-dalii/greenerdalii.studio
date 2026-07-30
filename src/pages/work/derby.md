@@ -10,7 +10,12 @@ enDescription: "Derby Electronic Material is a high-tech enterprise focusing on 
 author: "Greener-Dalii"
 link: "https://derbydc.cn/"
 
-tags: ["design", "KV design", "VI", "Brand Design"]
+tags: ["design", "KV design", "VI", "Brand Design", "Industrial", "Battery", "Manufacturing"]
+industry: "Industrial · 电池材料"
+services:
+  - "品牌策略"
+  - "VI 视觉识别系统"
+  - "Logo 设计"
 ---
 
 Bringing the culture of sharing to everyone

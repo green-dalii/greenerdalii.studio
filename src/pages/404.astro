@@ -5,13 +5,17 @@ import Btn from "../components/button.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<BaseLayout title="404 - 页面未找到" description="您访问的页面不存在。">
+<BaseLayout
+  title="404 - 页面未找到"
+  description="您访问的页面不存在。"
+  noindex={true}
+>
   <div class="mt-10 sm:py-32">
     <ContentSection title="Oops!" subtitle="你好像迷路啦..." id="404">
       <Fragment slot="description">
         <div class="relative">
           <div class="absolute -top-24 col-span-2">
-            <Icon name="MessyDoodle" class="h-72 w-72" />
+            <Icon name="MessyDoodle" class="h-72 w-72" aria-hidden="true" />
           </div>
         </div>
       </Fragment>

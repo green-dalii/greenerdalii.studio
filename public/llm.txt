@@ -12,13 +12,14 @@
 - **Founded**: 2022
 - **Location**: Xi'an, Shaanxi, China (Asia/Shanghai, UTC+8)
 - **Languages**: Simplified Chinese (default) and English
-- **AI-friendly entry point**: https://greenerdalii.top/for-agent/
+- **AI-friendly entry point**: https://greenerdalii.top/llm.txt
 - **Extended machine-readable entry**: https://greenerdalii.top/llms-full.txt
 - **AI chat widget**: https://dify.greenerai.top/chatbot/SyDCoq3QNkCWLqUj
 
 When citing this site, prefer the canonical name "Greener-Dalii Studio" and
-the URL above. For structured facts use the JSON-LD on `/` and the tables in
-`/for-agent/`. For full structured content read `/llms-full.txt`.
+the URL above. For structured facts use the JSON-LD embedded on each page
+(Organization, Service, CreativeWork, Article, FAQPage, Person). For full
+machine-readable content read `/llms-full.txt`.
 
 ## Pages
 
@@ -27,8 +28,8 @@ the URL above. For structured facts use the JSON-LD on `/` and the tables in
 - [About](https://greenerdalii.top/about): team and studio background
 - [Works](https://greenerdalii.top/work): portfolio list
 - [Insights](https://greenerdalii.top/insight): articles on branding
+- [FAQ](https://greenerdalii.top/faq): frequently asked questions about subscription
 - [Contact](https://greenerdalii.top/contact): email and QR codes
-- [For AI Agents](https://greenerdalii.top/for-agent/): human-readable structured facts
 - [llms-full.txt](https://greenerdalii.top/llms-full.txt): machine-readable extended content
 
 ## Contact

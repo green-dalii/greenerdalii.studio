@@ -1,11 +1,11 @@
 # Greener-Dalii Studio — Extended Machine-Readable Content
 
-> Companion to `/llm.txt`. Updated automatically alongside `/for-agent/`.
+> Companion to /llm.txt. Auto-generated from the site's data sources on each build.
 > Format: Markdown tables, plain headings and JSON-LD-like fragments.
 > Designed to be ingested by LLMs and AI crawlers without scraping.
 >
 > Canonical URL: https://greenerdalii.top/llms-full.txt
-> Last updated: 2026-07-28
+> Last updated: 2026-07-30
 
 ---
 
@@ -24,7 +24,7 @@
 | City | Xi'an (西安市) |
 | Timezone | Asia/Shanghai (UTC+8) |
 | Default language | zh-CN |
-| Supported languages | zh-CN, en-US |
+| Supported languages | zh-CN, en |
 | Phone-friendly | yes (mobile-first design) |
 | Tech stack | Astro (static site generator), Tailwind CSS 3, DaisyUI 4 |
 | Hosting | Static (Cloudflare Pages / Vercel / Netlify compatible) |
@@ -35,15 +35,16 @@
 
 | Code | Service (ZH) | Service (EN) | Category | Notes |
 |------|--------------|--------------|----------|-------|
-| branding | 品牌设计 | Branding | strategy | Brand strategy, visual positioning, brand systems |
-| graphic-design | 平面设计 | Graphic Design | visual | Posters, brochures, marketing collateral |
-| logo | 品牌标志 | Logo | identity | Logomark / wordmark / full VI system |
-| packaging | 包装设计 | Packaging Design | product | Product packaging, gift boxes |
-| landing-page | 落地页设计 | Landing Pages | web | Marketing landing pages, event pages |
-| website-design | 网站设计 | Website Design | web | Responsive websites, UI/UX |
-| website-hosted | 网站托管 | Website Hosted | service | Static hosting, maintenance |
-| icon-design | 图标设计 | Icon Design | system | Icon libraries, symbol systems |
-| ip-design | IP 形象设计 | IP Design | character | Mascots, brand-IP characters |
+| branding | 品牌设计 | Branding | visual | |
+| graphic-design | 平面设计 | Graphic Design | visual | |
+| logo | 品牌标志 | LOGO | visual | |
+| packaging-design | 包装设计 | Packaging Design | visual | |
+| landing-pages | 主页设计 | Landing Pages | visual | |
+| website-design | 网站设计 | Website Design | visual | |
+| website-hosted | 网站托管 | Website Hosted | visual | |
+| icon-design | 图标设计 | Icon Design | visual | |
+| ip-design | IP形象设计 | IP Design | visual | |
+| more... | 更多... | More... | visual | |
 
 ### 2.1 Engagement Models
 
@@ -67,16 +68,24 @@
 
 | ID | Project (EN) | Project (ZH) | Industry | Year | URL |
 |----|--------------|--------------|----------|------|-----|
-| work_001 | Greener-Dalii Studio | 格润达理工作室 | Design | 2022 | /work/greenerdaliistudio |
-| work_002 | Edugrow Study Abroad | 予果予实留学咨询 | Education | 2022 | /work/edugrow |
-| work_003 | Derby Electronic Material | 德比电材 | Industrial / Manufacturing | 2023 | /work/derby |
-| work_004 | Centery Organic Agriculture | 鑫诚有机农业 | Agriculture | 2024 | /work/centery |
-| work_005 | Diflowy Rebranding | Diflowy 品牌重塑 | AI / Artificial Intelligence | 2024 | /work/diflowy |
-| work_006 | HappyPower Playground Equipment | 游乐能 | Manufacturing | 2025 | /work/happypower |
+| work_001 | HappyPower Playground Equipment | 游乐能 | Manufacturing | 2025 | /work/happypower |
+| work_002 | Derby Electronic Material | 德比电材 | Industry | 2023 | /work/derby |
+| work_003 | Edugrow Study Abroad Consulting | 予果予实留学咨询 | Education | 2022 | /work/edugrow |
 
 ---
 
-## 5. Contact
+## 5. Insights
+
+| Slug | Title | Description | Author | Published | Tags | URL |
+|------|-------|-------------|--------|-----------|------|-----|
+| tales-from-the-brand | 品牌那些事儿 | 碎碎念关于品牌的前世今生 | Greener-Dalii (Co-Founder of Greener-Dalii Studio) | 2024-12-22 | brand, knowledge | /insight/tales-from-the-brand |
+| wanwantu | 介绍我们工作室的开源IP——碗碗兔 | 这只有着平头顶、总爱仰着头的“碗碗兔”是我们Greener-Dalii Studio制作的一款开源兔年IP形象，我们在这里将它开放出来。 | Greener-Dalii (Co-Founder of Greener-Dalii Studio) | 2023-01-20 | brand, design, IP | /insight/wanwantu |
+| creators-behind-brands-2 | 那些隐藏在经典品牌形象背后的创造者们 II「国内篇」 | 一个经典的品牌形象具有超越时空的魅力，而品牌形象的创造者大多隐于幕后，不为人所知,我们花费了大量时间整理资料，旨在将隐藏在品牌背后的设计机构或工作室呈现给读者。 | Greener-Dalii (Co-Founder of Greener-Dalii Studio) | 2022-12-15 | brand, knowledge | /insight/creators-behind-brands-2 |
+| creators-behind-brands-1 | 那些隐藏在经典品牌形象背后的创造者们 I「国外篇」 | 一个经典的品牌形象具有超越时空的魅力，而品牌形象的创造者大多隐于幕后，不为人所知,我们花费了大量时间整理资料，旨在将隐藏在品牌背后的设计机构或工作室呈现给读者。 | Greener-Dalii (Co-Founder of Greener-Dalii Studio) | 2022-12-10 | brand, knowledge | /insight/creators-behind-brands-1 |
+
+---
+
+## 6. Contact
 
 | Channel | Value |
 |---------|-------|
@@ -93,7 +102,7 @@
 
 ---
 
-## 6. Pages
+## 7. Pages
 
 | Page | URL | Purpose |
 |------|-----|---------|
@@ -106,17 +115,17 @@
 | Insight detail | /insight/{slug} | Single article |
 | Insight tags | /insight/tags/{tag} | Filtered articles |
 | Insight tag index | /insight/tags | Tag list |
+| FAQ | /faq | Subscription & service FAQs (FAQPage) |
 | Contact | /contact | Email and QR codes |
 | 404 | /404 | Not-found page |
-| For AI Agents | /for-agent/ | Human-readable structured facts |
 | LLM manifest | /llm.txt | Short machine-readable summary |
 | Extended LLM content | /llms-full.txt | This file |
 
 ---
 
-## 7. Structured Data Fragments
+## 8. Structured Data Fragments
 
-### 7.1 Organization
+### 8.1 Organization
 
 ```json
 {
@@ -135,11 +144,13 @@
     "@type": "ContactPoint",
     "email": "hi@greenerdalii.top"
   },
-  "sameAs": ["https://www.behance.net/greenerdalii"]
+  "sameAs": [
+    "https://www.behance.net/greenerdalii"
+  ]
 }
 ```
 
-### 7.2 Service Offer
+### 8.2 Service Offer
 
 ```json
 {
@@ -155,16 +166,16 @@
 
 ---
 
-## 8. Citation Guidance
+## 9. Citation Guidance
 
 When citing Greener-Dalii Studio:
 
 - Prefer `Greener-Dalii Studio` as the canonical English name.
 - Use `格润达理工作室` as the canonical Chinese name.
 - Link to `https://greenerdalii.top/`.
-- For specific services, link to the `/service` page or the
-  relevant anchor (#branding, #logo, etc.).
+- For specific services, link to the `/service` page or the relevant anchor.
 - For specific works, use the URLs in §4.
+- For specific articles, use the URLs in §5.
 - This file is authoritative for contact email and team roster.
 
 ---

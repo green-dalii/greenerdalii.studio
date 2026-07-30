@@ -13,10 +13,10 @@ const videoProps = {
 ---
 
 <section
-  class="max-w-screen relative grid h-full place-content-center justify-items-center bg-black"
+  class="max-w-screen relative grid h-screen min-h-screen place-content-center justify-items-center overflow-hidden bg-black"
 >
   <video
-    class="hidden w-screen object-cover sm:flex"
+    class="hidden h-full w-screen object-cover sm:flex"
     {...videoProps}
   >
     <source src={bgVideo} type="video/mp4" />

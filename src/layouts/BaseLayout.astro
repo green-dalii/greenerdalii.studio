@@ -1,34 +1,114 @@
 ---
 import "@fontsource/inter/variable.css";
 // import { ViewTransitions } from "astro:transitions";
+import HeaderFixed from "../components/header-fixed.astro";
+import HeaderTransparent from "../components/header.astro";
+import Footer from "../components/Footer.astro";
 import Head from "~/components/in-head.astro";
+import { getLangFromUrl } from "~/i18n/utils";
+import {
+  organizationLd,
+  websiteLd,
+  jsonLdScript,
+} from "~/lib/jsonld";
+import type { JsonLdObject } from "~/lib/jsonld";
 
 export interface Props {
   title?: string;
   description?: string;
+  ogType?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  /** Header variant:
+   *   - "transparent"  absolute, transparent, becomes fixed+bg on scroll
+   *                    (used on the home page over the hero splash)
+   *   - "fixed"        always-fixed opaque header (used on inner pages)
+   * Default: "fixed".
+   */
+  headerVariant?: "fixed" | "transparent";
+  /** Whether to render the global <Footer>. Set to false when a page renders
+   *  its own footer-like block (e.g. the home page renders <FooterFixed>
+   *  as a sticky bottom band instead of the regular footer). */
+  showFooter?: boolean;
+  /** Page-specific JSON-LD entities to merge with the site-wide graph. */
+  jsonLd?: JsonLdObject | JsonLdObject[];
 }
 
-const { title, description } = Astro.props;
-import Footer from "../components/Footer.astro";
-import Header from "../components/header-fixed.astro";
+const {
+  title,
+  description,
+  ogType,
+  ogImage,
+  noindex,
+  publishedTime,
+  modifiedTime,
+  author,
+  headerVariant = "fixed",
+  showFooter = true,
+  jsonLd,
+} = Astro.props;
+
 import "../styles/index.css";
+
+const lang = getLangFromUrl(Astro.url);
+const htmlLang = lang === "en" ? "en" : "zh-CN";
+
+// Site-wide graph: Organization + WebSite. Pages can append their own entities.
+const siteGraph = [organizationLd(), websiteLd()];
+const pageEntities = jsonLd
+  ? Array.isArray(jsonLd)
+    ? jsonLd
+    : [jsonLd]
+  : [];
+const graph = { "@context": "https://schema.org", "@graph": [...siteGraph, ...pageEntities] };
+const ldJson = jsonLdScript(graph);
 ---
 
 <!DOCTYPE html>
-<html lang="zh-CN" class="h-full motion-safe:scroll-smooth" data-theme="light">
+<html lang={htmlLang} class="h-full motion-safe:scroll-smooth" data-theme="light">
   <head>
-    <Head {title} {description} />
+    <Head
+      {title}
+      {description}
+      {ogType}
+      {ogImage}
+      {noindex}
+      {publishedTime}
+      {modifiedTime}
+      {author}
+    />
+    <script is:inline type="application/ld+json" set:html={ldJson} />
     <!-- <ViewTransitions /> -->
   </head>
   <body
     class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
   >
-    <Header />
-    <slot />
-    <Footer />
-    <script>
-      const header = document.querySelector("#page-header") as HTMLElement;
-      header.classList.add("fixed-header");
-    </script>
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-[--color-primary] focus:px-4 focus:py-2 focus:text-white"
+    >
+      跳到主要内容 | Skip to content
+    </a>
+    {headerVariant === "transparent" ? <HeaderTransparent /> : <HeaderFixed />}
+    <main
+      id="main-content"
+      class={headerVariant === "transparent" ? "min-h-screen" : ""}
+    >
+      <slot />
+    </main>
+    {showFooter && <Footer />}
+    {headerVariant === "fixed" && (
+      <script>
+        // Mark the header as fixed-header on initial load so inner pages
+        // get an opaque top bar from the very first paint. Pages using
+        // headerVariant="transparent" manage this class themselves in
+        // response to scroll.
+        const header = document.querySelector("#page-header") as HTMLElement;
+        header?.classList.add("fixed-header");
+      </script>
+    )}
   </body>
 </html>

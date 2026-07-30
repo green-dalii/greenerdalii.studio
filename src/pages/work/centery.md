@@ -10,7 +10,11 @@ enDescription: "Centery Organic Agriculture, nestled in the heartland of central
 We have been granted the privilege of embarking on a journey with Centery Organic Agriculture to revitalize their brand identity, an undertaking that poses an exhilarating creative challenge – harmoniously infusing the allure of nature with the essence of the brand's values."
 author: "Greener-Dalii"
 
-tags: ["design", "KV design", "VI", "Brand Design"]
+tags: ["design", "KV design", "VI", "Brand Design", "Agriculture", "Organic", "Rebranding"]
+industry: "Agriculture · 有机农业"
+services:
+  - "品牌重塑"
+  - "VI 视觉识别系统"
 ---
 
 Bringing the culture of sharing to everyone

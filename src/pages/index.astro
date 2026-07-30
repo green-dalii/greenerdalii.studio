@@ -1,41 +1,29 @@
 ---
-import "@fontsource/inter/variable.css";
-// import { ViewTransitions } from "astro:transitions";
-import Head from "~/components/in-head.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/header.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
 import Showcase from "../components/showcase.astro";
 import Splash from "../components/splash.astro";
 import Service from "~/components/service.astro";
 import Client from "~/components/client.astro";
 import Insight from "~/components/insight.astro";
 import Contact from "~/components/contact.astro";
+import Footer from "../components/Footer.astro";
 import FooterFixed from "~/components/footer-fixed.astro";
-import "../styles/index.css";
-import { getLangFromUrl } from '../i18n/utils';
-
-const lang = getLangFromUrl(Astro.url);
 ---
 
-<!DOCTYPE html>
-<html lang={lang} class="h-full motion-safe:scroll-smooth" data-theme="light">
-  <head>
-    <Head />
-    <!-- <ViewTransitions /> -->
-  </head>
-  <body
-    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
-  >
-    <Header />
-    <Splash />
-    <div class="py-0 sm:py-32 bg-[--color-background]">
-      <Showcase />
-      <Client />
-      <Service />
-      <Insight />
-      <Contact />
-    </div>
-    <Footer />
-    <FooterFixed />
-  </body>
-</html>
+<BaseLayout
+  description="格润达理工作室(Greener-Dalii Studio)是一家位于西安的新锐品牌设计工作室,提供品牌策略、VI 设计、包装设计、网站设计与 IP 形象设计,采用创新的设计订阅制(SaaS 模式),固定月费、无限设计请求、随时暂停。"
+  ogType="website"
+  headerVariant="transparent"
+  showFooter={false}
+>
+  <Splash />
+  <div class="py-0 sm:py-32 bg-[--color-background]">
+    <Showcase />
+    <Client />
+    <Service />
+    <Insight />
+    <Contact />
+  </div>
+  <Footer />
+  <FooterFixed />
+</BaseLayout>

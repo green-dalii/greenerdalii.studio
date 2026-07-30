@@ -9,7 +9,12 @@ description: "游乐能（HappyPower）是融合能量科技与社交游戏的�
 enDescription: "HappyPower is an innovative brand that combines energy technology and social games. By creating interactive energy rides that allow people to climb, jump and spin while generating electricity, purifying the air and lighting up the city, HappyPower creates a sustainable energy ecosystem that everyone can participate in. Greener-Dalii Studio is thrilled to collaborate deeply with HappyPower, aligning with its brand philosophy to create this comprehensive brand visual strategy."
 author: "Greener-Dalii"
 
-tags: ["design", "KV design", "VI", "Brand Design"]
+tags: ["design", "KV design", "VI", "Brand Design", "Manufacturing", "Children", "Energy", "Sustainability"]
+industry: "Manufacturing · 游乐设备 / 能源科技"
+services:
+  - "品牌策略"
+  - "VI 视觉识别系统"
+  - "Logo 设计"
 ---
 
 Bringing the culture of sharing to everyone

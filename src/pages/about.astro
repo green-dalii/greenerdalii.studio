@@ -4,11 +4,32 @@ import ContentSection from "~/components/content-section.astro";
 import Breadcrumbs from "~/components/breadcrumbs.astro";
 import MemberCard from "~/components/member-card.astro";
 import { getMember } from "~/data/about";
+import { breadcrumbLd, personLd } from "~/lib/jsonld";
+import { SITE_URL } from "~/lib/site-config";
 const members = await getMember();
 const urlList = Astro.url.pathname.split("/").filter(Boolean);
+
+const pageUrl = `${SITE_URL}/about`;
 ---
 
-<BaseLayout title="关于我们" description="了解格润达理工作室的团队和使命。">
+<BaseLayout
+  title="关于我们"
+  description="格润达理工作室(Greener-Dalii Studio)由 Greener 创意总监与 Wandi 运营总监联合创立,2022 年成立于西安,专注于品牌设计、视觉识别、包装设计与 IP 形象。"
+  ogType="profile"
+  jsonLd={[
+    breadcrumbLd([
+      { name: "Home", url: SITE_URL + "/" },
+      { name: "About", url: pageUrl },
+    ]),
+    ...members.map((m) =>
+      personLd({
+        name: m.name,
+        jobTitleZh: m.occupation,
+        jobTitleEn: m.occupation,
+      })
+    ),
+  ]}
+>
   <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
     <Breadcrumbs urlList={urlList} />
     <ContentSection title="关于我们" subtitle="About Us" id="about">

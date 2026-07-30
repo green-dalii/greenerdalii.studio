@@ -2,22 +2,39 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import ContentSection from "~/components/content-section.astro";
 import { getCollection } from "astro:content";
+import { breadcrumbLd } from "~/lib/jsonld";
+import { SITE_URL } from "~/lib/site-config";
 const allPosts = await getCollection("insight");
 // const allPosts = await Astro.glob("../*.md");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+const pageUrl = `${SITE_URL}/insight/tags`;
 ---
 
-<BaseLayout title="洞见标签" description="按标签浏览格润达理工作室的洞见文章。">
+<BaseLayout
+  title="洞见标签"
+  description="按主题浏览格润达理工作室的品牌设计洞见文章,覆盖品牌策略、视觉识别、IP 形象、品牌故事等行业话题。"
+  ogType="website"
+  jsonLd={breadcrumbLd([
+    { name: "Home", url: SITE_URL + "/" },
+    { name: "Insights", url: `${SITE_URL}/insight` },
+    { name: "Tags", url: pageUrl },
+  ])}
+>
   <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
     <ContentSection title="品牌洞察" subtitle="Our Insights" id="insight">
       <Fragment slot="content">
-        {
-          tags.map((tag) => (
-            <a href={`/insight/tags/${tag}`} class="text-xs">
-              <span class="badge">{tag}</span>
-            </a>
-          ))
-        }
+        <div class="flex flex-wrap gap-2">
+          {
+            tags.map((tag) => (
+              <a
+                href={`/insight/tags/${tag}`}
+                class="text-xs badge badge-outline"
+              >
+                {tag}
+              </a>
+            ))
+          }
+        </div>
       </Fragment>
     </ContentSection>
   </div>

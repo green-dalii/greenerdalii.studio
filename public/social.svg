@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Greener-Dalii Studio">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid lines -->
+  <g stroke="#1E293B" stroke-width="1">
+    <line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/>
+    <line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/>
+    <line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+
+  <!-- Logomark monogram -->
+  <g transform="translate(80,160)">
+    <rect width="120" height="120" rx="24" fill="url(#accent)"/>
+    <text x="60" y="86" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="800" fill="#0F172A" text-anchor="middle">GD</text>
+  </g>
+
+  <!-- Title -->
+  <text x="80" y="380" font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="700" fill="#F8FAFC">Greener-Dalii Studio</text>
+  <text x="80" y="430" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="500" fill="#94A3B8">格润达理工作室 · 品牌设计 · 西安</text>
+
+  <!-- Tagline -->
+  <text x="80" y="500" font-family="Inter, system-ui, sans-serif" font-size="24" fill="#CBD5E1">Branding · Graphic · Packaging · Web · IP</text>
+  <text x="80" y="540" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#64748B">greenerdalii.top</text>
+</svg>

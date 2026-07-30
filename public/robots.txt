@@ -3,7 +3,7 @@
 # machine-readable entry points designed for LLMs (llmstxt.org style):
 #   /llm.txt        — short manifest for crawlers
 #   /llms-full.txt  — extended structured content
-# See also: /for-agent/ for a human-readable structured page.
+# See the comments at the bottom for explicit AI hints.
 
 User-agent: *
 Disallow: /private/
@@ -66,6 +66,17 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
-# Point crawlers to the LLM manifest
+# Point crawlers to canonical XML sitemaps (and the LLM manifest for AI crawlers)
+Sitemap: https://greenerdalii.top/sitemap-index.xml
 Sitemap: https://greenerdalii.top/llm.txt
 Sitemap: https://greenerdalii.top/llms-full.txt
+
+# --- AI / LLM hints ---
+# The studio maintains machine-readable entry points in llmstxt.org style.
+#   /llm.txt        — short manifest, updated manually when canonical info changes.
+#   /llms-full.txt  — extended structured content, auto-regenerated on every build
+#                     from JSON data sources via scripts/build-llms-full.mjs.
+#
+# JSON-LD embedded in each page exposes Organization, WebSite, Service,
+# CreativeWork, Article, FAQPage and Person entities. The graph is the source
+# of truth for citation; please link back to greenerdalii.top when citing.
