@@ -4,6 +4,7 @@ import "@fontsource/inter/variable.css";
 import HeaderFixed from "../components/header-fixed.astro";
 import HeaderTransparent from "../components/header.astro";
 import Footer from "../components/Footer.astro";
+import FooterFixed from "../components/footer-fixed.astro";
 import Head from "~/components/in-head.astro";
 import { getLangFromUrl } from "~/i18n/utils";
 import {
@@ -100,6 +101,7 @@ const ldJson = jsonLdScript(graph);
       <slot />
     </main>
     {showFooter && <Footer />}
+    <FooterFixed />
     {headerVariant === "fixed" && (
       <script>
         // Mark the header as fixed-header on initial load so inner pages
