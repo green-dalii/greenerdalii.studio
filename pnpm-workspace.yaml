@@ -1,0 +1,25 @@
+# Build-script controls live here, not in .npmrc (which only reads auth /
+# registry settings) and not under a top-level "pnpm" field in package.json
+# (which recent pnpm versions no longer read). See pnpm settings docs:
+#   https://pnpm.io/settings
+#
+# esbuild and sharp both download a platform-specific native binary in their
+# postinstall. pnpm 10+ blocks unreviewed build scripts and exits non-zero
+# (ERR_PNPM_IGNORED_BUILDS), so they must be explicitly allowed here.
+#
+# Key naming varies by pnpm minor version:
+#   - 10.0 .. 10.25: onlyBuiltDependencies (list)
+#   - 10.26+      : allowBuilds (map, with sharp/esbuild set true)
+#
+# Both keys are listed so the build works regardless of which pnpm@latest
+# resolves to on the build host.
+
+# pnpm 10.0 - 10.25
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+
+# pnpm 10.26+
+allowBuilds:
+  esbuild: true
+  sharp: true
