@@ -49,6 +49,11 @@
   "overrides": {
     "sharp": "^0.35.3"
   },
+  "pnpm": {
+    "overrides": {
+      "brace-expansion": "5.0.8"
+    }
+  },
   "engines": {
     "node": ">=24.0.0"
   }
