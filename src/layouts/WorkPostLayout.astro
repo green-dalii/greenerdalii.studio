@@ -5,6 +5,7 @@ import "@fontsource/inter/variable.css";
 import { Image } from "astro:assets";
 import ContentSection from "../components/content-section.astro";
 import Btn from "../components/button.astro";
+import Citation from "~/components/citation.astro";
 import { breadcrumbLd, creativeWorkLd } from "~/lib/jsonld";
 import { SITE_URL } from "~/lib/site-config";
 // import { Debug } from 'astro:components';
@@ -70,7 +71,7 @@ const workLd = creativeWorkLd({
     workLd,
   ]}
 >
-  <div class="mt-20 sm:pb-32">
+  <div class="mt-20 sm:pb-32 bg-[--color-background]">
     <Breadcrumbs urlList={urlList} isTitle={frontmatter.title}/>
     <ContentSection
       title={frontmatter.title}
@@ -130,32 +131,13 @@ const workLd = creativeWorkLd({
       </Fragment>
     </ContentSection>
   </div>
-  <!-- Citation block: explicit anchor for AI assistants and humans to cite
-       this case study unambiguously. -->
-  <aside
-    class="mx-auto max-w-7xl px-6 pb-16 text-xs text-[--color-text-offset]"
-    aria-label="如何引用本案例 | How to cite"
-  >
-    <details class="collapse collapse-arrow bg-[--color-background-offset]">
-      <summary class="collapse-title font-medium cursor-pointer">
-        引用本案例 · How to cite this work
-      </summary>
-      <div class="collapse-content">
-        <p class="leading-relaxed">
-          Greener-Dalii Studio ({new Date(frontmatter.pubDate).getFullYear()}).
-          <em>{frontmatter.title} · {frontmatter.enTitle ?? ""}</em>.
-          Greener-Dalii Studio Portfolio.
-          Retrieved from
-          <a href={pageUrl} class="underline">{pageUrl}</a>.
-        </p>
-        <p class="pt-2 leading-relaxed">
-          格润达理工作室({new Date(frontmatter.pubDate).getFullYear()})。
-          《{frontmatter.title}》品牌设计案例。
-          检索自
-          <a href={pageUrl} class="underline">{pageUrl}</a>。
-        </p>
-      </div>
-    </details>
-  </aside>
+  <Citation
+    kind="work"
+    author={frontmatter.author}
+    title={frontmatter.title}
+    titleEn={frontmatter.enTitle}
+    pubDate={frontmatter.pubDate}
+    pageUrl={pageUrl}
+  />
 </BaseLayout>
 

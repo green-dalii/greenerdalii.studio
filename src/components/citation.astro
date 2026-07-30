@@ -1,0 +1,68 @@
+---
+/**
+ * Citation block — human-readable version of the Article / CreativeWork
+ * entity in the JSON-LD graph. Lets AI assistants and humans cite the
+ * resource unambiguously.
+ *
+ * `bg-[--color-background-offset]` lives on the inner <details> so it
+ * always matches the surface, regardless of which page background the
+ * parent uses.
+ *
+ * `kind`:
+ *   - "article": uses the author's name (insight posts)
+ *   - "work":    attributes the work to Greener-Dalii Studio (case studies)
+ */
+export interface Props {
+  kind: "article" | "work";
+  author: string;
+  title: string;
+  titleEn?: string;
+  pubDate: Date;
+  pageUrl: string;
+}
+const { kind, author, title, titleEn, pubDate, pageUrl } = Astro.props;
+const year = new Date(pubDate).getFullYear();
+
+const isArticle = kind === "article";
+const summaryText = isArticle ? "引用本文 · How to cite this article" : "引用本案例 · How to cite this work";
+const ariaLabel = isArticle ? "如何引用本文 | How to cite" : "如何引用本案例 | How to cite";
+---
+
+<aside
+  class="mx-auto max-w-7xl px-6 pb-16 text-xs text-[--color-text-offset] bg-[--color-background]"
+  aria-label={ariaLabel}
+>
+  <details class="collapse collapse-arrow bg-[--color-background-offset]">
+    <summary class="collapse-title font-medium cursor-pointer">
+      {summaryText}
+    </summary>
+    <div class="collapse-content">
+      {
+        isArticle ? (
+          <>
+            <p class="leading-relaxed">
+              {author} ({year}). <em>{title}</em>. Greener-Dalii Studio Insights.
+              Retrieved from <a href={pageUrl} class="underline">{pageUrl}</a>.
+            </p>
+            <p class="pt-2 leading-relaxed">
+              {author} ({year}). <em>{title}</em>. Greener-Dalii Studio.
+              检索自 <a href={pageUrl} class="underline">{pageUrl}</a>。
+            </p>
+          </>
+        ) : (
+          <>
+            <p class="leading-relaxed">
+              Greener-Dalii Studio ({year}). <em>{title}{titleEn ? ` · ${titleEn}` : ""}</em>.
+              Greener-Dalii Studio Portfolio. Retrieved from
+              <a href={pageUrl} class="underline">{pageUrl}</a>.
+            </p>
+            <p class="pt-2 leading-relaxed">
+              格润达理工作室({year})。《{title}》品牌设计案例。检索自
+              <a href={pageUrl} class="underline">{pageUrl}</a>。
+            </p>
+          </>
+        )
+      }
+    </div>
+  </details>
+</aside>

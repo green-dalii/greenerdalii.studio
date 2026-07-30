@@ -4,6 +4,7 @@ import Breadcrumbs from "~/components/breadcrumbs.astro";
 // import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import Citation from "~/components/citation.astro";
 import { articleLd, breadcrumbLd } from "~/lib/jsonld";
 import { SITE_URL } from "~/lib/site-config";
 // const { Content, headings } = await entry.render();
@@ -49,7 +50,7 @@ const heroImageUrl = images[frontmatter.heroImage]?.default?.src
     }),
   ]}
 >
-  <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10">
+  <div class="mt-20 sm:mt-10 sm:pb-32 sm:pt-10 bg-[--color-background]">
     <Breadcrumbs urlList={urlList} isTitle={frontmatter.title} />
     <div class="sm:pb-30 mx-auto maxs-w-7xl px-6 pt-0 sm:px-2">
       <div class="container mx-auto px-0 sm:px-5 sm:pb-24">
@@ -161,31 +162,11 @@ const heroImageUrl = images[frontmatter.heroImage]?.default?.src
       </div>
     </div>
   </div>
-  <!-- Citation block: explicit anchor so AI assistants and humans can cite this
-       article unambiguously. schema.org/Citation metadata lives in the JSON-LD
-       graph (Article entity above); this block is the on-page equivalent. -->
-  <aside
-    class="mx-auto max-w-7xl px-6 pb-16 text-xs text-[--color-text-offset]"
-    aria-label="如何引用本文 | How to cite"
-  >
-    <details class="collapse collapse-arrow bg-[--color-background-offset]">
-      <summary class="collapse-title font-medium cursor-pointer">
-        引用本文 · How to cite this article
-      </summary>
-      <div class="collapse-content">
-        <p class="leading-relaxed">
-          {frontmatter.author} ({new Date(frontmatter.pubDate).getFullYear()}).
-          <em>{frontmatter.title}</em>. Greener-Dalii Studio Insights.
-          Retrieved from
-          <a href={pageUrl} class="underline">{pageUrl}</a>.
-        </p>
-        <p class="pt-2 leading-relaxed">
-          {frontmatter.author} ({new Date(frontmatter.pubDate).getFullYear()}).
-          <em>{frontmatter.title}</em>. Greener-Dalii Studio.
-          检索自
-          <a href={pageUrl} class="underline">{pageUrl}</a>。
-        </p>
-      </div>
-    </details>
-  </aside>
+  <Citation
+    kind="article"
+    author={frontmatter.author}
+    title={frontmatter.title}
+    pubDate={frontmatter.pubDate}
+    pageUrl={pageUrl}
+  />
 </BaseLayout>
